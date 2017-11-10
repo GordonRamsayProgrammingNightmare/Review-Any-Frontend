@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { EnsureAuthenticated } from '../../services/ensure-authenticated.service';
+import { EnsureAuthenticatedService } from '../../services/ensure-authenticated.service';
 
 @Component({
   selector: 'authid',

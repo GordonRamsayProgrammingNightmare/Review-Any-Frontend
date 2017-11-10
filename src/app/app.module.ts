@@ -9,8 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthidComponent } from './components/authid/authid.component';
-import { EnsureAuthenticated } from './services/ensure-authenticated.service';
-import { LoginRedirect } from './services/login-redirect.service';
+import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
+import { LoginRedirectService } from './services/login-redirect.service';
 
 @NgModule({
   declarations: [
@@ -27,23 +27,23 @@ import { LoginRedirect } from './services/login-redirect.service';
 			{
         path: 'login',
         component: LoginComponent,
-        canActivate: [LoginRedirect]
+        canActivate: [LoginRedirectService]
       },
       {
         path: 'register',
         component: RegisterComponent,
-        canActivate: [LoginRedirect]
+        canActivate: [LoginRedirectService]
       },
       {
         path: 'auth',
         component: AuthidComponent,
-        canActivate: [EnsureAuthenticated]
+        canActivate: [EnsureAuthenticatedService]
       }
     ])
   ],
   providers: [AuthService,
-		EnsureAuthenticated,
-	  LoginRedirect],
+		EnsureAuthenticatedService,
+	  LoginRedirectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
