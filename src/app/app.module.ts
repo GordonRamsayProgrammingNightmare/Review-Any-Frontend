@@ -2,45 +2,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthidComponent } from './components/authid/authid.component';
+import { HomeComponent } from 'app/components/home/home.component';
 
 import { AuthService } from './services/auth.service';
 import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 import { LoginRedirectService } from './services/login-redirect.service';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UploadComponent } from './components/upload/upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    AuthidComponent
+    AuthidComponent,
+    HomeComponent,
+    ProfileComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-		RouterModule.forRoot([
-			{
-        path: 'login',
-        component: LoginComponent,
-        canActivate: [LoginRedirectService]
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-        canActivate: [LoginRedirectService]
-      },
-      {
-        path: 'auth',
-        component: AuthidComponent,
-        canActivate: [EnsureAuthenticatedService]
-      }
-    ])
+    AppRoutingModule
   ],
   providers: [AuthService,
 		EnsureAuthenticatedService,

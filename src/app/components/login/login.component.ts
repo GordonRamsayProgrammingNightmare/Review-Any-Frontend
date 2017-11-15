@@ -10,14 +10,19 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   user: User = new User();
+
   constructor(private router: Router, private auth: AuthService, ) {}
+
+  directToRegister(): void {
+    this.router.navigate(['register']);
+  }
 
   onLogin(): void {
     this.auth.login(this.user)
     .then((user) => {
       localStorage.setItem('token', user.json().token);
 			console.log(user.json());
-			this.router.navigateByUrl('/auth');
+			this.router.navigateByUrl('/');
     })
     .catch((err) => {
       console.log(err);

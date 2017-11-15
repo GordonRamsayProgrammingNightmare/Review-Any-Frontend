@@ -1,0 +1,48 @@
+.stylish-input-group .input-group-addon {
+  background: white !important;
+}
+
+.stylish-input-group .form-control {
+  border-right: 0;
+  box-shadow: 0 0 0;
+  border-color: #ccc;
+}
+
+.stylish-input-group button {
+  border: 0;
+  background: transparent;
+}
+
+.btn {
+  border: 0;
+  color: #333333;
+}
+
+.card {
+  background: black;
+  border: 0;
+}
+
+.carousel-caption {
+  opacity: 0;
+  transition: opacity 0.5s
+}
+
+.card:hover>.carousel-caption {
+  opacity: 1;
+}
+
+.card:hover>.card-img-top {
+  opacity: 0.5;
+  transition: opacity 0.5s
+}
+
+.btn-secondary,
+.btn-primary {
+  background: white;
+  border: 0;
+}
+
+.modal-footer>.container>.text {
+  color: #9c9c9c
+}

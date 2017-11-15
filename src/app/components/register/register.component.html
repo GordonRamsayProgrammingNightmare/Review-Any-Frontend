@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-4">
     <h1>Register</h1>
     <hr><br>
@@ -14,4 +14,63 @@
      <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
+</div> -->
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      회원 가입
+    </div>
+    <div class="card-body">
+      <div class="box">
+        <form>
+          <div class="margin-bottom-20">
+            <img class="thumbnail box-center margin-top-20" alt="No image" src="http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png">
+          </div>
+
+          <p>
+            <button type="submit" style="margin-top:1em;" class="btn btn-sm" name="delete"><i class="icon-remove"></i> Remove</button>
+            <button type="submit" style="margin-top:1em;" class="btn btn-primary btn-sm" id="save" name="save"><i class="icon-ok icon-white"></i> Save</button>
+          </p>
+
+        </form>
+        <hr>
+
+        <div class="row" style="background-color:#E6E6E6">
+          <div class="col-sm-10">
+            <span class="control-fileupload">
+              <label for="profileImg" class="text-left">Please choose a profile image on your computer.</label>
+              <input type="file" id="profileImg">
+            </span>
+          </div>
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-primary btn-block">
+              <i class="icon-upload icon-white"></i> Upload
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row-fluid" style="margin:1rem;">
+        <form (ngSubmit)="onRegister()" novalidate>
+            <div class="form-group-fluid">
+              <label for="username">Choose your username</label>
+              <input type="text" class="form-control" id="username" placeholder="enter username" [(ngModel)]="user.username" name="username" required>
+            </div>
+            <div class="form-group-fluid">
+              <label for="password">Create a password</label>
+              <input type="password" class="form-control" id="password" placeholder="enter password" [(ngModel)]="user.password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin:1em; ">Sign in</button>
+        </form>
+    </div>
+
+  </div>
 </div>
+
+
+
+<button (click)="goBack()">Back</button>
