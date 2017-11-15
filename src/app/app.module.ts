@@ -16,6 +16,7 @@ import { EnsureAuthenticatedService } from './services/ensure-authenticated.serv
 import { LoginRedirectService } from './services/login-redirect.service';
 import { ProfileComponent } from './components/profile/profile.component';
 import { UploadComponent } from './components/upload/upload.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UploadComponent } from './components/upload/upload.component';
     AuthidComponent,
     HomeComponent,
     ProfileComponent,
-    UploadComponent
+    UploadComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

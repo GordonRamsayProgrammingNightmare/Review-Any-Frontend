@@ -17,21 +17,4 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  gotoProfile(): void {
-    this.router.navigate(['profile']);
-  }
-
-  gotoUpload(): void {
-    this.router.navigate(['upload']);
-  }
-
-  gotoHome(): void {
-    this.router.navigate(['home']);
-  }
-
-  logout(): void {
-    this.auth.logout();
-    this.router.navigateByUrl('login');
-  }
 }

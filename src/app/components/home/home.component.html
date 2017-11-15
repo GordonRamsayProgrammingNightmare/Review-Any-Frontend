@@ -1,29 +1,5 @@
 <!-- Nav -->
-<nav class="navbar navbar-light bg-light">
-  <div class="container">
-      <div class="col-md-1">
-          <a class="navbar-brand" (click)="gotoHome()">
-              <img src="https://cdn2.iconfinder.com/data/icons/flat-icons-19/512/Globe.png" width="30" height="30" alt="company_icon">
-          </a>
-      </div>
-      <div class="col-md-8">
-          <div id="imaginary_container">
-              <div class="input-group stylish-input-group input-append">
-                  <input type="text" class="form-control" placeholder="Search">
-                  <span class="input-group-addon">
-                          <button type="submit"><img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png" width="30" height="30" alt="search_icon"></button>
-                      </span>
-              </div>
-          </div>
-      </div>
-      <div class="col-md-3">
-          <button class="btn btn-outline-success my-2 mr-2 my-sm-0" type="button" (click)="gotoUpload()"><img src="http://downloadicons.net/sites/default/files/plus-sign-icon-27952.png" width="30" height="30" alt="write_icon"></button>
-          <button class="btn btn-outline-success" type="button" (click)="gotoProfile()">Profile</button>
-          <button (click)="logout()">logout</button>
-      </div>
-  </div>
-</nav>
-
+<app-navbar></app-navbar>
 
 <!-- Posts -->
 <div class="container">
