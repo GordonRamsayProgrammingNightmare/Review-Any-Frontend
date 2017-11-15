@@ -10,13 +10,13 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthidComponent } from './components/authid/authid.component';
 import { HomeComponent } from 'app/components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { UploadComponent } from './components/upload/upload.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { AuthService } from './services/auth.service';
 import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 import { LoginRedirectService } from './services/login-redirect.service';
-import { ProfileComponent } from './components/profile/profile.component';
-import { UploadComponent } from './components/upload/upload.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [

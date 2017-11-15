@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   user: User = new User();
+  error: string;
 
   constructor(private router: Router, private auth: AuthService, ) {}
 
@@ -19,13 +20,13 @@ export class LoginComponent {
 
   onLogin(): void {
     this.auth.login(this.user)
-    .then((user) => {
-      localStorage.setItem('token', user.json().token);
-			console.log(user.json());
+    .then((msg) => {
+      localStorage.setItem('token', msg.json().token);
+			console.log(msg.json());
 			this.router.navigateByUrl('/');
     })
     .catch((err) => {
-      console.log(err);
+      alert("Undefined username or password");
     });
   }
 }
