@@ -1,0 +1,205 @@
+body {
+  padding-bottom: 70px;
+  /*font-family: monospace, sans-serif;*/
+}
+
+hr {
+  width: 80%;
+}
+
+
+
+
+/*.navbar {
+  margin-bottom: 0
+}
+
+.navbar {
+}
+
+
+.navbar-header {
+  width: 10%;
+  margin-bottom: 0;
+}
+nav {
+  color: white;
+}
+
+
+
+.navbar-tail {
+  width: 20%;
+  text-align: right;
+  color: white;
+}
+
+.navbar-tail img {
+  width: 17%;
+  margin-right: 20px;
+}
+
+.navbar-tail p {
+  margin-bottom: 0;
+}
+
+body > nav > div.navbar-tail > p > a{
+  color: white;
+}*/
+
+.stylish-input-group .input-group-addon {
+    background: white !important;
+}
+
+.stylish-input-group .form-control {
+    border-right: 0;
+    box-shadow: 0 0 0;
+    border-color: #ccc;
+}
+
+.stylish-input-group button {
+    border: 0;
+    background: transparent;
+}
+
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:flex-start;
+  height: 380px;
+  /*background-color: #007bff!important;*/
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-bottom: 0;
+  background-color: white;
+  padding-top: 2%;
+  padding-bottom: 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.avatar {
+  width: 65%;
+  border-width: 10px;
+}
+
+.pro{
+  /*color: white;*/
+  color: black;
+  margin-bottom: 20px;
+  margin-left: 3%;
+  font-size: 12pt;
+  text-align: left;
+  width: 30%;
+  margin : 0;
+  margin-top: 7%;
+}
+
+body > div.profile.jumbotron.jumbotron-fluid > div.pro > ul > li {
+  padding: 8px;
+}
+
+.contents {
+  text-align: right;
+  vertical-align: middle;
+  margin-left: 15%;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+.edit {
+  color: gray;
+  margin-top: 3%;
+  margin-left: 95%
+}
+
+
+.search-bar{
+  width: 600px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+}
+.search-bar input#search{
+  width: 600px;
+  height: 50px;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  padding-left: 45px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.search-bar input#search::-webkit-input-placeholder {
+   color: #65737e;
+}
+
+.search-bar input#search:-moz-placeholder { /* Firefox 18- */
+   color: #65737e;
+}
+
+.search-bar input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: #65737e;
+}
+
+.search-bar input#search:-ms-input-placeholder {
+   color: #65737e;
+}
+.search-bar .icon{
+  position: absolute;
+  top: 50%;
+  margin-left: 17px;
+  margin-top: 13px;
+  z-index: 1;
+  color: BLACK;
+}
+
+
+
+.con {
+    margin-bottom: 5%;
+}
+
+.line {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.line img {
+  width: 98%;
+  margin: 1%;
+}
+
+.tag {
+  color: gray;
+  font-size: 15pt;
+}
+
+.more {
+  padding-left: 2%;
+  color: gray;
+  font-size: 12pt;
+}
+
+
+
+.badge {
+  margin-bottom: 2%;
+  font-size: 15pt;
+}
+
+.link {
+  margin-left: 0;
+}
+
+body > div.tab-content {
+  padding-left: 6%;
+}
+
+.img {
+  width: 18%;
+  margin: 0.3%;
+}

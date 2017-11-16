@@ -1,4 +1,4 @@
-export class Port {
+export class Post {
   constructor(
     title: string,
     content: string,
@@ -6,7 +6,7 @@ export class Port {
     tags: string[],
     writtenBy: string,
     writtenAt: Date,
-    likeCnt: number,
-    viewCnt: number
+    likeCnt: number = 0,
+    viewCnt: number = 0
   ) { }
 }

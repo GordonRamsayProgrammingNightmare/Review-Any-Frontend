@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router/';
+import { Post } from '../../models/post';
 
 @Component({
   selector: 'app-upload',
@@ -8,9 +10,20 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class UploadComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  onUpload() {
+
+  }
+
+  gotoHome(): void {
+    this.router.navigate(['home']);
   }
 
 }

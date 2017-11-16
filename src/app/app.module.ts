@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './material/material.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -17,6 +18,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthService } from './services/auth.service';
 import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 import { LoginRedirectService } from './services/login-redirect.service';
+import { UploadService } from './services/upload.service';
+
 
 @NgModule({
   declarations: [
@@ -33,11 +36,14 @@ import { LoginRedirectService } from './services/login-redirect.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule
   ],
   providers: [AuthService,
 		EnsureAuthenticatedService,
-	  LoginRedirectService],
+    LoginRedirectService,
+    UploadService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
