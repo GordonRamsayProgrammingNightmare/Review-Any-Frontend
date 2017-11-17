@@ -13,21 +13,22 @@
   background: transparent;
 }
 
-.upload-btn {
-  background-color: rgb(75, 201, 201);
+/* .btn {
+  background-color: rgba( 255, 255, 255, 0.0);
   border: 0;
   color: #333333;
 }
 
-.upload-btn:hover {
-  background-color: rgba(75, 201, 201, 0.59);
+.btn:hover {
+  background-color: rgba( 255, 255, 255, 0.0);
   color: #333333;
 }
 
 .col-6{
   align-content: center;
   background-color: rgba(249, 249, 249, 0.952);
-}
+} */
+
 .upload{
   border-style:solid;
   border-color:#ddd;
@@ -35,4 +36,61 @@
   width:55em;
   background-color: rgba(249, 249, 249, 0.952);
   margin-top:3em;
+}
+#upload_btn{
+  background-color:#ccc;
+}
+.upload_thum{
+  width:22em;
+  margin-top:0;
+}
+.inputfile-2 {
+width: 0.1px;
+height: 0.1px;
+opacity: 0;
+overflow: hidden;
+position: absolute;
+z-index: -1;
+}
+
+
+
+
+.inputfile-2 + label {
+  font-size: 1.25rem;
+  /* 20px */
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.2rem 4em;
+  width:17.5em;
+  margin-top:0.8em;
+  margin-bottom: 0;
+  /* 10px 20px */
+}
+
+
+.inputfile-2 + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  /* 4px */
+  margin-right: 0.25em;
+  /* 4px */
+}
+.inputfile-2 + label {
+  color: #499960;
+  border: 2px solid currentColor;
+  border-radius: 0.2em;
+}
+
+.inputfile-2:focus + label,
+.inputfile-2.has-focus + label,
+.inputfile-2 + label:hover {
+  color: #144b24;
 }
