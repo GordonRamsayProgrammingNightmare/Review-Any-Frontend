@@ -1,48 +1,69 @@
 .stylish-input-group .input-group-addon {
-  background: white !important;
+    background: white !important;
 }
 
 .stylish-input-group .form-control {
-  border-right: 0;
-  box-shadow: 0 0 0;
-  border-color: #ccc;
+    border-right: 0;
+    box-shadow: 0 0 0;
+    border-color: #ccc;
 }
 
 .stylish-input-group button {
-  border: 0;
-  background: transparent;
+    border: 0;
+    background: transparent;
 }
 
-.btn {
-  border: 0;
-  color: #333333;
-}
-
-.card {
-  background: black;
-  border: 0;
+.post {
+    background: black;
+    border: 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-caption {
-  opacity: 0;
-  transition: opacity 0.5s
+    opacity: 0;
+    transition: opacity 0.5s
 }
 
-.card:hover>.carousel-caption {
-  opacity: 1;
+.post:hover>.carousel-caption {
+    opacity: 1;
 }
 
-.card:hover>.card-img-top {
-  opacity: 0.5;
-  transition: opacity 0.5s
+.post:hover>.card-img-top {
+    opacity: 0.5;
+    transition: opacity 0.5s
 }
 
-.btn-secondary,
-.btn-primary {
-  background: white;
-  border: 0;
+.postModal>.modal-dialog>.modal-content>.modal-footer>.container>.text {
+    color: #9c9c9c
 }
 
-.modal-footer>.container>.text {
-  color: #9c9c9c
+.mainBtn {
+    background-color: rgba( 255, 255, 255, 0.0);
+    border: 0;
+    color: #333333;
+}
+
+.mainBtn:hover {
+    background-color: rgba( 255, 255, 255, 0.0);
+    color: #333333;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.rows {
+    /* column width */
+    -moz-column-width: 19em;
+    -webkit-column-width: 19em;
+    /* space between columns */
+    -moz-column-gap: 1em;
+    -webkit-column-gap: 1em;
+}
+
+.items {
+    display: inline-block;
+    width: 100%;
 }
