@@ -1,26 +1,24 @@
-
-<app-navbar></app-navbar>
 <div class="container upload">
     <div class="row-fluid">
         <img src="https://newcdn.iconfinder.com/data/icons/budicon-document-2/16/65-document_-_compose_pencil_write-64.png" class="rounded upload_icon" alt="...">
         <button class="btn btn-light float-right" id=cancle_btn type="button">
                 <img src="https://www.iconsdb.com/icons/preview/dark-gray/cancel-xxl.png" class="rounded float-right cancle_icon" alt="...">
-                
+
         </button>
   </div>
   <hr/>
-  
-    
+
+
       <form (ngSubmit)="onUpload()">
           <div class="row">
         <div class="col-6 p-5 upload_col">
             <div class="box">
                 <img class="thumbnail upload_thum" alt="No image" src="http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png">
-                
+
                 <div class="box">
                     <input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-2" data-multiple-caption="{count} files selected" multiple />
                     <label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Choose an image here</span></label>
-                  </div>    
+                  </div>
             </div>
         </div>
         <div class="col-6 mt-3 p-4">
@@ -36,18 +34,18 @@
                 <label class="col-form-label" for="formGroupExampleInput3">Tags</label>
                 <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="#tags">
               </div>
-            
+
         </div>
       </div>
       <div class="row">
           <div class="col"></div>
           <div class="col-fluid full-width">
-            <button type="button" class="btn btn_upload btn-secondary pull-right mt-1 mb-4 mr-4" id=upload_btn>Upload</button>            
-          </div>            
+            <button type="button" class="btn btn_upload btn-secondary pull-right mt-1 mb-4 mr-4" id=upload_btn>Upload</button>
+          </div>
       </div>
-        
+
         </form>
-  
-  
+
+
 
 </div>

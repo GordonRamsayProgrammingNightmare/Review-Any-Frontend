@@ -1,9 +1,5 @@
-<body>
-<div class="container login_cont">
-    
+<div class="login-background login_cont">
   <div class="row justify-content-center">
-    
-
     <div class="col-fluidr">
       <div class="card pt-4 pb-4" id="login_card">
           <div class="card-body">
@@ -17,21 +13,20 @@
                   <div class="form-group m-1">
                     <input type="password" class="form-control pw_input" id="exampleInputPassword1" [(ngModel)]="user.password" placeholder="Password" required>
                   </div>
+									<button type="button m-1" class="btn btn_login btn-primary btn-lg btn-block">Login</button>
               </form>
               <hr/>
-              <button type="button m-1" class="btn btn_login btn-primary btn-lg btn-block">Login</button>
-              
-            </div>          
-                
+
+            </div>
+
       </div>
       <div class="card" id="register_card">
         <div class="card-body">
-            <p class="card-text">New to ReviewAny? create an account.</p>                
-            <button type="button m-1" class="btn btn_register btn-danger btn-lg btn-block">Register</button>                
-        </div>                
+            <p class="card-text">New to ReviewAny? create an account.</p>
+            <button type="button m-1" class="btn btn_register btn-danger btn-lg btn-block">Register</button>
+        </div>
       </div>
     </div>
-            
+
   </div>
 </div>
-</body>
