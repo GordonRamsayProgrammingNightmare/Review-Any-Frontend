@@ -1,3 +1,35 @@
-.login-body {
-  background-color: #BBBBBB;
+
+body{
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("https://www.sessions.edu/wp-content/uploads/featured_pinterest@wdd2x.jpg");
+  background-size: cover;
+  background-size: contain;    
+}
+.login_cont{
+  padding: 7.5em;
+}
+#login_card{
+  padding:1em;
+  margin-bottom:0.5em;    
+  background-color: rgba( 255, 255, 255);
+  
+}
+.email_input{
+  background-color:rgb(250, 246, 246);
+}
+.pw_input{
+  background-color:rgb(250, 246, 246);
+  
+}
+#register_card{
+  font-weight: 600;
+  padding-right:1em;
+  padding-left:1em;
+  padding-bottom:1em;
+  
+}
+.btn_register{
+  background-color:rgb(243, 101, 101);
+}
+.btn_login{
+  background-color:rgb(58, 156, 247);
 }
