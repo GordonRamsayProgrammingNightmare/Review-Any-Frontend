@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './material/material.module';
-import { FileSelectDirective } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -32,14 +30,12 @@ import { UploadService } from './services/upload.service';
     ProfileComponent,
     UploadComponent,
     NavbarComponent,
-    FileSelectDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterialModule
   ],
   providers: [AuthService,
 		EnsureAuthenticatedService,
