@@ -21,10 +21,11 @@ export class RegisterComponent {
   onRegister(): void {
     this.auth.register(this.user)
     .then((user) => {
-      console.log(user.json());
+      alert(user.json().message );
       this.route.navigateByUrl('login');
     })
     .catch((err) => {
+      alert(err.json().message);
       console.log(err);
     });
   }

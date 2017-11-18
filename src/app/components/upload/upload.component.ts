@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router/';
 import { Post } from '../../models/post';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { UploadService } from '../../services/upload.service';
 
 @Component({
   selector: 'app-upload',
@@ -12,44 +12,41 @@ import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
   encapsulation: ViewEncapsulation.None
 })
 export class UploadComponent implements OnInit {
-  form: FormGroup;
+  post: Post;
+  postImg: string;
   loading: boolean = false;
 
 
   constructor(
-    private router: Router
+    private router: Router,
+    private uploader: UploadService
   ) {
-    // this.createForm();
   }
 
   ngOnInit() {
 
   }
 
-  // createForm() {
-  //   this.form = this.fb.group({
-  //     name: ['', Validators.required],
-  //     avatar: null
-  //   });
-  // }
-
   onUpload() {
-
+    this.uploader.uploadPost(this.post)
+    .then((msg) => {
+      console.log(msg.json());
+      this.router.navigateByUrl('/');
+    })
+    .catch((err) => {
+      alert(err.json().message);
+    })
   }
 
   onFileChange(event) {
-    let reader = new FileReader();
+    const reader = new FileReader();
     if(event.target.files && event.target.files.length > 0) {
-      let file = event.target.files[0];
+      const file = event.target.files[0];
       reader.readAsDataURL(file);
       reader.onload = () => {
-        this.form.get('uploadingFile').setValue({
-          filename: file.name,
-          filetype: file.type,
-          value: reader.result.split(',')[1]
-        });
-      };
-    }
+        this.postImg = reader.result;
+     }
+    };
   }
 
   gotoHome(): void {
