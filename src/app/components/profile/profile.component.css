@@ -66,13 +66,13 @@ body > nav > div.navbar-tail > p > a{
   display: flex;
   flex-wrap: wrap;
   justify-content:flex-start;
-  height: 380px;
+  height: 430px;
   /*background-color: #007bff!important;*/
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   margin-bottom: 0;
   background-color: white;
-  padding-top: 2%;
+  padding-top: 5%;
   padding-bottom: 0;
   width: 80%;
   margin-left: auto;
@@ -94,7 +94,7 @@ body > nav > div.navbar-tail > p > a{
   text-align: left;
   width: 30%;
   margin : 0;
-  margin-top: 7%;
+  margin-top: 8.5%;
 }
 
 body > div.profile.jumbotron.jumbotron-fluid > div.pro > ul > li {
@@ -106,13 +106,25 @@ body > div.profile.jumbotron.jumbotron-fluid > div.pro > ul > li {
   vertical-align: middle;
   margin-left: 15%;
   margin-right: 5%;
-  margin-top: 5%;
+  margin-top: 8%;
+}
+.ed{
+  margin-left: 14%;
+  margin-top: 30%;
 }
 
 .edit {
   color: gray;
-  margin-top: 3%;
-  margin-left: 95%
+}
+
+.modal_img {
+  width: 60%;
+  margin: 0 0 10px 95px;
+}
+
+.but {
+  float: right;
+  margin-top: 10px;
 }
 
 
@@ -200,6 +212,6 @@ body > div.tab-content {
 }
 
 .img {
-  width: 18%;
+  width: 19%;
   margin: 0.3%;
 }

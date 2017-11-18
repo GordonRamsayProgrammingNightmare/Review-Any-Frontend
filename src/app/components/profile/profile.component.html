@@ -3,26 +3,57 @@
       <img src="assets/imgs/profile_test.jpg" alt="avatar" class="rounded avatar">
     </div>
     <div class="pro">
-      <ul class="list-group">
-        <li class="list-group-item"><i class="fa fa-user-circle-o fa-1" aria-hidden="true"></i> Name</li>
-        <li class="list-group-item"><i class="fa fa-home fa-1" aria-hidden="true"></i> Site address </li>
-        <li class="list-group-item"><i class="fa fa-phone fa-1"></i> Phone Number </li>
-        <li class="list-group-item"><i class="fa fa-envelope fa-1"></i> E-mail Address</li>
+      <ul class="list-group" *ngFor="let one of LIST">
+        <li class="list-group-item"><i class="fa fa-user-circle-o fa-1" aria-hidden="true"></i> {{one.name}}</li>
+        <li class="list-group-item"><i class="fa fa-home fa-1" aria-hidden="true"></i> {{one.site}} </li>
+        <li class="list-group-item"><i class="fa fa-phone fa-1"></i> {{one.phone}} </li>
+        <li class="list-group-item"><i class="fa fa-envelope fa-1"></i> {{one.email}}</li>
       </ul>
     </div>
-    <a class="edit" href="edit..."><i class="fa fa-cog fa-4" aria-hidden="true"></i></a>
+    <div class="ed" data-toggle="modal" data-target="#exampleModal">
+      <i class="fa fa-cog fa-4"></i>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <img src="assets/imgs/profile_test.jpg" alt="avatar" class="rounded avatar modal_img">
+              <ul class="list-group" *ngFor="let one of LIST">
+                <li class="list-group-item"><i class="fa fa-user-circle-o fa-1" aria-hidden="true"></i> {{one.name}}</li>
+                <li class="list-group-item"><i class="fa fa-home fa-1" aria-hidden="true"></i> {{one.site}} </li>
+                <li class="list-group-item"><i class="fa fa-phone fa-1"></i> {{one.phone}} </li>
+                <li class="list-group-item"><i class="fa fa-envelope fa-1"></i> {{one.email}}</li>
+              </ul>
+              <div class="but">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <ul class="nav nav-tabs" role="tablist">
+  <!-- <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
       <a class="nav-link" href="#my" role="tab" data-toggle="tab">MyReview</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#like" role="tab" data-toggle="tab">Liked</a>
     </li>
-  </ul>
+  </ul> -->
+  <app-tab></app-tab>
 
-  <div class="tab-content">
+  <!-- <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="my">
       <img class="rounded img" src="assets/imgs/profile_test.jpg" alt="">
       <img class="rounded img" src="assets/imgs/profile_test.jpg" alt="">
@@ -39,4 +70,4 @@
     <div role="tabpanel" class="tab-pane fade" id="like">
         <img class="rounded img" src="assets/imgs/profile_test.jpg" alt="">
     </div>
-  </div>
+  </div> -->

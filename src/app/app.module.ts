@@ -18,6 +18,7 @@ import { AuthService } from './services/auth.service';
 import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 import { LoginRedirectService } from './services/login-redirect.service';
 import { UploadService } from './services/upload.service';
+import { TabComponent } from './components/profile/tab/tab.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { UploadService } from './services/upload.service';
     ProfileComponent,
     UploadComponent,
     NavbarComponent,
+    TabComponent,
   ],
   imports: [
     BrowserModule,
