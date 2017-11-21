@@ -4,6 +4,7 @@ import { Post } from '../../models/post';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import { UploadService } from '../../services/upload.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-upload',
@@ -13,7 +14,7 @@ import { UploadService } from '../../services/upload.service';
   encapsulation: ViewEncapsulation.None
 })
 export class UploadComponent implements OnInit {
-  post: Post;
+  post: Post = new Post();
   postImg: string;
   loading: boolean = false;
   inputTags: string;

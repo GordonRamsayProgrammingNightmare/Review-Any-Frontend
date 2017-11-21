@@ -25,15 +25,15 @@
       <div class="col-6 mt-3 p-4">
         <div class="form-group ufg">
           <label class="col-form-label" for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Product Name" [(ngModel)]="post.title">
+          <input type="text" class="form-control" id="name" placeholder="Product Name" [(ngModel)]="post.title" name="title">
         </div>
         <div class="form-group ufg">
           <label class="col-form-label" for="content">Comment</label>
-          <textarea class="form-control" id="content" rows="4" maxlength="150" placeholder="150 Characters" [(ngModel)]="post.content"></textarea>
+          <textarea class="form-control" id="content" rows="4" maxlength="150" placeholder="150 Characters" [(ngModel)]="post.content" name="content"></textarea>
         </div>
         <div class="form-group ufg">
           <label class="col-form-label" for="tags">Tags</label>
-          <input type="text" class="form-control" id="tags" placeholder="#tags" [(ngModel)]="inputTags">
+          <input type="text" class="form-control" id="tags" placeholder="#tags" [(ngModel)]="inputTags" name="tags">
         </div>
       </div>
     </div>

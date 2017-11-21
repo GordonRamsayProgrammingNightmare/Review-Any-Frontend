@@ -4,6 +4,6 @@ export class Post {
     tags: String[];
 }
 
-// export class Tag {
-//   tag: string;
-// }
+export class Tag {
+  tag: string;
+}
