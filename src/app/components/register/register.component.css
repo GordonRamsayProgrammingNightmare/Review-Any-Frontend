@@ -5,11 +5,8 @@
 }
 .create_card{
     background-color:rgb(248, 247, 247);
-    
+
 }
-
-
-
 
 .create_image_box{
     width: 100%;
@@ -27,6 +24,7 @@
     border-style: solid;
     border-width:0.3em;
     border-color:white;
+    margin-left: 5em;
 }
 .inputfile {
 	width: 0.1px;
@@ -57,7 +55,7 @@
     width:15.7em;
     margin-top:0.2em;
     border-radius:0.2em;
-    
+
 
     /* 10px 20px */
 }

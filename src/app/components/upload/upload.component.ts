@@ -15,13 +15,7 @@ export class UploadComponent implements OnInit {
   post: Post;
   postImg: string;
   loading: boolean = false;
-
-  isImg() {
-    if(this.showingImg != null) {
-      return true;
-    }
-    return false;
-  }
+  private imageUrl: String = 'http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png';
 
   constructor(
     private router: Router,
@@ -31,7 +25,7 @@ export class UploadComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
-    this.isImg();
+
   }
 
   ngOnInit() {
@@ -57,7 +51,7 @@ export class UploadComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = (e) => {
         this.postImg = reader.result;
-        $('#helloImg').attr('src', e.target.result);
+        this.imageUrl = e.target.result;
       }
     };
   }
