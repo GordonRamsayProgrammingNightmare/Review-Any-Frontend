@@ -34,7 +34,7 @@
 }
 
 .postModal>.modal-dialog>.modal-content>.modal-footer>.container>.text {
-    color: #9c9c9c
+    color: #9c9c9c;
 }
 
 .mainBtn {
@@ -66,4 +66,15 @@
 .items {
     display: inline-block;
     width: 100%;
+}
+
+.userPhoto {
+    border-radius: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    -ms-interpolation-mode: bicubic;
+}
+
+.writeDate {
+    color: #333333;
 }
