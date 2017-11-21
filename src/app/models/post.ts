@@ -1,7 +1,10 @@
 export class Post {
-  constructor(
-    title: string,
-    content: string,
-    tags: Tag[]
-  ) { }
+
+  public title: string;
+  public content: string;
+  public tags: Tag[];
+}
+
+class Tag {
+  public tag: string;
 }
