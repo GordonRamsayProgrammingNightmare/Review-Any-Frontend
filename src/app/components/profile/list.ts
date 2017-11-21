@@ -1,4 +1,4 @@
-import { intro } from './intro';
+import { intro } from '../../models/intro';
 
 export const list: intro[] = [
 
