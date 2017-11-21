@@ -34,8 +34,17 @@ export class UploadComponent implements OnInit {
   ngOnInit() {
   }
 
+//tag split
   splitTag(): string[] {
-    let tagsArray = this.inputTags.split("#");
+    let tempArray = this.inputTags.split("#");
+    var tagsArray=[]; 
+    var c=0;
+    for(var i=0;i<tempArray.length;i++){
+      if((tempArray[i])!=""){  //remove empty element    
+        tagsArray[c]=tempArray[i].replace(/\s/gi,"");   //remove empty space   
+        c++;
+      }
+    }
     return tagsArray;
   }
 
