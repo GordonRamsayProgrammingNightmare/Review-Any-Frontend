@@ -1,15 +1,9 @@
 export class Post {
-  constructor(
-    title: string,
-    content: string,
-    tags: Tag[]
-  ) {}
+    title: String;
+    content: String;
+    tags: String[];
 }
 
-class Tag {
-  constructor(
-
-    tag: string
-  ) {
-  }
-}
+// export class Tag {
+//   tag: string;
+// }

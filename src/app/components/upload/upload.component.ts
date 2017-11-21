@@ -9,6 +9,7 @@ import { UploadService } from '../../services/upload.service';
   selector: 'app-upload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.css'],
+  providers: [Post],
   encapsulation: ViewEncapsulation.None
 })
 export class UploadComponent implements OnInit {
@@ -32,10 +33,14 @@ export class UploadComponent implements OnInit {
   ngOnInit() {
   }
 
+  splitTag(): string[] {
+    let tagsArray = this.inputTags.split("#");
+    return tagsArray;
+  }
 
   onUpload() {
-    let tagsArray=this.inputTags.split("#",500);
-    console.log(tagsArray);
+    alert(this.inputTags);
+    console.log(this.splitTag());
     this.uploader.uploadPost(this.post)
     .then((msg) => {
       console.log(msg.json());
