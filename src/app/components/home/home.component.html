@@ -1,4 +1,3 @@
-
 <!-- Posts -->
 <div class="container mt-3">
     <div class="rows">
@@ -97,34 +96,52 @@
 <div class="modal postModal fade bd-example-modal-lg" id="readingModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel"><strong>Post title</strong></h4>
+            <div class="modal-header mg-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-auto">
+                            <h4 class="modal-title postTitle" id="exampleModalLabel"><strong>Post title</strong></h4>
+                        </div>
+                        <div class="col-auto ml-auto">
+                            <p class="writeDate text">2017.11.11</p>
+                        </div>
+                    </div>
+                </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
             </div>
+
             <div class="modal-body">
                 <img class="card-img-top" src="https://signoftherose.files.wordpress.com/2016/08/sea-05.jpg" alt="post_image_modal">
-                <h6 class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</h6>
+                <div class="container">
+                    <h6 class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</h6>
+                    <p class="text mt-3">very nice! very nice! very nice!</p>
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="container">
-                    <p class="text mt-3">very nice! very nice! very nice!</p>
-                    <p class="text mt-3">example text example text example text example text example text example text example text example text example text example text example text</p>
-                    <p class="text mt-3">I like it~~~~</p>
-                    <div class="row mt-4 mb-2">
-                        <div class="input-group stylish-input-group input-append col-md-11">
-                            <input type="text" class="form-control" placeholder="Add comment...">
-                            <span class="input-group-addon">
-                                <button type="submit"><img src="https://image.flaticon.com/icons/svg/54/54761.svg" width="30" height="30" alt="comment_icon"></button>
-                            </span>
+                    <div class="row">
+                        <div class="col-auto">
+                            <img class="userPhoto" src="https://pbs.twimg.com/profile_images/800622153565540352/hki9xSrp.jpg" width="30" alt="user_image">
                         </div>
-                        <div class="col-md-1">
-                            <button type="button" class="btn mainBtn btn-light"><img src="http://icons.iconarchive.com/icons/custom-icon-design/mono-business-2/512/thumbs-up-icon.png" width="30" height="30" alt="like_icon"></button>
+                        <div class="col-auto">
+                            <div class="row">
+                                <p class="userId text">
+                                    userID
+                                </p>
+                            </div>
+                            <div class="row">
+                                <p class="writeDate text">2017.11.11</p>
+                            </div>
+                        </div>
+                        <div class="col-auto ml-auto">
+                            <img src="http://icons.iconarchive.com/icons/custom-icon-design/mono-business-2/512/thumbs-up-icon.png" width="30" height="30" alt="like_icon">
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
