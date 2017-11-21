@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router/';
 import { Post } from '../../models/post';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -16,16 +16,27 @@ export class UploadComponent implements OnInit {
   postImg: string;
   loading: boolean = false;
 
+  isImg() {
+    if(this.showingImg != null) {
+      return true;
+    }
+    return false;
+  }
 
   constructor(
     private router: Router,
     private uploader: UploadService
   ) {
   }
+  ngOnChanges(changes: SimpleChanges) {
+    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
+    //Add '${implements OnChanges}' to the class.
+    this.isImg();
+  }
 
   ngOnInit() {
-
   }
+
 
   onUpload() {
     this.uploader.uploadPost(this.post)
@@ -39,14 +50,15 @@ export class UploadComponent implements OnInit {
     })
   }
 
-  onFileChange(event) {
+  onFileChange(event: any) {
     const reader = new FileReader();
     if(event.target.files && event.target.files.length > 0) {
       const file = event.target.files[0];
       reader.readAsDataURL(file);
-      reader.onload = () => {
+      reader.onload = (e) => {
         this.postImg = reader.result;
-     }
+        $('#helloImg').attr('src', e.target.result);
+      }
     };
   }
 
