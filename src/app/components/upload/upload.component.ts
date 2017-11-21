@@ -15,6 +15,7 @@ export class UploadComponent implements OnInit {
   post: Post;
   postImg: string;
   loading: boolean = false;
+  inputTags: string;
   private imageUrl: String = 'http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png';
 
   constructor(
@@ -33,6 +34,8 @@ export class UploadComponent implements OnInit {
 
 
   onUpload() {
+    let tagsArray=this.inputTags.split("#",500);
+    console.log(tagsArray);
     this.uploader.uploadPost(this.post)
     .then((msg) => {
       console.log(msg.json());

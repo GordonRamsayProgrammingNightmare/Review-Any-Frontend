@@ -18,32 +18,32 @@ const appRouter: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    // canActivate: [LoginRedirectService]
+    canActivate: [LoginRedirectService]
   },
   {
     path: 'register',
     component: RegisterComponent,
-    // canActivate: [LoginRedirectService]
+    canActivate: [LoginRedirectService]
   },
   {
     path: 'auth',
     component: AuthidComponent,
-    // canActivate: [EnsureAuthenticatedService]
+    canActivate: [EnsureAuthenticatedService]
   },
   {
     path: 'profile',
     component: ProfileComponent,
-    // canActivate: [EnsureAuthenticatedService]
+    canActivate: [EnsureAuthenticatedService]
   },
   {
     path: 'upload',
     component: UploadComponent,
-    // canActivate: [EnsureAuthenticatedService]
+    canActivate: [EnsureAuthenticatedService]
   },
   {
     path: '',
     component: HomeComponent,
-    // canActivate: [EnsureAuthenticatedService]
+    canActivate: [EnsureAuthenticatedService]
   },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
