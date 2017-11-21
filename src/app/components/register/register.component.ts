@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   user: User = new User();
-  private userImg: String;
+  private userImg: any;
   private imageUrl: String = 'http://cfile7.uf.tistory.com/image/99AFF23359AF9A05212542';
 
   constructor(
@@ -33,14 +33,12 @@ export class RegisterComponent {
   }
 
   onChangeEvent(event: any) {
-    const reader = new FileReader();
     if(event.target.files && event.target.files.length > 0) {
+      const reader = new FileReader();
       const file = event.target.files[0];
       reader.readAsDataURL(file);
       reader.onload = (e) => {
         this.user.profileImg = reader.result;
-        // hehe
-        this.imageUrl = e.target.result;
       }
     };
   }

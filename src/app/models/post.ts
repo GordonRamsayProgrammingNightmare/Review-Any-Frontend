@@ -5,7 +5,3 @@ export class Post {
     tags: Tag[]
   ) { }
 }
-
-class Tag {
-  tag: string
-}

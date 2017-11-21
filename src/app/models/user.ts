@@ -1,3 +1,5 @@
 export class User {
-	constructor(username?: string, password?: string, profileImg?: string) {}
+  username?: string;
+  password?: string;
+  profileImg?: string;
 }
