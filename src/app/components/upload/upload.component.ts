@@ -51,7 +51,6 @@ export class UploadComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = (e) => {
         this.postImg = reader.result;
-        this.imageUrl = e.target.result;
       }
     };
   }
