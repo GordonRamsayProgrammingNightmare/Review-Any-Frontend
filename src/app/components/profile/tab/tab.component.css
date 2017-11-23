@@ -130,3 +130,35 @@ label .fa {
   	opacity: 1;
   }
 }
+
+
+.post {
+  /* background: black; */
+  background: white;
+  border: 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-caption {
+  opacity: 0;
+  transition: opacity 0.5s
+}
+
+.post:hover>.carousel-caption {
+  opacity: 1;
+}
+
+.post:hover>.card-img-top {
+  opacity: 0.5;
+  transition: opacity 0.5s
+}
+
+.postModal>.modal-dialog>.modal-content>.modal-footer>.container>.text {
+  color: #9c9c9c;
+}
+
+.items {
+  display: inline-block;
+  width: 19%;
+}
+
