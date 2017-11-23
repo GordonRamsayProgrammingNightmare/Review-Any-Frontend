@@ -25,7 +25,6 @@ export class ProfileComponent implements OnInit {
         console.log(data.json().profileImg);
         this.username = data.json().username;
         this.profileImg = data.json().profileImg;
-
       })
   }
 }

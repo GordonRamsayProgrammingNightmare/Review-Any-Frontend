@@ -2,7 +2,7 @@ export class Post {
     title: String;
     content: String;
     tags: {};
-    base64: String;
+    base64: any;
 }
 
 export class Tag {

@@ -56,7 +56,8 @@ export class UploadComponent implements OnInit {
   onUpload() {
     // console.log(this.post.tags);
     this.post.tags = this.splitTag();
-    this.post.base64 = this.postImg;
+    // this.post.base64 = this.postImg;
+    console.log(this.post);
     this.uploader.uploadPost(this.post)
     .then((msg) => {
       console.log(msg.json());
@@ -74,7 +75,8 @@ export class UploadComponent implements OnInit {
       const file = event.target.files[0];
       reader.readAsDataURL(file);
       reader.onload = (e) => {
-        this.postImg = reader.result;
+        this.postImg = this.post.base64 = reader.result;
+        console.log(reader.result);
       }
     };
   }
