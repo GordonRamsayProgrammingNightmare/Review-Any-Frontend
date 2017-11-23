@@ -1,10 +1,10 @@
 <div class="profile jumbotron  jumbotron-fluid">
     <div class="contents">
-      <img src="assets/imgs/profile_test.jpg" alt="avatar" class="rounded avatar">
+      <img [src]="profileImg" alt="avatar" class="rounded avatar">
     </div>
     <div class="pro">
       <ul class="list-group" *ngFor="let one of LIST">
-        <li class="list-group-item"><i class="fa fa-user-circle-o fa-1" aria-hidden="true"></i> {{one.name}}</li>
+        <li class="list-group-item"><i class="fa fa-user-circle-o fa-1" aria-hidden="true"></i> {{username}}</li>
         <li class="list-group-item"><i class="fa fa-home fa-1" aria-hidden="true"></i> {{one.site}} </li>
         <li class="list-group-item"><i class="fa fa-phone fa-1"></i> {{one.phone}} </li>
         <li class="list-group-item"><i class="fa fa-envelope fa-1"></i> {{one.email}}</li>
@@ -24,12 +24,12 @@
           </div>
           <div class="modal-body">
             <form action="">
-              <img src="assets/imgs/profile_test.jpg" alt="avatar" class="rounded avatar modal_img">
-              <ul class="list-group" *ngFor="let one of LIST">
-                <li class="list-group-item"><i class="fa fa-user-circle-o fa-1" aria-hidden="true"></i> {{one.name}}</li>
-                <li class="list-group-item"><i class="fa fa-home fa-1" aria-hidden="true"></i> {{one.site}} </li>
-                <li class="list-group-item"><i class="fa fa-phone fa-1"></i> {{one.phone}} </li>
-                <li class="list-group-item"><i class="fa fa-envelope fa-1"></i> {{one.email}}</li>
+              <img [src]="profileImg" alt="avatar" class="rounded avatar modal_img">
+              <ul class="list-group">
+                <li class="list-group-item"><i class="fa fa-user-circle-o fa-1" aria-hidden="true"></i> {{ username }}</li>
+                <li class="list-group-item"><i class="fa fa-home fa-1" aria-hidden="true"></i>  </li>
+                <li class="list-group-item"><i class="fa fa-phone fa-1"></i>  </li>
+                <li class="list-group-item"><i class="fa fa-envelope fa-1"></i> </li>
               </ul>
               <div class="but">
                 <button type="button" class="btn btn-primary">Save changes</button>

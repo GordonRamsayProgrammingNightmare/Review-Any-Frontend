@@ -1,9 +1,10 @@
 export class Post {
     title: String;
     content: String;
-    tags: String[];
+    tags: {};
+    base64: String;
 }
 
 export class Tag {
-  tag: string;
+  tag: String;
 }

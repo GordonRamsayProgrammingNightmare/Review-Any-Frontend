@@ -1,6 +1,6 @@
 import { Component, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router/';
-import { Post } from '../../models/post';
+import { Post, Tag } from '../../models/post';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 import { UploadService } from '../../services/upload.service';
@@ -15,7 +15,7 @@ import { element } from 'protractor';
 })
 export class UploadComponent implements OnInit {
   post: Post = new Post();
-  postImg: string;
+  postImg: any;
   loading: boolean = false;
   inputTags: string;
   private imageUrl: String = 'http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png';
@@ -24,6 +24,7 @@ export class UploadComponent implements OnInit {
     private router: Router,
     private uploader: UploadService
   ) {
+    this.postImg = "http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png";
   }
   ngOnChanges(changes: SimpleChanges) {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
@@ -37,20 +38,25 @@ export class UploadComponent implements OnInit {
 //tag split
   splitTag(): string[] {
     let tempArray = this.inputTags.split("#");
-    var tagsArray=[]; 
+    var tagsArray = [];
+    var array = {};
     var c=0;
     for(var i=0;i<tempArray.length;i++){
-      if((tempArray[i])!=""){  //remove empty element    
-        tagsArray[c]=tempArray[i].replace(/\s/gi,"");   //remove empty space   
+      if((tempArray[i])!=""){  //remove empty element
+        array['tag'] = tempArray[i].replace(/\s/gi,"");   //remove empty space
+        tagsArray.push(array);
         c++;
       }
+
     }
+    console.log(tagsArray);
     return tagsArray;
   }
 
   onUpload() {
-    alert(this.inputTags);
-    console.log(this.splitTag());
+    // console.log(this.post.tags);
+    this.post.tags = this.splitTag();
+    this.post.base64 = this.postImg;
     this.uploader.uploadPost(this.post)
     .then((msg) => {
       console.log(msg.json());
