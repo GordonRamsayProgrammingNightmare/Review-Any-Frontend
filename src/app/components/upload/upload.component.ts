@@ -61,7 +61,7 @@ export class UploadComponent implements OnInit {
     this.uploader.uploadPost(this.post)
     .then((msg) => {
       console.log(msg.json());
-      alert(msg.json().message);
+      alert("Uploaded file successfully");
       this.router.navigateByUrl('/');
     })
     .catch((err) => {

@@ -1,8 +1,13 @@
-<div class="profile jumbotron  jumbotron-fluid">
-    <div class="contents">
-      <img [src]="profileImg" alt="avatar" class="rounded avatar">
-    </div>
-    <div class="pro">
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <img [src]="profileImg" alt="avatar" class="img-fluid" style="max-width:100%;height:auto;">
+
+  </div>
+  <div class="col-md-6">
+    <div>
       <ul class="list-group" *ngFor="let one of LIST">
         <li class="list-group-item"><i class="fa fa-user-circle-o fa-1" aria-hidden="true"></i> {{username}}</li>
         <li class="list-group-item"><i class="fa fa-home fa-1" aria-hidden="true"></i> {{one.site}} </li>
@@ -10,6 +15,8 @@
         <li class="list-group-item"><i class="fa fa-envelope fa-1"></i> {{one.email}}</li>
       </ul>
     </div>
+  </div>
+  </div>
     <div class="ed" data-toggle="modal" data-target="#exampleModal">
       <i class="fa fa-cog fa-4"></i>
     </div>
@@ -41,7 +48,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 
   <!-- <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
@@ -71,3 +78,4 @@
         <img class="rounded img" src="assets/imgs/profile_test.jpg" alt="">
     </div>
   </div> -->
+</div>
