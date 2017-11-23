@@ -21,6 +21,7 @@ import { UploadService } from './services/upload.service';
 import { TabComponent } from './components/profile/tab/tab.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import { TabComponent } from './components/profile/tab/tab.component';
     ProfileComponent,
     UploadComponent,
     NavbarComponent,
-    TabComponent,
+    TabComponent
   ],
   imports: [
     BrowserModule,

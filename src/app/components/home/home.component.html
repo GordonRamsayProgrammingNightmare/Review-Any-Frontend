@@ -2,87 +2,10 @@
 <div class="container mt-3">
     <div class="rows">
 
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="https://signoftherose.files.wordpress.com/2016/08/sea-05.jpg" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="https://timedotcom.files.wordpress.com/2017/09/iphone-x.jpg?quality=85" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="http://cfile22.uf.tistory.com/image/246D8A385603F235273E26" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="http://t1.daumcdn.net/liveboard/slidee/448dd4e09cea48a2b48cb3d24345fb06.jpeg" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="https://pbs.twimg.com/profile_images/800622153565540352/hki9xSrp.jpg" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="https://pbs.twimg.com/media/CEo2DDJUEAIMRL7.jpg" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="https://signoftherose.files.wordpress.com/2016/08/sea-05.jpg" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="https://timedotcom.files.wordpress.com/2017/09/iphone-x.jpg?quality=85" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="http://cfile22.uf.tistory.com/image/246D8A385603F235273E26" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="http://t1.daumcdn.net/liveboard/slidee/448dd4e09cea48a2b48cb3d24345fb06.jpeg" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="https://pbs.twimg.com/profile_images/800622153565540352/hki9xSrp.jpg" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
-            </div>
-        </div>
-
-        <div class="items well">
-            <div class="card post mt-2" data-toggle="modal" data-target="#readingModal">
-                <img class="card-img-top img-responsive" src="https://pbs.twimg.com/media/CEo2DDJUEAIMRL7.jpg" alt="post_image">
-                <h3 class="carousel-caption">Post Title</h3>
+        <div *ngFor="let post of posts" class="items well">
+            <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post.title" ng-click="showModal(post.title)">
+                <img class="card-img-top img-responsive" [src]="post.picUrl" alt="post_image">
+                <h3 class="carousel-caption">{{post.title}}</h3>
             </div>
         </div>
 
@@ -93,15 +16,18 @@
 
 
 <!-- Modal -->
-<div class="modal postModal fade bd-example-modal-lg" id="readingModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div *ngFor="let post of posts" class="modal postModal fade bd-example-modal-lg" [attr.id]="post.title" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8">
-                            <h3 class="postTitle" id="exampleModalLabel">Post Template Title</h3>
-                            <p><i class="fa fa-user"></i> by <span class="userId">UserId</span></p>
+                            <h3 class="postTitle" id="exampleModalLabel">{{post.title}}</h3>
+                            <div class="row">
+                                <p class="ml-3 mr-3">by <span class="userId">{{post.writtenBy}}</span></p>
+                                <p><i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span> <i class="fa fa-eye ml-1"></i><span class="views">{{post.viewCnt}}</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,10 +37,10 @@
             </div>
 
             <div class="modal-body">
-                <img class="card-img-top" src="https://signoftherose.files.wordpress.com/2016/08/sea-05.jpg" alt="post_image_modal">
+                <img class="card-img-top" [src]="post.picUrl" alt="post_image_modal">
                 <div class="container">
-                    <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card
-                        title and make up the bulk of the card's content.
+                    <p class="card-text mt-3">
+                        {{post.content}}
                     </p>
                 </div>
             </div>
@@ -122,8 +48,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8">
-                            <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">2014/08/24</span></p>
-                            <p><i class="fa fa-tags"></i> Tags: <span class="badge badge-info">tag1</span> <span class="badge badge-info">tag2</span> <span class="badge badge-info">tag3</span></p>
+                            <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
+                            <p><i class="fa fa-tags"></i> Tags: <span class="badge badge-info">{{post.tags}}</span> <span class="badge badge-info">tag2</span> <span class="badge badge-info">tag3</span></p>
                         </div>
                         <div class="col-auto ml-auto">
                             <img class="likeBtn" src="https://cdn2.iconfinder.com/data/icons/facebook-ui/48/Jee-36-512.png" width="70" height="70" alt="like_icon">
