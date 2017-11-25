@@ -9,6 +9,7 @@ import { AuthService } from 'app/services/auth.service';
   encapsulation: ViewEncapsulation.None
 })
 export class NavbarComponent implements OnInit {
+  selectedList: string;
 
   constructor(
     private router: Router,
@@ -16,6 +17,10 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  selectList(data:any): void {
+
   }
 
   gotoHome(): void {
