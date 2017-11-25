@@ -18,6 +18,7 @@ export class UploadComponent implements OnInit {
   postImg: any;
   loading: boolean = false;
   inputTags: string;
+
   private imageUrl: String = 'http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png';
 
   constructor(
@@ -42,13 +43,17 @@ export class UploadComponent implements OnInit {
     var c=0;
     for(var i=0;i<tempArray.length;i++){
       if((tempArray[i])!=""){  //remove empty element
-        tagsArray[c] = tempArray[i].replace(/\s/gi,"");   //remove empty space
+        // remove empty space
+        tagsArray[c] = this.conTag(tempArray[i].replace(/\s/gi,""));
         c++;
       }
-
     }
-    console.log(tagsArray);
+    // console.log(tagsArray);
     return tagsArray;
+  }
+
+  conTag(input): any {
+    return {'tag': input};
   }
 
   onUpload() {
@@ -58,7 +63,7 @@ export class UploadComponent implements OnInit {
     console.log(this.post);
     this.uploader.uploadPost(this.post)
     .then((msg) => {
-      console.log(msg.json());
+      // console.log(msg.json());
       alert("Uploaded file successfully");
       this.router.navigateByUrl('/');
     })
@@ -74,7 +79,7 @@ export class UploadComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = (e) => {
         this.postImg = this.post.base64 = reader.result;
-        console.log(reader.result);
+        // console.log(reader.result);
       }
     };
   }
