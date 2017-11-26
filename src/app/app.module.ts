@@ -19,8 +19,7 @@ import { EnsureAuthenticatedService } from './services/ensure-authenticated.serv
 import { LoginRedirectService } from './services/login-redirect.service';
 import { UploadService } from './services/upload.service';
 import { TabComponent } from './components/profile/tab/tab.component';
-
-
+import { MaterialModule } from 'app/material/material.module';
 
 @NgModule({
   declarations: [
@@ -39,11 +38,13 @@ import { TabComponent } from './components/profile/tab/tab.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    MaterialModule,
   ],
-  providers: [AuthService,
+  providers: [
+    AuthService,
 		EnsureAuthenticatedService,
     LoginRedirectService,
-    UploadService
+    UploadService,
   ],
   bootstrap: [AppComponent]
 })

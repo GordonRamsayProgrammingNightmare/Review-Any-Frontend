@@ -48,7 +48,7 @@ export class UploadComponent implements OnInit {
         c++;
       }
     }
-    // console.log(tagsArray);
+    console.log(tagsArray);
     return tagsArray;
   }
 
@@ -60,7 +60,7 @@ export class UploadComponent implements OnInit {
     // console.log(this.post.tags);
     this.post.tags = this.splitTag();
     // this.post.base64 = this.postImg;
-    console.log(this.post);
+    // console.log(this.post);
     this.uploader.uploadPost(this.post)
     .then((msg) => {
       // console.log(msg.json());
