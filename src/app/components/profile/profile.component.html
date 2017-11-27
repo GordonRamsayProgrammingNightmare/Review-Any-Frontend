@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="container">
 
     <div class="row pro_row">
@@ -31,24 +32,24 @@
                         </div>
                         <hr>
                         <div class="modal-body">
-                            <form (ngSubmit)="submitChange()">      
+                            <form (ngSubmit)="submitChange()">
                                 <div class="form-group img_select">
                                     <label for="exampleFormControlFile1"><img [src]="user.profileImg" alt="avatar" class="rounded avatar modal_img"></label>
                                     <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                </div>   
+                                </div>
                                 <div class="form-group">
                                     <input class="form-control pro-control" type="text" placeholder="Default input" name="Username" [(ngModel)]="user.username" required>
                                     <input class="form-control pro-control" type="text" placeholder="Default input" value="lou297@hanyang.ac.kr" required>
                                     <input class="form-control pro-control" type="text" placeholder="Default input" value="010-5029-1617" required>
                                     <input class="form-control pro-control" type="text" placeholder="Default input" value="xorolx297@naver.com" required>
                                 </div>
-                                      
+
                                 <div class="but">
                                     <button type="button" class="btn btn-primary">Save changes</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </form>
-                        
+
                         </div>
                     </div>
                 </div>
