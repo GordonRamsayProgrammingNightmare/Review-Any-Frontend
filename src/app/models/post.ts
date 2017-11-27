@@ -8,15 +8,17 @@ export class Post {
 export class Tag {
   tag: String;
 }
-
-
-export class Post2{ 
-  title: String; 
+export class Post2{
+  title: String;
   content: String;
-  picUrl: String; 
-  tags: String[]; 
-  writtenBy: String;
-	writtenAt: String;
-	likeCnt: String;
-	viewCnt: String;
+  picUrl: String;
+  tags: {};
+  writtenBy: any;
+	writtenAt: Date;
+	likeCnt: number;
+	viewCnt: number;
+}
+
+export class Posts {
+  posts: Post2[];
 }
