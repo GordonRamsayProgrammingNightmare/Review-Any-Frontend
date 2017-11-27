@@ -13,7 +13,7 @@ import { Post2 } from 'app/models/post';
 
 export class HomeComponent implements OnInit {
 
-  private posts: Array<any>;
+  public posts: Array<any>;
 
   constructor(
     private router: Router,
