@@ -32,15 +32,6 @@ export class AuthService {
 	  return this.http.get(url, {headers: headers}).toPromise();
   }
 
-  getUserData(token): Promise<any> {
-    let url: string = `${this.BASE_URL}/user`;
-    let headers: Headers = new Headers({
-	    'Content-Type': 'application/json',
-	    'x-access-token': `${token}`
-	  });
-	  return this.http.get(url, {headers: headers}).toPromise();
-  }
-
   logout(): void {
     localStorage.removeItem('token');
   }

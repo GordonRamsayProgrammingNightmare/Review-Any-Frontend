@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'app/services/auth.service';
+import { GetDataService } from 'app/services/get-data.service';
 
 @Component({
   selector: 'app-home',
@@ -16,13 +17,17 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private auth: AuthService
+    private getData: GetDataService
   ) { }
 
   ngOnInit() {
+    this.getData.getData(localStorage.getItem('token'), 'post/all')
+      .then((data) => {
+        console.log('data: \n' + data);
+      }).catch((err) => {
+        console.log('error: \n' + err);
+      })
   }
-
-
 }
 
 

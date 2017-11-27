@@ -4,6 +4,7 @@ import { AuthidComponent } from 'app/components/authid/authid.component';
 import { AuthService } from 'app/services/auth.service';
 import { User } from '../../models/user';
 import { UploadService } from '../../services/upload.service';
+import { GetDataService } from '../../services/get-data.service';
 
 @Component({
   selector: 'app-profile',
@@ -19,12 +20,12 @@ export class ProfileComponent implements OnInit {
 
 
   constructor(
-    private userData: AuthService,
+    private userData: GetDataService,
     private upload: UploadService
   ) { }
 
   ngOnInit() {
-    this.userData.getUserData(localStorage.getItem('token'))
+    this.userData.getData(localStorage.getItem('token'), 'user')
       .then((data) => {
         console.log(data.json());
         this.user.username = data.json().username;

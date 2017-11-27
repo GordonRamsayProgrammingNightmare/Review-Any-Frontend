@@ -18,6 +18,8 @@ import { AuthService } from './services/auth.service';
 import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 import { LoginRedirectService } from './services/login-redirect.service';
 import { UploadService } from './services/upload.service';
+import { GetDataService } from './services/get-data.service';
+
 import { TabComponent } from './components/profile/tab/tab.component';
 import { MaterialModule } from 'app/material/material.module';
 
@@ -45,6 +47,7 @@ import { MaterialModule } from 'app/material/material.module';
 		EnsureAuthenticatedService,
     LoginRedirectService,
     UploadService,
+    GetDataService
   ],
   bootstrap: [AppComponent]
 })

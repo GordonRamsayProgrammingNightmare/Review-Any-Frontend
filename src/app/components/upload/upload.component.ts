@@ -40,8 +40,8 @@ export class UploadComponent implements OnInit {
   splitTag(): string[] {
     let tempArray = this.inputTags.split("#");
     var tagsArray = [];
-    var c=0;
-    for(var i=0;i<tempArray.length;i++){
+    var c = 0;
+    for(var i = 0; i < tempArray.length; i++) {
       if((tempArray[i])!=""){  //remove empty element
         // remove empty space
         tagsArray[c] = this.conTag(tempArray[i].replace(/\s/gi,""));
