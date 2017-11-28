@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
 
-    <div class="row pro_row">
+    <div class="row pro_row justify-content-center">
         <div class="col-md-4">
 
             <img [src]="user.profileImg" alt="avatar" class="img-fluid" style="max-width:100%;height:auto;">
@@ -17,44 +17,45 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-1">
             <div class="ed" data-toggle="modal" data-target="#exampleModal">
                 <i class="fa fa-cog fa-4" style="cursor:pointer"></i>
             </div>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="head">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <hr>
-                        <div class="modal-body">
-                            <form (ngSubmit)="submitChange()">
-                                <div class="form-group img_select">
-                                    <label for="exampleFormControlFile1"><img [src]="user.profileImg" alt="avatar" class="rounded avatar modal_img"></label>
-                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control pro-control" type="text" placeholder="Default input" name="Username" [(ngModel)]="user.username" required>
-                                    <input class="form-control pro-control" type="text" placeholder="Default input" value="lou297@hanyang.ac.kr" required>
-                                    <input class="form-control pro-control" type="text" placeholder="Default input" value="010-5029-1617" required>
-                                    <input class="form-control pro-control" type="text" placeholder="Default input" value="xorolx297@naver.com" required>
-                                </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="head">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <hr>
+                    <div class="modal-body">
+                        <form (ngSubmit)="submitChange()">
+                            <div class="form-group img_select">
+                                <label for="exampleFormControlFile1"><img [src]="user.profileImg" alt="avatar" class="rounded avatar modal_img"></label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control pro-control" type="text" placeholder="Default input" name="Username" [(ngModel)]="user.username" required>
+                                <input class="form-control pro-control" type="text" placeholder="Default input" value="lou297@hanyang.ac.kr" required>
+                                <input class="form-control pro-control" type="text" placeholder="Default input" value="010-5029-1617" required>
+                                <input class="form-control pro-control" type="text" placeholder="Default input" value="xorolx297@naver.com" required>
+                            </div>
 
-                                <div class="but">
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </form>
+                            <div class="but">
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
 
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
 
