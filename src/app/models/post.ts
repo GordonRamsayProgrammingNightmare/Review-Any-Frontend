@@ -14,7 +14,7 @@ export class Post2{
   picUrl: String;
   tags: {};
   writtenBy: any;
-	writtenAt: Date;
+	writtenAt: String;
 	likeCnt: number;
 	viewCnt: number;
 }

@@ -10,17 +10,24 @@ import { AuthService } from 'app/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   selectedList: string;
+  searchType: string;
 
   constructor(
     private router: Router,
     private auth: AuthService
-  ) { }
+  ) {
+    this.searchType = 'Search';
+  }
 
   ngOnInit() {
   }
 
-  selectList(data:any): void {
+  ngOnChanges() {
 
+  }
+
+  selectList(data: string): void {
+    this.searchType = data;
   }
 
   gotoHome(): void {

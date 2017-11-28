@@ -12,28 +12,52 @@ import { Post2 } from 'app/models/post';
 
 
 export class HomeComponent implements OnInit {
-
+  private token: any;
   public posts: Array<any>;
 
   constructor(
     private router: Router,
     private getData: GetDataService
-  ) { }
+  ) {
+    this.token = localStorage.getItem('token');
+  }
 
   ngOnInit() {
-    console.log('token: \n', localStorage.getItem('token'));
-    this.getData.getData(localStorage.getItem('token'), 'post/all')
+    // console.log('token: \n', localStorage.getItem('token'));
+    this.getData.getData(this.token, 'post/all')
       .then((data) => {
         // console.log(data.json().posts);
         var p = [];
         data.json().posts.forEach(element => {
           p.push(element);
         });
-        console.log(p);
+        // console.log(p);
         this.posts = p;
 
       }).catch((err) => {
         console.log('error: \n' + err);
+      });
+  }
+
+  viewHandler(postId): void {
+    this.getData.sendData(this.token, 'post/view', postId)
+      .then((msg) => {
+        // console.log(msg.json());
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  likeBtnHandler(postId): void {
+    // console.log(localStorage.getItem('token'));
+    // console.log(postId);
+    this.getData.sendData(this.token, 'post/like', postId)
+      .then((msg) => {
+        // console.log(msg.json());
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 }

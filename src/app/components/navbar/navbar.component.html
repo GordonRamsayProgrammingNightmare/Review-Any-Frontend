@@ -38,20 +38,20 @@
                 <div class="input-group stylish-input-group input-append">
                     <div class="input-group-btn bs-dropdown-to-select-group">
                         <button type="button" class="btn btn-light dropdown-toggle as-is bs-dropdown-to-select" data-toggle="dropdown">
-                            <span data-bind="bs-drp-sel-label">Select</span>
+                            <span data-bind="bs-drp-sel-label">{{searchType}}</span>
                             <input type="hidden" name="selected_value" data-bind="bs-drp-sel-value" value="">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
 
                         </button>
                         <ul class="dropdown-menu" role="menu">
-                            <li data-value="1"><a class="dropdown-item" (click)="selectList(this)">Title</a></li>
-                            <li data-value="2"><a class="dropdown-item" (click)="selectList(this)">Tag</a></li>
-                            <li data-value="3"><a class="dropdown-item" (click)="selectList(this)">Content</a></li>
+                            <li data-value="1"><a class="dropdown-item" (click)="selectList('Title')">Title</a></li>
+                            <li data-value="2"><a class="dropdown-item" (click)="selectList('Tag')">Tag</a></li>
+                            <li data-value="3"><a class="dropdown-item" (click)="selectList('Content')">Content</a></li>
                             <li>
                                 <div role="separator" class="dropdown-divider"></div>
                             </li>
-                            <li data-value="4"><a class="dropdown-item" (click)="selectList(this)">Image</a></li>
+                            <li data-value="4"><a class="dropdown-item" (click)="selectList('Image')">Image</a></li>
                         </ul>
                     </div>
 

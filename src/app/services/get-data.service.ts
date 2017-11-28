@@ -12,11 +12,23 @@ export class GetDataService {
 
   getData(token, type): Promise<any> {
     let url: string = `${this.BASE_URL}/${type}`;
-    console.log('post url: ', url);
+    // console.log('post url: ', url);
     let headers: Headers = new Headers({
 	    'Content-Type': 'application/json',
 	    'x-access-token': `${token}`
 	  });
 	  return this.http.get(url, {headers: headers}).toPromise();
+  }
+
+  sendData(token, type, data): Promise<any> {
+    // console.log(`${token}`);
+    let url: string = `${this.BASE_URL}/${type}/${data}`;
+    let headers: Headers = new Headers({
+	    'Content-Type': 'application/json',
+	    'x-access-token': `${token}`
+    });
+    // console.log(headers);
+    const body = {};
+    return this.http.post(url, body, {headers: headers}).toPromise();
   }
 }
