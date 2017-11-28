@@ -13,16 +13,21 @@ import { Post2 } from 'app/models/post';
 export class TabComponent implements OnInit {
   private token: any;
   public posts: Array<any>;
+  public likedPosts: Array<any>;
+  likedPostExists: boolean;
+  likedPostNotExists: boolean;
 
   constructor(
     private router: Router,
     private getData: GetDataService
   ) {
     this.token = localStorage.getItem('token');
+    this.likedPostExists = false;
+    this.likedPostNotExists = true;
    }
 
   ngOnInit() {
-    this.getData.getData(this.token, 'post/all')
+    this.getData.getData(this.token, 'post')
     .then((data) => {
       var p = [];
       data.json().posts.forEach(element => {
@@ -33,6 +38,18 @@ export class TabComponent implements OnInit {
     }).catch((err) => {
       console.log('error: \n' + err);
     });
+    this.getData.getData(this.token, 'post/like')
+      .then((data) => {
+        var lp = [];
+        data.json().posts.forEach(element => {
+          lp.push(element);
+        });
+        this.likedPosts = lp;
+        if(lp) {
+          this.likedPostExists = true;
+          this.likedPostNotExists = false;
+        }
+      });
   }
 
   viewHandler(postId): void {

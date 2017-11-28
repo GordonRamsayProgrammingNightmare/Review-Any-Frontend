@@ -1,27 +1,36 @@
-
 <div class="tab_container">
-	<input id="tab1" type="radio" name="tabs" checked>
-	<label for="tab1"><i class="fa fa-tag"></i><span>My Review</span></label>
+    <input id="tab1" type="radio" name="tabs" checked>
+    <label for="tab1"><i class="fa fa-tag"></i><span>My Review</span></label>
 
-	<input id="tab2" type="radio" name="tabs">
-	<label for="tab2"><i class="fa fa-heart"></i><span>Liked</span></label>
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2"><i class="fa fa-heart"></i><span>Liked</span></label>
 
-	<section id="content1" class="tab-content">
+    <section id="content1" class="tab-content">
         <div *ngFor="let post of posts" class="items well">
             <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post.title" ng-click="showModal(post.title)" (click)="viewHandler(post._id)">
                 <img class="img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
                 <h3 class="carousel-caption">{{post.title}}</h3>
             </div>
         </div>
-	</section>
+    </section>
 
-	<section id="content2" class="tab-content">
-        <br>
-		<h3>No image.</h3>
-	 	<p>add your favorite.</p>
-        <br><br><br><br>
+    <section id="content2" class="tab-content">
+        <div *ngIf="likedPostNotExists">
+            <br>
+            <h3>No image.</h3>
+            <p>add your favorite.</p>
+            <br><br><br><br>
+        </div>
+        <div *ngIf="likedPostExists">
+            <div *ngFor="let post of likedPosts" class="items well">
+                <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post.title" ng-click="showModal(lp.title)" (click)="viewHandler(post._id)">
+                    <img class="img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
+                    <h3 class="carousel-caption">{{post.title}}</h3>
+                </div>
+            </div>
+        </div>
 
-	</section>
+    </section>
 </div>
 
 
@@ -40,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
             </div>
@@ -58,7 +67,7 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
-                            <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info">{{tag.tag}}</span> <span class="badge badge-info">tag2</span> <span class="badge badge-info">tag3</span></p>
+                            <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info">{{tag.tag}}</span></p>
                         </div>
                         <div class="col-auto ml-auto">
                             <img class="likeBtn" src="../../../../assets/imgs/likeButton.png" (click)="likeBtnHandler(post._id)" width="70" height="70" alt="like_icon">
