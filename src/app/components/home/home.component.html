@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
-                            <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags mr-1" class="badge badge-info">{{tag.tag}}</span></p>
+                            <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
                         </div>
                         <div class="col-auto ml-auto">
                             <img class="likeBtn" [src]="source" (click)="likeBtnHandler(post._id)" width="70" height="70" alt="like_icon">
