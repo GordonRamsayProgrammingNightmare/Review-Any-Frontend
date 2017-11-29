@@ -28,7 +28,12 @@ export class HomeComponent implements OnInit {
     this.getUserLikePost();
   }
 
+  ngOnChanges() {
+    this.getUserLikePost();
+  }
+
   ngOnInit() {
+
     this.updateData();
     // this.interval = setInterval(() => {
     //   this.updateData();
