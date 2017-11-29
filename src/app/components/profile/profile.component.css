@@ -8,9 +8,23 @@ body {
 hr {
   width: 80%;
 }
-
-
-
+#profileR1{
+  margin-top: 7em;
+}
+.profileImg{
+  margin-right:7em;
+  margin-left:3em;  
+  width:20em;
+  border-width:1em;
+  border-radius:50%;
+}
+.profileR2{
+  padding:0;
+}
+.user_name{
+  font-size:2.5em;
+  margin-left : 3em;
+}
 
 body > app-root > app-profile > div > div.row.pro_row {
   margin-top: 150px;
@@ -24,19 +38,19 @@ body > app-root > app-profile > div > div.row.pro_row > div.col-md-4 {
 
 
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(1) > i {
-  color: #01b431c7;
+  color: gray;
 }
 
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(2) > i {
-  color: #ffc620;
+  color: gray;
 }
 
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(3) > i {
-  color: red;
+  color: gray;
 }
 
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(4) > i {
-  color: #36c6fffc;
+  color: gray;
 }
 
 ul {
