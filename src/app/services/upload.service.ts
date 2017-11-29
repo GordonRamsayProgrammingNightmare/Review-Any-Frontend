@@ -19,7 +19,7 @@ export class UploadService implements OnInit {
     private http: Http
   ) { }
 
-  uploadPost(post: Post): Promise<any> {
+  uploadPost(post: any): Promise<any> {
     let url: string = `${this.BASE_URL}/post`;
     const token = localStorage.getItem('token');
     return this.http.post(url, post, {

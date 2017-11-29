@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'app/services/auth.service';
-import { GetDataService } from 'app/services/get-data.service';
+import { CrudDataService } from 'app/services/crud-data.service';
 import { Post2 } from 'app/models/post';
 
 @Component({
@@ -19,7 +19,7 @@ export class TabComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private getData: GetDataService
+    private getData: CrudDataService
   ) {
     this.token = localStorage.getItem('token');
     this.likedPostExists = false;

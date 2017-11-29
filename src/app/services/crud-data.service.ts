@@ -3,7 +3,7 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class GetDataService {
+export class CrudDataService {
   private BASE_URL: string = 'http://localhost:3000/api';
 
   constructor(
@@ -31,4 +31,23 @@ export class GetDataService {
     const body = {};
     return this.http.post(url, body, {headers: headers}).toPromise();
   }
+
+  deleteData(token, type, id): Promise<any> {
+    let url: string = `${this.BASE_URL}/${type}/${id}`;
+    let headers: Headers = new Headers({
+      'Content-Type': 'application/json',
+      'x-access-token': `${token}`
+    });
+    return this.http.delete(url, {headers: headers}).toPromise();
+  }
+
+  putData(token, type, id): Promise<any> {
+    let url: string = `${this.BASE_URL}/${type}/${id}`;
+    let headers: Headers = new Headers({
+      'Content-Type': 'application/json',
+      'x-access-token': `${token}`
+    });
+    return this.http.put(url, {headers: headers}).toPromise();
+  }
+
 }

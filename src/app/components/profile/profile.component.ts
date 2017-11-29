@@ -4,7 +4,7 @@ import { AuthidComponent } from 'app/components/authid/authid.component';
 import { AuthService } from 'app/services/auth.service';
 import { User } from '../../models/user';
 import { UploadService } from '../../services/upload.service';
-import { GetDataService } from '../../services/get-data.service';
+import { CrudDataService } from '../../services/crud-data.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   profileImg: any;
 
   constructor(
-    private userData: GetDataService,
+    private userData: CrudDataService,
     private upload: UploadService
   ) { }
 

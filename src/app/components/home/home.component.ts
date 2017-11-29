@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'app/services/auth.service';
-import { GetDataService } from 'app/services/get-data.service';
+import { CrudDataService } from 'app/services/crud-data.service';
 import { Post2 } from 'app/models/post';
 import { forEach } from '@angular/router/src/utils/collection';
 import { setInterval } from 'timers';
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private getData: GetDataService
+    private crudData: CrudDataService
   ) {
     this.token = localStorage.getItem('token');
   }
@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   updateData() {
     // console.log('token: \n', localStorage.getItem('token'));
-    this.getData.getData(this.token, 'post/all')
+    this.crudData.getData(this.token, 'post/all')
     .then((data) => {
       // console.log(data.json().posts);
       var p = [];
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   viewHandler(postId): void {
-    this.getData.sendData(this.token, 'post/view', postId)
+    this.crudData.sendData(this.token, 'post/view', postId)
       .then((msg) => {
         // console.log(msg.json());
       })
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
   likeBtnHandler(postId): void {
     // console.log(localStorage.getItem('token'));
     // console.log(postId);
-    this.getData.getData(this.token, 'user')
+    this.crudData.getData(this.token, 'user')
       .then(data => {
         var arr = data.json().likePost;
         var a: boolean = false;
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
           if(postId == element) { a = true; }
         });
         if (!a) {
-          this.getData.sendData(this.token, 'post/like', postId)
+          this.crudData.sendData(this.token, 'post/like', postId)
           .then((msg) => {
             // console.log(msg.json());
           })
