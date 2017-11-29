@@ -5,6 +5,7 @@ import { AuthService } from 'app/services/auth.service';
 import { GetDataService } from 'app/services/get-data.service';
 import { Post2 } from 'app/models/post';
 import { forEach } from '@angular/router/src/utils/collection';
+import { setInterval } from 'timers';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,6 +16,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class HomeComponent implements OnInit {
   private token: any;
   public posts: Array<any>;
+  private interval: any;
 
   constructor(
     private router: Router,
@@ -24,20 +26,28 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateData();
+    this.interval = setInterval(() => {
+      this.updateData();
+      console.log('interval over');
+    }, 5000);
+  }
+
+  updateData() {
     // console.log('token: \n', localStorage.getItem('token'));
     this.getData.getData(this.token, 'post/all')
-      .then((data) => {
-        // console.log(data.json().posts);
-        var p = [];
-        data.json().posts.forEach(element => {
-          p.push(element);
-        });
-        // console.log(p);
-        this.posts = p;
-
-      }).catch((err) => {
-        console.log('error: \n' + err);
+    .then((data) => {
+      // console.log(data.json().posts);
+      var p = [];
+      data.json().posts.forEach(element => {
+        p.push(element);
       });
+      // console.log(p);
+      this.posts = p;
+
+    }).catch((err) => {
+      console.log('error: \n' + err);
+    });
   }
 
   viewHandler(postId): void {
