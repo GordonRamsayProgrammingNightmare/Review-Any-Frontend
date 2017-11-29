@@ -22,6 +22,7 @@ import { CrudDataService } from './services/crud-data.service';
 
 import { TabComponent } from './components/profile/tab/tab.component';
 import { MaterialModule } from 'app/material/material.module';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MaterialModule } from 'app/material/material.module';
     ProfileComponent,
     UploadComponent,
     NavbarComponent,
-    TabComponent
+    TabComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
