@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   private token: any;
   public posts: Array<any>;
   private interval: any;
+  source='https://cdn2.iconfinder.com/data/icons/facebook-ui/48/Jee-36-512.png';
 
   constructor(
     private router: Router,
@@ -71,6 +72,7 @@ export class HomeComponent implements OnInit {
           if(postId == element) { a = true; }
         });
         if (!a) {
+          this.source = 'https://cdn0.iconfinder.com/data/icons/facebook-ui-glyph/48/Sed-03-512.png';
           this.crudData.sendData(this.token, 'post/like', postId)
           .then((msg) => {
             // console.log(msg.json());
