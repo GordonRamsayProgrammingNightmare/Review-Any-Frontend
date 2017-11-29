@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
       .then(data => {
         var arr = data.json().likePost;
         var a: boolean = false;
-        arr.forEach(element => {
+        arr.forEach(element => {s
           if(postId == element) { a = true; }
         });
         if (!a) {
