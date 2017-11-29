@@ -27,10 +27,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.updateData();
-    this.interval = setInterval(() => {
-      this.updateData();
-      console.log('interval over');
-    }, 5000);
+    // this.interval = setInterval(() => {
+    //   this.updateData();
+    //   console.log('interval over');
+    // }, 5000);
   }
 
   updateData() {
