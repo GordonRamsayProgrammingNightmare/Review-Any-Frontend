@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
 import { GetDataService } from 'app/services/get-data.service';
 import { Post2 } from 'app/models/post';
+import { forEach } from '@angular/router/src/utils/collection';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -52,9 +53,22 @@ export class HomeComponent implements OnInit {
   likeBtnHandler(postId): void {
     // console.log(localStorage.getItem('token'));
     // console.log(postId);
-    this.getData.sendData(this.token, 'post/like', postId)
-      .then((msg) => {
-        // console.log(msg.json());
+    this.getData.getData(this.token, 'user')
+      .then(data => {
+        var arr = data.json().likePost;
+        var a: boolean = false;
+        arr.forEach(element => {
+          if(postId == element) { a = true; }
+        });
+        if (!a) {
+          this.getData.sendData(this.token, 'post/like', postId)
+          .then((msg) => {
+            // console.log(msg.json());
+          })
+          .catch(err => {
+            console.log(err);
+          });
+        }
       })
       .catch(err => {
         console.log(err);
