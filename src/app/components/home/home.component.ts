@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   public posts: Array<any>;
   private interval: any;
   private likePosts: Array<any>;
+  private postUsername: any;
 
   constructor(
     private router: Router,
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.getUserLikePost();
     this.updateData();
     // this.interval = setInterval(() => {
     //   this.updateData();
@@ -65,6 +66,14 @@ export class HomeComponent implements OnInit {
 
   viewHandler(postId, post): void {
     this.updateSinglePost(postId, post);
+    this.crudData.getData(this.token, `user/username/${post.writtenBy}`)
+      .then(data => {
+        console.log(data.json());
+        this.postUsername = data.json().username;
+      })
+      .catch(err => {
+        console.log(err);
+      })
     this.crudData.sendData(this.token, 'post/view', postId)
       .then((msg) => {
         // console.log(msg.json());
@@ -105,7 +114,7 @@ export class HomeComponent implements OnInit {
 
   // 한 포스트 좋아요 했는지 체크
   chkLiked(id): boolean {
-    this.getUserLikePost();
+    // this.getUserLikePost();
     var isLike: boolean = false;
     this.likePosts.forEach(element => {
       if(id == element) {
