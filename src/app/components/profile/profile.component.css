@@ -12,31 +12,6 @@ hr {
 
 
 
-
-
-.stylish-input-group .input-group-addon {
-    background: white !important;
-}
-
-.stylish-input-group .form-control {
-    border-right: 0;
-    box-shadow: 0 0 0;
-    border-color: #ccc;
-}
-
-.stylish-input-group button {
-    border: 0;
-    background: transparent;
-}
-
-
-.avatar {
-  width: 65%;
-  border-width: 10px;
-}
-
-
-
 body > app-root > app-profile > div > div.row.pro_row {
   margin-top: 150px;
 }
@@ -83,14 +58,6 @@ body > app-root > app-profile > div > div > div.col-md-5 > div.ed > i:hover {
   
 }
 
-.img_select {
-  text-align: center;
-}
-
-#exampleFormControlFile1 {
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .pro-control{
   width: 60%;
@@ -108,77 +75,6 @@ hr {
   margin: 2%;
 }
 
-.modal_img {
-  width: 60%;
-}
-
-.but {
-  float: right;
-  margin-top: 10px;
-}
-
-
-.search-bar{
-  width: 600px;
-  vertical-align: middle;
-  white-space: nowrap;
-  position: relative;
-}
-
-.search-bar input#search{
-  width: 600px;
-  height: 50px;
-  border: none;
-  font-size: 10pt;
-  float: left;
-  padding-left: 45px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-.search-bar input#search::-webkit-input-placeholder {
-   color: #65737e;
-}
-
-.search-bar input#search:-moz-placeholder { /* Firefox 18- */
-   color: #65737e;
-}
-
-.search-bar input#search::-moz-placeholder {  /* Firefox 19+ */
-   color: #65737e;
-}
-
-.search-bar input#search:-ms-input-placeholder {
-   color: #65737e;
-}
-.search-bar .icon{
-  position: absolute;
-  top: 50%;
-  margin-left: 17px;
-  margin-top: 13px;
-  z-index: 1;
-  color: BLACK;
-}
-
-
-
-.con {
-    margin-bottom: 5%;
-}
-
-
-
-.tag {
-  color: gray;
-  font-size: 15pt;
-}
-
-.more {
-  padding-left: 2%;
-  color: gray;
-  font-size: 12pt;
-}
 
 
 
