@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   public posts: Array<any>;
   private interval: any;
   private likePosts: Array<any>;
-  private postUsername: any;
+  public postUsername: any;
 
   constructor(
     private router: Router,
