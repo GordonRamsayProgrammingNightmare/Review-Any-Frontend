@@ -10,6 +10,7 @@ import { GetDataService } from '../../services/get-data.service';
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
+  providers: [User],
   encapsulation: ViewEncapsulation.None
 })
 export class ProfileComponent implements OnInit {
@@ -17,7 +18,6 @@ export class ProfileComponent implements OnInit {
   user: User = new User();
   username: string;
   profileImg: any;
-
 
   constructor(
     private userData: GetDataService,
@@ -31,6 +31,17 @@ export class ProfileComponent implements OnInit {
         this.user.username = data.json().username;
         this.user.profileImg = data.json().profileImg;
       })
+  }
+
+  onFileChange(event: any) {
+    const reader = new FileReader();
+    if(event.target.files && event.target.files.length > 0) {
+      const file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = (e) => {
+        this.profileImg = this.user.profileImg = reader.result;
+      }
+    };
   }
 
   submitChange() {
