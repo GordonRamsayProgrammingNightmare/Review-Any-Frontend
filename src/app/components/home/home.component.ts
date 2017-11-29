@@ -28,12 +28,6 @@ export class HomeComponent implements OnInit {
     this.getUserLikePost();
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    for (let c in changes) {
-      console.log(c);
-    }
-  }
-
   ngOnInit() {
     this.updateData();
     // this.interval = setInterval(() => {
@@ -47,7 +41,6 @@ export class HomeComponent implements OnInit {
     .then((data) => {
       // console.log(data.json().posts);
       var p = [];
-      console.log(this.likePosts);
       data.json().posts.forEach(element => {
         if(this.chkLiked(element._id)) {
           element.isLiked = true;
