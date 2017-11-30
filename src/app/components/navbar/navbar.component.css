@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
 .stylish-input-group .input-group-addon {
     background: white !important;
 }
@@ -33,4 +35,8 @@
 
 .main-nav {
     width: 100%;
+}
+.navbar-brand {
+    font-family: 'Righteous', sans-serif;
+    /* font-size: 28px; */
 }
