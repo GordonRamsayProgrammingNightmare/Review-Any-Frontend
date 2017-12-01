@@ -6,10 +6,14 @@
     <label for="tab2"><i class="fa fa-heart"></i><span>Liked</span></label>
 
     <section id="content1" class="tab-content">
-        <div *ngFor="let post of posts" class="items well">
-            <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(post.title)" (click)="viewHandler(post._id)">
-                <img class="img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
-                <h3 class="carousel-caption">{{post.title}}</h3>
+        <div class="card-columns">
+            <div class="rows">
+                <div *ngFor="let post of posts" class="items well">
+                    <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(post.title)" (click)="viewHandler(post._id)">
+                        <img class="img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
+                        <h3 class="carousel-caption">{{post.title}}</h3>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
