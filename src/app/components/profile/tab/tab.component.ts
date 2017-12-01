@@ -31,6 +31,8 @@ export class TabComponent implements OnInit {
     .then((data) => {
       var p = [];
       data.json().posts.forEach(element => {
+        element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
+        element.writtenAt = element.writtenAt.replace('T', ' ');
         p.push(element);
       });
       this.posts = p;
@@ -42,6 +44,8 @@ export class TabComponent implements OnInit {
       .then((data) => {
         var lp = [];
         data.json().posts.forEach(element => {
+          element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
+          element.writtenAt = element.writtenAt.replace('T', ' ');
           lp.push(element);
         });
         this.likedPosts = lp;
