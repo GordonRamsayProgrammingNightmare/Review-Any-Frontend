@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
+import { CrudDataService } from 'app/services/crud-data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,15 +12,24 @@ import { AuthService } from 'app/services/auth.service';
 export class NavbarComponent implements OnInit {
   selectedList: string;
   searchType: string;
+  username: string;
 
   constructor(
     private router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private getUser: CrudDataService
   ) {
     this.searchType = 'Search';
   }
 
   ngOnInit() {
+    this.getUser.getData(localStorage.getItem('token'), 'user')
+      .then(data => {
+        this.username = data.json().username;
+      })
+      .catch(err => {
+        console.log('error: ', err);
+      });
   }
 
   ngOnChanges() {

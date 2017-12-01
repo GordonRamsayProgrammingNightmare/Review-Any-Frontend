@@ -18,6 +18,8 @@ export class ProfileComponent implements OnInit {
   user: User = new User();
   username: string;
   profileImg: any;
+  likepostNum: any;
+  mypostNum: any;
 
   constructor(
     private userData: CrudDataService,
@@ -30,6 +32,8 @@ export class ProfileComponent implements OnInit {
         console.log("user: ", data.json());
         this.user.username = data.json().username;
         this.user.profileImg = data.json().profileImg;
+        this.likepostNum = data.json().likePost.length;
+        this.mypostNum = data.json().myPost.length;
       })
   }
 
