@@ -70,6 +70,11 @@
 }
 
 .card-columns {
-    column-count: 4;
+    column-count: 5;
 }
 
+.container {
+    width: 95%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
