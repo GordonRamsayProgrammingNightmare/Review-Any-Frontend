@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.userData.getData(localStorage.getItem('token'), 'user')
       .then((data) => {
-        console.log(data.json());
+        console.log("user: ", data.json());
         this.user.username = data.json().username;
         this.user.profileImg = data.json().profileImg;
       })

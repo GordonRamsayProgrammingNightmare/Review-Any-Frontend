@@ -34,10 +34,6 @@
     transition: opacity 0.5s
 }
 
-.postModal>.modal-dialog>.modal-content>.modal-footer>.container>.text {
-    color: #9c9c9c;
-}
-
 *,
 *:before,
 *:after {
