@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   selectedList: string;
   searchType: string;
   username: string;
+  profileImg: string;
 
   constructor(
     private router: Router,
@@ -20,16 +21,18 @@ export class NavbarComponent implements OnInit {
     private getUser: CrudDataService
   ) {
     this.searchType = 'Search';
+    this.getUser.getData(localStorage.getItem('token'), 'user')
+    .then(data => {
+      this.username = data.json().username;
+      this.profileImg = data.json().profileImg;
+    })
+    .catch(err => {
+      console.log('error: ', err);
+    });
   }
 
   ngOnInit() {
-    this.getUser.getData(localStorage.getItem('token'), 'user')
-      .then(data => {
-        this.username = data.json().username;
-      })
-      .catch(err => {
-        console.log('error: ', err);
-      });
+
   }
 
   ngOnChanges() {
