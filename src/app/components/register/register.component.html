@@ -22,6 +22,15 @@
     <form (ngSubmit)="onRegister()" novalidate>
       <div class="card-body">
         <div class="box">
+          <div class="row mb-1">
+            <div class="col"></div>
+            <div class="col-fluid full-width pull-right">
+                <button class="btn float-right" id="back_btn" type="button" (click)="goBack()">              
+                    <img src="assets/imgs/cancel.png" class="rounded p-0 m-0 float-right back_icon" alt="...">
+                  </button>
+    
+            </div>
+          </div>
           <div class="margin-bottom-20">
             <img id=create_icon class="thumbnail box-center margin-top-20" alt="No image" [src]="imageUrl">
           </div>
@@ -51,4 +60,4 @@
 
 
 
-<button (click)="goBack()">Back</button>
+
