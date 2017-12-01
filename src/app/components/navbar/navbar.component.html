@@ -67,7 +67,7 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          userID
+          {{username}}
         </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" (click)="gotoProfile()">MyPage</a>
@@ -77,7 +77,7 @@
 
         <li class="nav-item">
             <a class="nav-link" (click)="gotoProfile()">
-                <img class="userPhoto" src="https://pbs.twimg.com/profile_images/800622153565540352/hki9xSrp.jpg" width="30" height="30" alt="user_image">
+                <img class="userPhoto" [src]="profileImg" width="30" height="30" alt="user_image" >
             </a>
         </li>
 

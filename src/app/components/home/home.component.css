@@ -1,3 +1,4 @@
+@import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
 
 .stylish-input-group .input-group-addon {
     background: white !important;
@@ -73,3 +74,16 @@
     column-count: 4;
 }
 
+.container {
+    width: 95%;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+h3.carousel-caption, h3.postTitle {
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 700;
+}
+p {
+    font-family: 'NanumSquare', sans-serif;
+}
