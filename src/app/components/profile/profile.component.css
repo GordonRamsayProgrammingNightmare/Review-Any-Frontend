@@ -38,7 +38,8 @@ hr {
 }
 .user_name{
   font-size:2.5em;
-  margin-left : 3em;
+  /* margin-left : 3em; */
+  text-align: center;
 }
 
 body > app-root > app-profile > div > div.row.pro_row {
@@ -68,7 +69,7 @@ body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul 
   color: gray;
 }
 
-ul {
+h1 {
   font-family: 'Capriola', sans-serif;
 }
 
