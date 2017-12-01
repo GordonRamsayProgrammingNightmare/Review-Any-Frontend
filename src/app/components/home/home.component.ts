@@ -54,6 +54,9 @@ export class HomeComponent implements OnInit {
         } else {
           element.isLiked = false;
         }
+        // console.log(element.writtenAt);
+        element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
+        element.writtenAt = element.writtenAt.replace('T', ' ');
         p.push(element);
       });
       // console.log(p);
