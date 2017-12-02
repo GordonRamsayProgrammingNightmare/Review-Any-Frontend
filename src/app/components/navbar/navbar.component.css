@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Righteous');
 
+button > span, a.username, .dropdown-menu > a, .dropdown-menu li>a {
+    font-family: 'Righteous', sans-serif;
+}
 .stylish-input-group .input-group-addon {
     background: white !important;
 }

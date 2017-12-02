@@ -50,6 +50,15 @@
                     </p>
                 </div>
             </div>
+            <!-- <hr> -->
+            <div class="modal-footer" *ngIf="post.comments.length != 0">
+                <ul class="comments">
+                    <li *ngFor="let comment of post.comments">
+                        {{ comment.comment }}
+                        {{ comment.username }}
+                    </li>
+                </ul>
+            </div>
             <div class="modal-footer">
                 <div class="container">
                     <div class="row">

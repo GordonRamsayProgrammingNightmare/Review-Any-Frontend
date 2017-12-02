@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   private interval: any;
   private likePosts: Array<any>;
   public postUsername: any;
-
+  public commentUsername: String;
   constructor(
     private router: Router,
     private crudData: CrudDataService
@@ -54,19 +54,27 @@ export class HomeComponent implements OnInit {
         } else {
           element.isLiked = false;
         }
+        
         // console.log(element.writtenAt);
         element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
         element.writtenAt = element.writtenAt.replace('T', ' ');
         p.push(element);
       });
-      // console.log(p);
+      console.log(p);
       this.posts = p;
 
     }).catch((err) => {
       console.log('error: \n' + err);
     });
   }
-
+  getUsername(userId): String {
+    this.crudData.getData(this.token, `user/username/${userId}`)
+      .then(data => {
+        console.log(data.json());
+        this.commentUsername = data.json().username;
+      })
+      return this.commentUsername;
+  }
   viewHandler(postId, post): void {
     this.updateSinglePost(postId, post);
     this.crudData.getData(this.token, `user/username/${post.writtenBy}`)

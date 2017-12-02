@@ -87,3 +87,7 @@ h3.carousel-caption, h3.postTitle {
 p {
     font-family: 'NanumSquare', sans-serif;
 }
+
+.modal-footer {
+    justify-content: flex-start;
+}
