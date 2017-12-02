@@ -24,6 +24,7 @@ import { TabComponent } from './components/profile/tab/tab.component';
 import { MaterialModule } from 'app/material/material.module';
 import { SearchComponent } from './components/search/search.component';
 
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { SearchComponent } from './components/search/search.component';
     HttpModule,
     AppRoutingModule,
     MaterialModule,
+    Ng4LoadingSpinnerModule
   ],
   providers: [
     AuthService,

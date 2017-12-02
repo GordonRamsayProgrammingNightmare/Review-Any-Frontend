@@ -2,9 +2,10 @@ import { Component, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/co
 import { Router } from '@angular/router/';
 import { Post, Tag } from '../../models/post';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-
+// import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { UploadService } from '../../services/upload.service';
 import { element } from 'protractor';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-upload',
@@ -23,7 +24,8 @@ export class UploadComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private uploader: UploadService
+    private uploader: UploadService,
+    private spinnerService: Ng4LoadingSpinnerService
   ) {
     this.postImg = "http://www.washaweb.com/tutoriaux/fileupload/imgs/image-temp-220.png";
   }
@@ -59,16 +61,19 @@ export class UploadComponent implements OnInit {
   onUpload() {
     // console.log(this.post.tags);
     this.post.tags = this.splitTag();
+    this.spinnerService.show();
     // this.post.base64 = this.postImg;
     console.log(this.post);
     this.uploader.uploadPost(this.post)
     .then((msg) => {
       console.log(msg.json());
+      this.spinnerService.hide();
       alert("Uploaded file successfully");
       this.router.navigateByUrl('/');
     })
     .catch((err) => {
-      alert(err.json().message);
+      // alert(err.json().message);
+      console.log('not uploaded');
     })
   }
 
