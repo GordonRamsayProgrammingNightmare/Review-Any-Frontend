@@ -47,10 +47,10 @@
 }
 .upload{
   border-style:solid;
-  border-color:#ddd; 
-  border-radius:1em; 
-  width:55em; 
-  background-color: rgba(249, 249, 249, 0.952); 
+  border-color:#ddd;
+  border-radius:1em;
+  width:55em;
+  background-color: rgba(249, 249, 249, 0.952);
   margin-top:1.5em;
 }
 #upload_btn{
@@ -63,9 +63,9 @@
 }
 
 .upload_thum{
-  width:22em;
+  width:100%;
   margin-top:1em;
-  
+
 }
 .inputfile-2 {
 width: 0.1px;
@@ -92,7 +92,7 @@ z-index: -1;
   width:17.6em;
   margin-top:0.2em;
   border-radius:0.2em;
-  
+
 
   /* 10px 20px */
 }
@@ -118,3 +118,4 @@ z-index: -1;
 .inputfile-2 + label:hover {
  color:#208ff0;
 }
+

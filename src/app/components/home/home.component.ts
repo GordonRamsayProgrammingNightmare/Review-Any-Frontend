@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   private likePosts: Array<any>;
   public postUsername: any;
   public commentUsername: String;
+
   constructor(
     private router: Router,
     private crudData: CrudDataService
@@ -54,7 +55,7 @@ export class HomeComponent implements OnInit {
         } else {
           element.isLiked = false;
         }
-        
+
         // console.log(element.writtenAt);
         element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
         element.writtenAt = element.writtenAt.replace('T', ' ');
@@ -67,6 +68,7 @@ export class HomeComponent implements OnInit {
       console.log('error: \n' + err);
     });
   }
+
   getUsername(userId): String {
     this.crudData.getData(this.token, `user/username/${userId}`)
       .then(data => {
@@ -75,6 +77,7 @@ export class HomeComponent implements OnInit {
       })
       return this.commentUsername;
   }
+
   viewHandler(postId, post): void {
     this.updateSinglePost(postId, post);
     this.crudData.getData(this.token, `user/username/${post.writtenBy}`)
