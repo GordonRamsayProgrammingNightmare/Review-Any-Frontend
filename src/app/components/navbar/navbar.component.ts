@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
 import { CrudDataService } from 'app/services/crud-data.service';
+import { HomeComponent } from 'app/components/home/home.component';
 
 @Component({
   selector: 'app-navbar',
@@ -12,16 +13,20 @@ import { CrudDataService } from 'app/services/crud-data.service';
 export class NavbarComponent implements OnInit {
   selectedList: string;
   searchType: string;
+  searchTxt: string;
   username: string;
   profileImg: string;
+  token: any;
 
   constructor(
     private router: Router,
     private auth: AuthService,
-    private getUser: CrudDataService
+    private crud: CrudDataService,
+    private home: HomeComponent
   ) {
+    this.token = localStorage.getItem('token');
     this.searchType = 'Search';
-    this.getUser.getData(localStorage.getItem('token'), 'user')
+    this.crud.getData(this.token, 'user')
     .then(data => {
       this.username = data.json().username;
       this.profileImg = data.json().profileImg;
@@ -44,6 +49,7 @@ export class NavbarComponent implements OnInit {
   }
 
   gotoHome(): void {
+    this.home.updateData();
     this.router.navigate(['']);
   }
 
@@ -60,5 +66,29 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('login');
   }
 
+  searchHandler(): void {
+    this.crud.getData(this.token, 'search/' + this.searchType + '/' + this.searchTxt)
+      .then(data => {
+        var p = [];
+        console.log(data.json());
+        data.json().post.forEach(element => {
+          if(this.home.chkLiked(element._id)) {
+            element.isLiked = true;
+            // console.log(element);
+          } else {
+            element.isLiked = false;
+          }
+
+          // console.log(element.writtenAt);
+          element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
+          element.writtenAt = element.writtenAt.replace('T', ' ');
+          p.push(element);
+        });
+        // console.log(p);
+        this.home.posts = p;
+      }).catch((err) => {
+        console.log('error: \n' + err);
+      });
+  }
 }
 

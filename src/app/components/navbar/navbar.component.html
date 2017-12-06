@@ -11,7 +11,7 @@
 
     <div class="col">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form col-12">
+            <form class="form col-12" (ngSubmit)="searchHandler()">
                 <div id="imaginary_container">
                     <div class="input-group stylish-input-group input-append">
                         <div class="input-group-btn bs-dropdown-to-select-group">
@@ -33,7 +33,7 @@
                             </ul>
                         </div>
 
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" name="search" class="form-control" placeholder="Search" [(ngModel)]="searchTxt">
                         <span class="input-group-addon">
                       <button type="submit"><img src="../../../assets/imgs/search.png" width="30" height="30" alt="search_icon"></button>
                   </span>
