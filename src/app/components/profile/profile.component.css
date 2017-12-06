@@ -39,7 +39,7 @@ hr {
 }
 .user_say{
   text-align:center;
-  margin-top:0.5em;
+  margin-top:1em;
 }
 
 body > app-root > app-profile > div > div.row.pro_row {
