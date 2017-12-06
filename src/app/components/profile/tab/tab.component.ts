@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'app/services/auth.service';
@@ -16,18 +16,26 @@ export class TabComponent implements OnInit {
   public likedPosts: Array<any>;
   likedPostExists: boolean;
   likedPostNotExists: boolean;
+  rerender = false;
 
   constructor(
     private router: Router,
-    private getData: CrudDataService
+    private crud: CrudDataService,
+    private cdr: ChangeDetectorRef
   ) {
     this.token = localStorage.getItem('token');
     this.likedPostExists = false;
     this.likedPostNotExists = true;
-   }
+  }
+
+  doRerender() {
+    this.rerender = true;
+    this.cdr.detectChanges();
+    this.rerender = false;
+  }
 
   ngOnInit() {
-    this.getData.getData(this.token, 'post')
+    this.crud.getData(this.token, 'post')
     .then((data) => {
       var p = [];
       data.json().posts.forEach(element => {
@@ -40,7 +48,7 @@ export class TabComponent implements OnInit {
     }).catch((err) => {
       console.log('error: \n' + err);
     });
-    this.getData.getData(this.token, 'post/like')
+    this.crud.getData(this.token, 'post/like')
       .then((data) => {
         var lp = [];
         data.json().posts.forEach(element => {
@@ -57,7 +65,7 @@ export class TabComponent implements OnInit {
   }
 
   viewHandler(postId): void {
-    this.getData.sendData(this.token, 'post/view', postId)
+    this.crud.sendData(this.token, 'post/view', postId)
       .then((msg) => {
       })
       .catch(err => {
@@ -66,7 +74,7 @@ export class TabComponent implements OnInit {
   }
 
   likeBtnHandler(postId): void {
-    this.getData.sendData(this.token, 'post/like', postId)
+    this.crud.sendData(this.token, 'post/like', postId)
       .then((msg) => {
       })
       .catch(err => {
@@ -74,4 +82,17 @@ export class TabComponent implements OnInit {
       });
   }
 
+  delBtnHandler(postId): void {
+    this.crud.deleteData(this.token, 'post', postId)
+      .then(msg => {
+        alert(msg.json().message);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  editBtnHandler(): void {
+
+  }
 }

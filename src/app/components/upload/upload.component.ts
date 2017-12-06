@@ -50,7 +50,7 @@ export class UploadComponent implements OnInit {
         c++;
       }
     }
-    console.log(tagsArray);
+    // console.log(tagsArray);
     return tagsArray;
   }
 
@@ -66,9 +66,9 @@ export class UploadComponent implements OnInit {
     console.log(this.post);
     this.uploader.uploadPost(this.post)
     .then((msg) => {
-      console.log(msg.json());
+      // console.log(msg.json());
       this.spinnerService.hide();
-      alert("Uploaded file successfully");
+      // alert("Uploaded file successfully");
       this.router.navigateByUrl('/');
     })
     .catch((err) => {

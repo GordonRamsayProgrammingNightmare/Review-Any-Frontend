@@ -1,8 +1,14 @@
+export class Comment {
+  comment: string;
+  username: string;
+}
+
 export class Post {
-    title: String;
-    content: String;
-    tags: {};
-    base64: any;
+  title: String;
+  content: String;
+  base64: any;
+  tags: {};
+  comments: {};
 }
 
 export class Tag {
@@ -16,7 +22,8 @@ export class Post2{
   writtenBy: any;
 	writtenAt: String;
 	likeCnt: number;
-	viewCnt: number;
+  viewCnt: number;
+  comments: {};
 }
 
 export class Posts {

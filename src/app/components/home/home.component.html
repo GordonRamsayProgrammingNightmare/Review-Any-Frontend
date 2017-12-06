@@ -52,12 +52,26 @@
             </div>
             <!-- <hr> -->
             <div class="modal-footer" *ngIf="post.comments.length != 0">
-                <ul class="comments">
-                    <li *ngFor="let comment of post.comments">
-                        {{ comment.comment }}
-                        {{ comment.username }}
-                    </li>
-                </ul>
+              <div class="container">
+                <div class="row">
+                  <ul class="comments">
+                      <li *ngFor="let comment of post.comments">
+                          {{ comment.comment }}
+                          {{ comment.username }}
+                      </li>
+                  </ul>
+                </div>
+                <form (ngSubmit)="onWrite(post._id)" novalidate>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <input class="form-control" type="text" id=commentIn name="commentIn" placeholder="write a comment" [(ngModel)]="comment">
+                    </div>
+                    <div class="col-md-2">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </div>
             <div class="modal-footer">
                 <div class="container">

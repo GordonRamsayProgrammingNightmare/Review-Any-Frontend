@@ -32,6 +32,13 @@ export class CrudDataService {
     return this.http.post(url, body, {headers: headers}).toPromise();
   }
 
+  uploadData(token, type, data): Promise<any> {
+    let url: string = `${this.BASE_URL}/${type}`;
+    return this.http.post(url, data, {
+      headers: new Headers({ 'Content-Type': 'application/json', 'x-access-token': `${token}` })
+    }).toPromise();
+  }
+
   deleteData(token, type, id): Promise<any> {
     let url: string = `${this.BASE_URL}/${type}/${id}`;
     let headers: Headers = new Headers({

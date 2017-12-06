@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from 'app/services/auth.service';
 import { CrudDataService } from 'app/services/crud-data.service';
-import { Post2 } from 'app/models/post';
+import { Post2, Comment } from 'app/models/post';
 import { forEach } from '@angular/router/src/utils/collection';
 import { setInterval } from 'timers';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   private likePosts: Array<any>;
   public postUsername: any;
   public commentUsername: String;
+  public comment = new Comment();
 
   constructor(
     private router: Router,
@@ -72,17 +73,17 @@ export class HomeComponent implements OnInit {
   getUsername(userId): String {
     this.crudData.getData(this.token, `user/username/${userId}`)
       .then(data => {
-        console.log(data.json());
+        // console.log(data.json());
         this.commentUsername = data.json().username;
       })
       return this.commentUsername;
   }
 
   viewHandler(postId, post): void {
-    this.updateSinglePost(postId, post);
+    this.updateSinglePost(postId);
     this.crudData.getData(this.token, `user/username/${post.writtenBy}`)
       .then(data => {
-        console.log(data.json());
+        // console.log(data.json());
         this.postUsername = data.json().username;
       })
       .catch(err => {
@@ -97,7 +98,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  updateSinglePost(postId, post): void {
+  updateSinglePost(postId): void {
     this.crudData.getData(this.token, `post/one/${postId}`)
       .then(data => {
         // console.log(data.json().post);
@@ -106,6 +107,7 @@ export class HomeComponent implements OnInit {
           if(element._id == postId) {
             element.viewCnt = singlePost.viewCnt;
             element.likeCnt = singlePost.likeCnt;
+            element.comments = singlePost.comments;
           }
         });
       })
@@ -169,5 +171,16 @@ export class HomeComponent implements OnInit {
         console.log(err);
       });
     }
+  }
+
+  onWrite(postId): void {
+    this.crudData.uploadData(this.token, 'post/comment', postId)
+      .then(msg => {
+        this.updateSinglePost(postId);
+        console.log(msg.json());
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 }
