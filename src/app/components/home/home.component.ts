@@ -194,9 +194,10 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  commentDel(post_id, comment_id): void {
-    this.crudData.deleteData2(this.token, 'post/comment', post_id, comment_id)
+  commentDel(post_id, comment_id, username): void {
+    this.crudData.deleteData2(this.token, 'post/comment', post_id, comment_id, username)
       .then(msg => {
+        this.updateSinglePost(post_id);
         console.log(msg.json());
       })
       .catch(err => {

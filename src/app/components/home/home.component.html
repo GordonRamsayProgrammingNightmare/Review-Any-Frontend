@@ -59,7 +59,7 @@
                             {{ comment.username }} >
                         </p>
                         <p class="comments ml-2">
-                            {{ comment.comment }} <i *ngIf="comment.username == userlogged" class="fa fa-trash-o mr-2" (click)="commentDel(comment._id, post._id)"></i>
+                            {{ comment.comment }} <i *ngIf="comment.username == userlogged" class="fa fa-trash-o mr-2" (click)="commentDel(post._id, comment._id, comment.username)"></i>
                         </p>
                     </div>
                 </div>
