@@ -25,6 +25,7 @@ import { MaterialModule } from 'app/material/material.module';
 import { SearchComponent } from './components/search/search.component';
 
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { SortingComponent } from './components/sorting/sorting.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
     UploadComponent,
     NavbarComponent,
     TabComponent,
-    SearchComponent
+    SearchComponent,
+    SortingComponent
   ],
   imports: [
     BrowserModule,

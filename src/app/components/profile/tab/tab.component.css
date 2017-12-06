@@ -185,3 +185,12 @@ label .fa {
 .card-columns {
     column-count: 3;
 }
+
+.card{
+    position:relative;
+    overflow:hidden;
+    padding-bottom:100%;
+}
+.card img{
+    position:absolute;
+}
