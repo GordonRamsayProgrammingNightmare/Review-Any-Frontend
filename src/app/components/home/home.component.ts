@@ -20,8 +20,7 @@ export class HomeComponent implements OnInit {
   private interval: any;
   private likePosts: Array<any>;
   public postUsername: any;
-  public commentUsername: String;
-  public comment = new Comment();
+  public comment: String;
 
   constructor(
     private router: Router,
@@ -62,7 +61,7 @@ export class HomeComponent implements OnInit {
         element.writtenAt = element.writtenAt.replace('T', ' ');
         p.push(element);
       });
-      console.log(p);
+      // console.log(p);
       this.posts = p;
 
     }).catch((err) => {
@@ -70,13 +69,18 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getUsername(userId): String {
-    this.crudData.getData(this.token, `user/username/${userId}`)
+  getUsername(): string {
+    let logeduser: string;
+    this.crudData.getData(this.token, 'user')
       .then(data => {
-        // console.log(data.json());
-        this.commentUsername = data.json().username;
+        console.log(data.json().username);
+        logeduser = data.json().username;
       })
-      return this.commentUsername;
+      .catch(err => {
+        console.log(err);
+      });
+
+    return logeduser;
   }
 
   viewHandler(postId, post): void {
@@ -174,9 +178,15 @@ export class HomeComponent implements OnInit {
   }
 
   onWrite(postId): void {
-    this.crudData.uploadData(this.token, 'post/comment', postId)
+    // this.comment.username = this.getUsername();
+    let data = {
+      'post_id' : postId,
+      'comment' : this.comment
+    };
+    this.crudData.uploadData(this.token, 'post/comment', data)
       .then(msg => {
         this.updateSinglePost(postId);
+        this.comment = '';
         console.log(msg.json());
       })
       .catch(err => {
