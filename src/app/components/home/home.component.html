@@ -61,12 +61,12 @@
                       </li>
                   </ul>
                 </div>
-                <form (ngSubmit)="onWrite(post._id)" novalidate>
-                  <input class="form-control" type="text" id=commentIn name="commentIn" placeholder="write a comment" [(ngModel)]="comment">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
               </div>
             </div>
+            <form (ngSubmit)="onWrite(post._id)" novalidate>
+              <input class="form-control" type="text" id=commentIn name="commentIn" placeholder="write a comment" [(ngModel)]="comment">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
             <div class="modal-footer">
                 <div class="container">
                     <div class="row">
