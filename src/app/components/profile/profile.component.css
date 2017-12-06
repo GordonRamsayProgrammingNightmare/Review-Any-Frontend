@@ -2,9 +2,7 @@
 
 body {
   padding-bottom: 70px;
-  
 }
-
 hr {
   width: 80%;
 }
@@ -23,11 +21,11 @@ hr {
 }
 
 .upload_count{
-  height: 5.3em;
+  height: 5em;
   border-width:0em;
 }
 .like_count{
-  height : 5.3em;
+  height : 5em;
   border-width:0em;
   
 }
@@ -37,41 +35,35 @@ hr {
 }
 .user_name{
   font-size:2.5em;
-  /* margin-left : 3em; */
   text-align: center;
+}
+.user_say{
+  text-align:center;
+  margin-top:0.5em;
 }
 
 body > app-root > app-profile > div > div.row.pro_row {
   margin-top: 150px;
 }
-
-
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-4 {
   text-align: end;
   padding-right: 5%;
 }
-
-
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(1) > i {
   color: gray;
 }
-
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(2) > i {
   color: gray;
 }
-
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(3) > i {
   color: gray;
 }
-
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(4) > i {
   color: gray;
 }
-
 h1 {
   font-family: 'Capriola', sans-serif;
 }
-
 body > app-root > app-profile > div > div.pro > ul > li {
   margin: 5pt;
 }

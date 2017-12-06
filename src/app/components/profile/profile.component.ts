@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   LIST = list;
   user: User = new User();
   username: string;
-  saySomething:string;
+  saySomething: string;
   profileImg: any;
   likepostNum: any;
   mypostNum: any;
