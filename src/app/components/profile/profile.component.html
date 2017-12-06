@@ -9,15 +9,10 @@
         <div class="col-5">
             <div class = "row-fluid">
 
-                <div>
-                        <!-- <ul class="list-unstyled" *ngFor="let one of LIST">
-                            <li class="user_name">{{user.username}}</li>
-                        </ul> -->
-                        <h1 class="user_name">{{user.username}}</h1>
-                    </div>
-                </div>
-
+                <h1 class="user_name">{{user.username}}</h1>
+                <h4 class="user_say">{{user.saySomething}}</h4>
                 
+            </div>
                 <div class="row">
                     <div class="col">
                             <div class="card text-center upload_count">
@@ -35,11 +30,9 @@
                                     </div>
                                   </div>
                     </div>
-                    
-                        
-                              
-                   
                 </div>
+
+                
                 <div class="row-fluid">
                         <div class="ed mt-5 ml-0" data-toggle="modal" data-target="#exampleModal">
                                 <button type="submit" class="btn btn-light change_info">Edit Profile</button>
