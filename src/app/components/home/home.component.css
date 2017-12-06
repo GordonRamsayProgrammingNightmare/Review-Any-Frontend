@@ -1,5 +1,4 @@
 @import url(https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css);
-
 .stylish-input-group .input-group-addon {
     background: white !important;
 }
@@ -80,14 +79,26 @@
     padding-left: 0px;
 }
 
-h3.carousel-caption, h3.postTitle {
+h3.carousel-caption,
+h3.postTitle {
     font-family: 'NanumSquare', sans-serif;
     font-weight: 700;
 }
+
 p {
     font-family: 'NanumSquare', sans-serif;
 }
 
 .modal-footer {
     justify-content: flex-start;
+}
+
+.commentid .comments {
+    text-align: center;
+    color: #b8b8b8;
+}
+
+.commentid {
+    font-weight: bold;
+    color: #000000;
 }

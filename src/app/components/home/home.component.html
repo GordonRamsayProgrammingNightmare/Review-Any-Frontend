@@ -50,25 +50,40 @@
                     </p>
                 </div>
             </div>
-            <!-- <hr> -->
+
             <div class="modal-footer" *ngIf="post.comments.length != 0">
-              <div class="container">
-                <div class="row">
-                  <ul class="comments">
-                      <li *ngFor="let comment of post.comments">
-                          {{ comment.comment }}
-                          {{ comment.username }}
-                      </li>
-                  </ul>
+                <div class="container">
+                    <div *ngFor="let comment of post.comments" class="row allcomment">
+                        <p class="commentid ml-3">
+                            {{ comment.username }} >
+                        </p>
+                        <p class="comments ml-2">
+                            {{ comment.comment }} <i *ngIf="comment.username == userlogged" class="fa fa-trash-o mr-2"></i>
+                        </p>
+                    </div>
                 </div>
-              </div>
             </div>
+
+            <!--
             <form (ngSubmit)="onWrite(post._id)" novalidate>
               <input class="form-control" type="text" id=commentIn name="commentIn" placeholder="write a comment" [(ngModel)]="comment">
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            -->
+
             <div class="modal-footer">
                 <div class="container">
+                    <div class="row justify-content-md-center mb-4">
+                        <form class="form col-12" (ngSubmit)="onWrite(post._id)" novalidate>
+                            <div class="input-group stylish-input-group input-append">
+                                <input class="form-control" type="text" id=commentIn name="commentIn" placeholder="Add comment..." [(ngModel)]="comment">
+                                <span class="input-group-addon">
+                                    <button type="submit"><img src="../../../assets/imgs/comment_icon.png" width="30" height="30" alt="comment_icon"></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+
                     <div class="row">
                         <div class="col-lg-8">
                             <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>

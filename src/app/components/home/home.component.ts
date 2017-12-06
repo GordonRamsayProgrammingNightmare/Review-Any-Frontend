@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   private likePosts: Array<any>;
   public postUsername: any;
   public comment: String;
+  public userlogged: string;
 
   constructor(
     private router: Router,
@@ -74,7 +75,7 @@ export class HomeComponent implements OnInit {
     this.crudData.getData(this.token, 'user')
       .then(data => {
         console.log(data.json().username);
-        logeduser = data.json().username;
+        this.userlogged = logeduser = data.json().username;
       })
       .catch(err => {
         console.log(err);
