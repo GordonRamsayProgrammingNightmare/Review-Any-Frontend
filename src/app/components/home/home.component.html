@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+<app-sorting></app-sorting>
 <!-- Posts -->
 <div class="container mt-3">
     <div class="card-columns">
@@ -58,7 +59,7 @@
                             {{ comment.username }} >
                         </p>
                         <p class="comments ml-2">
-                            {{ comment.comment }} <i *ngIf="comment.username == userlogged" class="fa fa-trash-o mr-2"></i>
+                            {{ comment.comment }} <i *ngIf="comment.username == userlogged" class="fa fa-trash-o mr-2" (click)="commentDel(comment._id, post._id)"></i>
                         </p>
                     </div>
                 </div>

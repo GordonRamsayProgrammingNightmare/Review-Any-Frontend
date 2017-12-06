@@ -48,6 +48,15 @@ export class CrudDataService {
     return this.http.delete(url, {headers: headers}).toPromise();
   }
 
+  deleteData2(token, type, id1, id2): Promise<any> {
+    let url: string = `${this.BASE_URL}/${type}/${id1}/${id2}`;
+    let headers: Headers = new Headers({
+      'Content-Type': 'application/json',
+      'x-access-token': `${token}`
+    });
+    return this.http.delete(url, {headers: headers}).toPromise();
+  }
+
   putData(token, type, id): Promise<any> {
     let url: string = `${this.BASE_URL}/${type}/${id}`;
     let headers: Headers = new Headers({

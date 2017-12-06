@@ -7,6 +7,7 @@ import { Post2, Comment } from 'app/models/post';
 import { forEach } from '@angular/router/src/utils/collection';
 import { setInterval } from 'timers';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { SortingComponent } from '../sorting/sorting.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
   private likePosts: Array<any>;
   public postUsername: any;
   public comment: String;
-  public userlogged: string;
+  public userlogged: String;
 
   constructor(
     private router: Router,
@@ -39,6 +40,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.getUserLikePost();
     this.updateData();
+    this.getUsername();
     // this.interval = setInterval(() => {
     //   this.updateData();
     //   console.log('interval over');
@@ -71,18 +73,14 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getUsername(): string {
-    let logeduser: string;
+  getUsername(): void {
     this.crudData.getData(this.token, 'user')
       .then(data => {
-        console.log(data.json().username);
-        this.userlogged = logeduser = data.json().username;
+        this.userlogged = data.json().username;
       })
       .catch(err => {
         console.log(err);
       });
-
-    return logeduser;
   }
 
   viewHandler(postId, post): void {
@@ -193,6 +191,16 @@ export class HomeComponent implements OnInit {
       })
       .catch(err => {
         console.log(err);
+      });
+  }
+
+  commentDel(post_id, comment_id): void {
+    this.crudData.deleteData2(this.token, 'post/comment', post_id, comment_id)
+      .then(msg => {
+        console.log(msg.json());
       })
+      .catch(err => {
+        console.log(err);
+      });
   }
 }
