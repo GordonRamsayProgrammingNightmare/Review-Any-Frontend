@@ -7,6 +7,7 @@ import { Post2, Comment } from 'app/models/post';
 import { forEach } from '@angular/router/src/utils/collection';
 import { setInterval } from 'timers';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { SortingComponent } from '../sorting/sorting.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

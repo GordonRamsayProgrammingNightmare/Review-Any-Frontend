@@ -3,3 +3,9 @@
 nav {
     font-family: 'Righteous', sans-serif;
 }
+.bg-light {
+    background-color: #fff !important;
+}
+ol.breadcrumb {
+    margin: 0;
+}
