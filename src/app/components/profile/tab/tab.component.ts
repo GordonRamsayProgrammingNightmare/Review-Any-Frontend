@@ -17,6 +17,7 @@ export class TabComponent implements OnInit {
   likedPostExists: boolean;
   likedPostNotExists: boolean;
   rerender = false;
+  edit = false;
 
   constructor(
     private router: Router,
