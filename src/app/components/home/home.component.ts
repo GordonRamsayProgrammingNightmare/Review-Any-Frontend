@@ -8,6 +8,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 import { setInterval } from 'timers';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { SortingComponent } from '../sorting/sorting.component';
+import { PostService } from 'app/services/post.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,7 +27,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private crudData: CrudDataService
+    private crudData: CrudDataService,
+    private postService: PostService
   ) {
     this.token = localStorage.getItem('token');
     this.getUserLikePost();
@@ -41,10 +43,33 @@ export class HomeComponent implements OnInit {
     this.getUserLikePost();
     this.updateData();
     this.getUsername();
-    // this.interval = setInterval(() => {
-    //   this.updateData();
-    //   console.log('interval over');
-    // }, 5000);
+
+    this.postService.newPostSubject.subscribe(
+      data => {
+        console.log(data);
+        this.searchRequest(data);
+      }
+    );
+  }
+
+  searchRequest(data) {
+    let p = [];
+    this.crudData.getData(this.token, 'search/' + data[0].toLowerCase() + '/' + data[1].toLowerCase())
+      .then(data => {
+        data.json().post.forEach(element => {
+          if (this.chkLiked(element._id)) {
+            element.isLiked = true;
+          } else {
+            element.isLiked = false;
+          }
+          element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
+          element.writtenAt = element.writtenAt.replace('T', ' ');
+          p.push(element);
+        });
+        this.posts = p;
+      }).catch((err) => {
+        console.log('searchHandler error: \n' + err);
+      });
   }
 
   updateData() {

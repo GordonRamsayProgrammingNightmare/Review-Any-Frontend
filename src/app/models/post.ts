@@ -7,6 +7,10 @@ export class Post {
   title: String;
   content: String;
   base64: any;
+  writtenBy: any;
+	writtenAt: String;
+  likeCnt: number;
+  viewCnt: number;
   tags: {};
   comments: {};
 }

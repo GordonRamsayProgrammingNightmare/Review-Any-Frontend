@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
 import { CrudDataService } from 'app/services/crud-data.service';
-import { SearchService } from '../../services/search.service';
+import { PostService } from 'app/services/post.service';
+import { HomeComponent } from 'app/components/home/home.component';
 
 @Component({
   selector: 'app-navbar',
@@ -18,11 +19,14 @@ export class NavbarComponent implements OnInit {
   profileImg: string;
   token: any;
 
+  @ViewChild(HomeComponent)
+  private home: HomeComponent;
+
   constructor(
     private router: Router,
     private auth: AuthService,
     private crud: CrudDataService,
-    private search: SearchService
+    private postservice: PostService
   ) {
     this.token = localStorage.getItem('token');
     this.searchType = 'Search';
@@ -65,33 +69,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('login');
   }
 
-  // searchHandler(): void {
-
-  // }
-
   searchHandler(): void {
-    this.crud.getData(this.token, 'search/' + this.searchType + '/' + this.searchTxt)
-      .then(data => {
-        var p = [];
-        console.log(data.json());
-        data.json().post.forEach(element => {
-          if(this.search.chkLiked(element._id)) {
-            element.isLiked = true;
-            // console.log(element);
-          } else {
-            element.isLiked = false;
-          }
-
-          // console.log(element.writtenAt);
-          element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
-          element.writtenAt = element.writtenAt.replace('T', ' ');
-          p.push(element);
-        });
-        // console.log(p);
-        this.search.searchByType(p);
-      }).catch((err) => {
-        console.log('error: \n' + err);
-      });
+    this.postservice.searchHandler([this.searchType, this.searchTxt]);
   }
 }
 

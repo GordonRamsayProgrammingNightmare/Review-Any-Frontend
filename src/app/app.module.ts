@@ -19,7 +19,7 @@ import { EnsureAuthenticatedService } from './services/ensure-authenticated.serv
 import { LoginRedirectService } from './services/login-redirect.service';
 import { UploadService } from './services/upload.service';
 import { CrudDataService } from './services/crud-data.service';
-import { SearchService } from 'app/services/search.service';
+import { PostService } from 'app/services/post.service';
 
 import { TabComponent } from './components/profile/tab/tab.component';
 import { MaterialModule } from 'app/material/material.module';
@@ -54,7 +54,7 @@ import { SortingComponent } from './components/sorting/sorting.component';
     LoginRedirectService,
     UploadService,
     CrudDataService,
-    SearchService
+    PostService
   ],
   bootstrap: [AppComponent]
 })
