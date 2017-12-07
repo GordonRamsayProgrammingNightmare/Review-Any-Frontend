@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
 import { CrudDataService } from 'app/services/crud-data.service';
@@ -19,8 +19,7 @@ export class NavbarComponent implements OnInit {
   profileImg: string;
   token: any;
 
-  @ViewChild(HomeComponent)
-  private home: HomeComponent;
+  @Output() onRedirect = new EventEmitter<boolean>();
 
   constructor(
     private router: Router,
@@ -29,7 +28,7 @@ export class NavbarComponent implements OnInit {
     private postservice: PostService
   ) {
     this.token = localStorage.getItem('token');
-    this.searchType = 'Search';
+    this.searchType = 'Title';
     this.crud.getData(this.token, 'user')
     .then(data => {
       this.username = data.json().username;
@@ -54,6 +53,7 @@ export class NavbarComponent implements OnInit {
 
   gotoHome(): void {
     this.router.navigate(['']);
+    this.onRedirect.emit();
   }
 
   gotoProfile(): void {

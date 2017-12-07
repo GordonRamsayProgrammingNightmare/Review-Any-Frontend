@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnChanges() {
+    console.log('changed');
     this.getUserLikePost();
     this.updateData();
   }
@@ -50,6 +51,11 @@ export class HomeComponent implements OnInit {
         this.searchRequest(data);
       }
     );
+  }
+
+  onRedirect() {
+    console.log('redirect');
+    this.updateData();
   }
 
   searchRequest(data) {
