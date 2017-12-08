@@ -14,6 +14,7 @@ export class TabComponent implements OnInit {
   private token: any;
   public posts: Array<any>;
   public likedPosts: Array<any>;
+  public postUserName: any;
   likedPostExists: boolean;
   likedPostNotExists: boolean;
   rerender = false;
@@ -26,7 +27,8 @@ export class TabComponent implements OnInit {
   ) {
     this.token = localStorage.getItem('token');
     this.likedPostExists = false;
-    this.likedPostNotExists = true;
+    this.updateMyPosts();
+    this.updateLikePosts();
   }
 
   doRerender() {
@@ -36,6 +38,12 @@ export class TabComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateMyPosts();
+    console.log(this.posts);
+    this.updateLikePosts();
+  }
+
+  updateMyPosts() {
     this.crud.getData(this.token, 'post')
     .then((data) => {
       var p = [];
@@ -49,25 +57,56 @@ export class TabComponent implements OnInit {
     }).catch((err) => {
       console.log('error: \n' + err);
     });
+  }
+
+  updateLikePosts() {
     this.crud.getData(this.token, 'post/like')
-      .then((data) => {
-        var lp = [];
-        data.json().posts.forEach(element => {
-          element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
-          element.writtenAt = element.writtenAt.replace('T', ' ');
-          lp.push(element);
-        });
-        this.likedPosts = lp;
-        if(lp) {
-          this.likedPostExists = true;
-          this.likedPostNotExists = false;
-        }
+    .then((data) => {
+      var lp = [];
+      data.json().posts.forEach(element => {
+        element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
+        element.writtenAt = element.writtenAt.replace('T', ' ');
+        lp.push(element);
+      });
+      this.likedPosts = lp;
+      if(lp) {
+        this.likedPostExists = true;
+        this.likedPostNotExists = false;
+      }
+  });
+  }
+
+  viewHandler(postId, post): void {
+    this.updateSinglePost(postId);
+    this.crud.getData(this.token, `user/username/${post.writtenBy}`)
+      .then(data => {
+        // console.log(data.json());
+        this.postUserName = data.json().username;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    this.crud.sendData(this.token, 'post/view', postId)
+      .then((msg) => {
+        // console.log(msg.json());
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 
-  viewHandler(postId): void {
-    this.crud.sendData(this.token, 'post/view', postId)
-      .then((msg) => {
+  updateSinglePost(postId): void {
+    this.crud.getData(this.token, `post/one/${postId}`)
+      .then(data => {
+        // console.log(data.json().post);
+        var singlePost = data.json().post;
+        this.posts.forEach(element => {
+          if(element._id == postId) {
+            element.viewCnt = singlePost.viewCnt;
+            element.likeCnt = singlePost.likeCnt;
+            element.comments = singlePost.comments;
+          }
+        });
       })
       .catch(err => {
         console.log(err);
@@ -93,7 +132,12 @@ export class TabComponent implements OnInit {
       });
   }
 
-  editBtnHandler(): void {
+  editBtnHandler(id): void {
+    console.log(id);
+    this.edit = true;
+  }
 
+  onEdit() {
+    this.edit = false;
   }
 }

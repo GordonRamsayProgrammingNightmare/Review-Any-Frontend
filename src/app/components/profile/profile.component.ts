@@ -30,9 +30,9 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.userData.getData(localStorage.getItem('token'), 'user')
       .then((data) => {
-        console.log("user: ", data.json());
+        // console.log("user: ", data.json());
         this.user.username = data.json().username;
-        this.user.saySomething = data.json().saySomething;        
+        this.user.saySomething = data.json().saySomething;
         this.user.profileImg = data.json().profileImg;
         this.likepostNum = data.json().likePost.length;
         this.mypostNum = data.json().myPost.length;

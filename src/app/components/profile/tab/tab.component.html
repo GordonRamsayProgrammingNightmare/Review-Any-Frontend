@@ -1,148 +1,167 @@
 <ng-container *ngIf="!rerender">
   <div class="tab_container">
-      <input id="tab1" type="radio" name="tabs" checked>
-      <label for="tab1"><i class="fa fa-tag"></i><span>My Review</span></label>
+    <input id="tab1" type="radio" name="tabs" checked>
+    <label for="tab1"><i class="fa fa-tag"></i><span>My Review</span></label>
 
-      <input id="tab2" type="radio" name="tabs">
-      <label for="tab2"><i class="fa fa-heart"></i><span>Liked</span></label>
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2"><i class="fa fa-heart"></i><span>Liked</span></label>
 
-      <section id="content1" class="tab-content">
-          <div class="card-columns">
-              <div class="rows">
-                  <div *ngFor="let post of posts" class="items well">
-                      <div class="card post mt-2 " data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(post.title)" (click)="viewHandler(post._id)">
-                          <img class="img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
-                          <h3 class="carousel-caption">{{post.title}}</h3>
-                      </div>
-                  </div>
+    <section id="content1" class="tab-content">
+      <div class="card-columns">
+        <div class="rows">
+          <div *ngFor="let post of posts" class="items well">
+            <div class="card post mt-2 " data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(post.title)" (click)="viewHandler(post._id)">
+              <img class="img card-img-top img-responsive" [src]="post.picUrl" alt="image post" (click)="viewHandler(post._id, post)">
+              <h3 class="carousel-caption">{{post.title}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="content2" class="tab-content">
+      <div *ngIf="!likedPostExists">
+        <br>
+        <h3>No image.</h3>
+        <p>add your favorite.</p>
+        <br><br><br><br>
+      </div>
+      <div *ngIf="likedPostExists">
+        <div class="card-columns">
+          <div class="rows">
+            <div *ngFor="let post of likedPosts" class="items well">
+              <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(lp.title)" (click)="viewHandler(post._id)">
+                <img class="img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
+                <h3 class="carousel-caption">{{post.title}}</h3>
               </div>
+            </div>
           </div>
-      </section>
-
-      <section id="content2" class="tab-content">
-          <div *ngIf="likedPostNotExists">
-              <br>
-              <h3>No image.</h3>
-              <p>add your favorite.</p>
-              <br><br><br><br>
-          </div>
-          <div *ngIf="likedPostExists">
-              <div class="card-columns">
-                  <div class="rows">
-                      <div *ngFor="let post of likedPosts" class="items well">
-                          <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(lp.title)" (click)="viewHandler(post._id)">
-                              <img class="img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
-                              <h3 class="carousel-caption">{{post.title}}</h3>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
+        </div>
+      </div>
+    </section>
   </div>
 
 
   <div *ngFor="let post of posts" class="modal postModal fade bd-example-modal-lg" [attr.id]="post._id" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <div class="container">
-                      <div class="row">
-                          <div class="col-lg-8">
-                              <h3 class="postTitle" id="exampleModalLabel">{{post.title}}</h3>
-                              <div class="row">
-                                  <p class="ml-3 mr-3">
-                                      by <span class="userId">{{post.writtenBy}}</span>
-                                  </p>
-                                  <p>
-                                      <i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span>
-                                      <i class="fa fa-eye ml-1"></i><span class="views">{{post.viewCnt}}</span>
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+        <form (ngSubmit)="onEdit()">
+          <div class="modal-header">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div *ngIf="!edit">
+                    <h3 class="postTitle" id="postTitle">{{post.title}}</h3>
                   </div>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <div *ngIf="edit">
+                    <input type="text" name="postTitle" id=postTitle [(ngModel)]="post.title">
+                  </div>
+                  <div class="row">
+                    <p class="ml-3 mr-3">
+                      by <span class="userId">{{post.writtenBy}}</span>
+                    </p>
+                    <p>
+                      <i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span>
+                      <i class="fa fa-eye ml-1"></i><span class="views">{{post.viewCnt}}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-              </div>
-
-              <div class="modal-body">
-                  <img class="card-img-top" [src]="post.picUrl" alt="post_image_modal">
-                  <div class="container">
-                      <p class="card-text mt-3">
-                          {{post.content}}
-                      </p>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                  <div class="container">
-                      <div class="row">
-                          <div class="col-lg-8">
-                              <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
-                              <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
-                          </div>
-                          <div class="col-auto ml-auto">
-                              <img class="editBtn mt-1" src="../../../../assets/imgs/edit_icon.png" width="40" height="40" alt="edit_icon" (click)="editBtnHandler(post._id)">
-                              <img class="delBtn mt-1 ml-1" src="../../../../assets/imgs/del_icon.png" width="40" height="40" alt="del_icon" (click)="delBtnHandler(post._id)">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
           </div>
+
+          <div class="modal-body">
+            <img class="card-img-top" [src]="post.picUrl" alt="post_image_modal">
+            <div class="container">
+              <div *ngIf="!edit">
+                <p class="card-text mt-3">
+                    {{post.content}}
+                </p>
+              </div>
+              <div *ngIf="edit">
+                <input type="text" name="postContent" id=postContent [(ngModel)]="post.content">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="modal-footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8">
+                  <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
+                  <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
+                </div>
+                <div *ngIf="!edit" class="col-auto ml-auto">
+                  <img class="editBtn mt-1" src="../../../../assets/imgs/edit_icon.png" width="40" height="40" alt="edit_icon" (click)="editBtnHandler(post._id)">
+                  <img class="delBtn mt-1 ml-1" src="../../../../assets/imgs/del_icon.png" width="40" height="40" alt="del_icon" (click)="delBtnHandler(post._id)">
+                </div>
+                <div *ngIf="edit">
+                  <button type="submit">submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
+    </div>
   </div>
 
 
   <div *ngFor="let post of likedPosts" class="modal postModal fade bd-example-modal-lg" [attr.id]="post._id" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <div class="container">
-                      <div class="row">
-                          <div class="col-lg-8">
-                              <h3 class="postTitle" id="exampleModalLabel">{{post.title}}</h3>
-                              <div class="row">
-                                  <p class="ml-3 mr-3">
-                                      by <span class="userId">{{post.writtenBy}}</span>
-                                  </p>
-                                  <p>
-                                      <i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span>
-                                      <i class="fa fa-eye ml-1"></i><span class="views">{{post.viewCnt}}</span>
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-              </div>
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
 
-              <div class="modal-body">
-                  <img class="card-img-top" [src]="post.picUrl" alt="post_image_modal">
-                  <div class="container">
-                      <p class="card-text mt-3">
-                          {{post.content}}
-                      </p>
-                  </div>
+        <div class="modal-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <h3 class="postTitle" id="exampleModalLabel">{{post.title}}</h3>
+                <div class="row">
+                  <p class="ml-3 mr-3">
+                    by <span class="userId">{{post.writtenBy}}</span>
+                  </p>
+                  <p>
+                    <i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span>
+                    <i class="fa fa-eye ml-1"></i><span class="views">{{post.viewCnt}}</span>
+                  </p>
+                </div>
               </div>
-              <div class="modal-footer">
-                  <div class="container">
-                      <div class="row">
-                          <div class="col-lg-8">
-                              <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
-                              <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
-                          </div>
-                          <div class="col-auto ml-auto">
-                              <img class="likeBtn" src="../../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id)" width="70" height="70" alt="like_icon">
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
+            </div>
           </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <img class="card-img-top" [src]="post.picUrl" alt="post_image_modal">
+          <div class="container">
+            <p class="card-text mt-3">
+              {{post.content}}
+            </p>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
+                <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
+              </div>
+              <div class="col-auto ml-auto">
+                <img class="likeBtn" src="../../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id)" width="70" height="70" alt="like_icon">
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </div>
   </div>
 </ng-container>
