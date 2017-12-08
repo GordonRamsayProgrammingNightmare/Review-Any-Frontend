@@ -47,14 +47,14 @@ export class HomeComponent implements OnInit {
 
     this.postService.newPostSubject.subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         this.searchRequest(data);
       }
     );
 
     this.postService.titleClick.subscribe(
       () => {
-        console.log('clicked title');
+        // console.log('clicked title');
         this.updateData();
       }
     )

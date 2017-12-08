@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Capriola');
 
-body {
-  padding-bottom: 70px;
-}
-hr {
-  width: 80%;
-}
 #profileR1{
   margin-top: 7em;
 }
@@ -79,17 +73,10 @@ body > app-root > app-profile > div > div > div.col-md-5 > div.ed > i:hover {
 
 }
 
-
 .pro-control{
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-}
-
-hr {
-  /* width: 100%; */
-  height: 1px;
-  background-color: #0CE;
 }
 
 .close {
@@ -99,11 +86,6 @@ hr {
 .img {
   /* width: 19%; */
   margin: 0.3%;
-}
-
-.rounded{
-  width: 70%;
-  height: 70%;
 }
 
 #exampleModal > div > div > div.modal-body > form > div.box > div {

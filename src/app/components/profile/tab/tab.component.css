@@ -16,7 +16,7 @@
     clear: both;
 }
 
-body {
+/* body {
     font-family: sans-serif;
     background: #f6f9fa;
 }
@@ -25,7 +25,7 @@ a {
     color: #ccc;
     text-decoration: none;
     outline: none;
-}
+} */
 
 
 /*Fun begins*/
@@ -37,7 +37,7 @@ a {
     position: relative;
 }
 
-input,
+/* input,
 section {
     clear: both;
     padding-top: 10px;
@@ -49,14 +49,14 @@ label {
     font-size: 15px;
     display: block;
     float: left;
-    /* width: 13%; */
+
     padding: 1.5em;
     color: #515151;
     cursor: pointer;
     text-decoration: none;
     text-align: center;
-    /*background: #f0f0f0;*/
-}
+
+} */
 
 #tab1:checked~#content1,
 #tab2:checked~#content2 {
@@ -88,7 +88,7 @@ label {
     color: #0CE;
 }
 
-label .fa {
+.fa {
     font-size: 1.3em;
     margin: 0 0.4em 0 0;
 }
