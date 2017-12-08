@@ -51,6 +51,13 @@ export class HomeComponent implements OnInit {
         this.searchRequest(data);
       }
     );
+
+    this.postService.titleClick.subscribe(
+      () => {
+        console.log('clicked title');
+        this.updateData();
+      }
+    )
   }
 
   onRedirect() {

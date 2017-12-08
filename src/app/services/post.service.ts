@@ -10,6 +10,7 @@ export class PostService {
   private BASE_URL: string = 'http://localhost:3000/api';
 
   public newPostSubject = new Subject<any>();
+  public titleClick = new Subject<any>();
 
   constructor(
     private http: Http
@@ -18,6 +19,10 @@ export class PostService {
 
   searchHandler(searchData) {
     this.newPostSubject.next(searchData);
+  }
+
+  redirectHandler() {
+    this.titleClick.next();
   }
 
 }

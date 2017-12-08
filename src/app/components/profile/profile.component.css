@@ -27,7 +27,7 @@ hr {
 .like_count{
   height : 5em;
   border-width:0em;
-  
+
 }
 .change_info{
   width:100%;
@@ -76,7 +76,7 @@ body > app-root > app-profile > div > div.pro > ul > li {
 
 body > app-root > app-profile > div > div > div.col-md-5 > div.ed > i:hover {
   color: gray;
-  
+
 }
 
 
@@ -124,7 +124,7 @@ hr {
   position: absolute;
   z-index: -1;
   }
-  
+
 .inputfile-2 + label {
   font-size: 1.25rem;
   font-weight: 500;
@@ -144,8 +144,8 @@ hr {
 .width-100 {
   width: 100%;
 }
-  
-  
+
+
 .inputfile-2 + label svg {
   width: 1em;
   height: 1em;
@@ -155,9 +155,11 @@ hr {
   margin-right: 0.25em;
 }
 
-  
+
 .inputfile-2:focus + label,
 .inputfile-2.has-focus + label,
 .inputfile-2 + label:hover {
   color:#208ff0;
 }
+
+

@@ -53,7 +53,7 @@ export class NavbarComponent implements OnInit {
 
   gotoHome(): void {
     this.router.navigate(['']);
-    this.onRedirect.emit();
+    this.postservice.redirectHandler();
   }
 
   gotoProfile(): void {
