@@ -5,7 +5,7 @@
     <div class="card-columns">
         <div class="rows">
             <div *ngFor="let post of posts" class="items well">
-                <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post._id" (click)="viewHandler(post._id, post)">
+                <div class="card post mt-2" style="cursor:pointer" data-toggle="modal" [attr.data-target]="'#' + post._id" (click)="viewHandler(post._id, post)">
                     <img class="card-img-top img-responsive" [src]="post.picUrl" alt="post_image">
                     <h3 class="carousel-caption">{{post.title}}</h3>
                 </div>
