@@ -6,6 +6,7 @@
 hr {
   width: 80%;
 } */
+
 #profileR1{
   margin-top: 7em;
 }
@@ -61,9 +62,11 @@ body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul 
 body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(4) > i {
   color: gray;
 }
-h1 {
+
+/* h1 {
   font-family: 'Capriola', sans-serif;
-}
+} */
+
 body > app-root > app-profile > div > div.pro > ul > li {
   margin: 5pt;
 }
