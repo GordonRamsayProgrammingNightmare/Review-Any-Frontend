@@ -79,10 +79,12 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-8 offset-md-2 text-center">
+                  <div class="col-md-8 offset-md-2">
                     <div class="form-group form-group-lg width-100">
-                      <input class="form-control pro-control width-100" type="text" placeholder="Default input" name="Username" [(ngModel)]="user.username"
+                      <label>USERNAME</label>
+                      <input class="form-control pro-control width-100 margin-bottom-10" type="text" placeholder="Default input" name="Username" [(ngModel)]="user.username"
                         required>
+                      <label>SAY SOMETHING</label>
                       <input class="form-control pro-control width-100" type="text" placeholder="Default input" name="UserComment" [(ngModel)]="user.saySomething"
                       required>
                       <!-- <input class="form-control pro-control" type="text" placeholder="Default input" value="lou297@hanyang.ac.kr" required>
