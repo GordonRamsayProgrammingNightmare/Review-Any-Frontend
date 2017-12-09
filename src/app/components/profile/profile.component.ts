@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation, ChangeDetectorRef } from "@angular/core";
 import { list } from "./list";
 import { AuthidComponent } from "app/components/authid/authid.component";
 import { AuthService } from "app/services/auth.service";
 import { User } from "../../models/user";
 import { UploadService } from "../../services/upload.service";
 import { CrudDataService } from "../../services/crud-data.service";
+import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-profile",
@@ -21,12 +23,35 @@ export class ProfileComponent implements OnInit {
   profileImg: any;
   likepostNum: any;
   mypostNum: any;
+  rerender = false;
 
-  constructor(private crud: CrudDataService, private upload: UploadService) {}
+  constructor(
+    private crud: CrudDataService,
+    private upload: UploadService,
+    private spinnerService: Ng4LoadingSpinnerService,
+    private cdr: ChangeDetectorRef,
+    private router: Router
+
+
+  ) {
+  }
+
+  doRerender() {
+    this.rerender = true;
+    this.cdr.detectChanges();
+
+    this.rerender = false;
+  }
 
   ngOnInit() {
+    this.updateData();
+  }
+
+  updateData() {
+    this.spinnerService.show();
     this.crud.getData(localStorage.getItem("token"), "user").then(data => {
-      // console.log("user: ", data.json());
+      this.spinnerService.hide();
+      console.log("user: ", data.json());
       this.user.username = data.json().username;
       this.user.saySomething = data.json().saySomething;
       this.profileImg = this.user.profileImg = data.json().profileImg;
@@ -47,13 +72,21 @@ export class ProfileComponent implements OnInit {
   }
 
   submitChange() {
+    this.user.base64 = this.profileImg;
+    this.spinnerService.show();
     this.crud
       .putData2(localStorage.getItem("token"), "user/update", this.user)
       .then(data => {
+        this.spinnerService.hide();
+        $('#closebtn').click();
+
+        // location.reload();
+        this.updateData();
         console.log(data.json());
       })
       .catch(err => {
         console.log(err);
       });
+
   }
 }
