@@ -9,6 +9,7 @@ import { setInterval } from 'timers';
 import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { SortingComponent } from '../sorting/sorting.component';
 import { PostService } from 'app/services/post.service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -28,7 +29,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private crudData: CrudDataService,
-    private postService: PostService
+    private postService: PostService,
+    private spinnerService: Ng4LoadingSpinnerService
   ) {
     this.token = localStorage.getItem('token');
     this.getUserLikePost();
@@ -74,8 +76,10 @@ export class HomeComponent implements OnInit {
 
   searchRequest(data) {
     let p = [];
+    this.spinnerService.show();
     this.crudData.getData(this.token, 'search/' + data[0].toLowerCase() + '/' + data[1].toLowerCase())
       .then(data => {
+        this.spinnerService.show();
         data.json().post.forEach(element => {
           if (this.chkLiked(element._id)) {
             element.isLiked = true;
@@ -93,8 +97,10 @@ export class HomeComponent implements OnInit {
   }
 
   updateData() {
+    this.spinnerService.show();
     this.crudData.getData(this.token, 'post/all')
     .then((data) => {
+      this.spinnerService.hide();
       // console.log(data.json().posts);
       var p = [];
       data.json().posts.forEach(element => {
@@ -119,9 +125,11 @@ export class HomeComponent implements OnInit {
   }
 
   sortData(type) {
+    this.spinnerService.show();
     this.crudData.getData(this.token, 'post/all/' + type)
     .then((data) => {
       // console.log(data.json().posts);
+      this.spinnerService.hide();
       var p = [];
       data.json().posts.forEach(element => {
         if(this.chkLiked(element._id)) {
