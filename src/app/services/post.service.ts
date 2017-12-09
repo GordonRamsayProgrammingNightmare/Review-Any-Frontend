@@ -11,6 +11,7 @@ export class PostService {
 
   public newPostSubject = new Subject<any>();
   public titleClick = new Subject<any>();
+  public sortingSubject = new Subject<any>();
 
   constructor(
     private http: Http
@@ -23,6 +24,10 @@ export class PostService {
 
   redirectHandler() {
     this.titleClick.next();
+  }
+
+  sortingHandler(sorttype) {
+    this.sortingSubject.next(sorttype);
   }
 
 }

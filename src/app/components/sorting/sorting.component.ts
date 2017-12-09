@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'app/services/post.service';
 
 @Component({
   selector: 'app-sorting',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SortingComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private postservice: PostService
+  ) { }
 
   ngOnInit() {
+  }
+
+  sortBy(it) {
+    this.postservice.sortingHandler(it);
   }
 
 }

@@ -57,7 +57,14 @@ export class HomeComponent implements OnInit {
         // console.log('clicked title');
         this.updateData();
       }
-    )
+    );
+
+    this.postService.sortingSubject.subscribe(
+      data => {
+        // console.log(data);
+        this.sortingHandler(data);
+      }
+    );
   }
 
   onRedirect() {
@@ -87,6 +94,32 @@ export class HomeComponent implements OnInit {
 
   updateData() {
     this.crudData.getData(this.token, 'post/all')
+    .then((data) => {
+      // console.log(data.json().posts);
+      var p = [];
+      data.json().posts.forEach(element => {
+        if(this.chkLiked(element._id)) {
+          element.isLiked = true;
+          // console.log(element);
+        } else {
+          element.isLiked = false;
+        }
+
+        // console.log(element.writtenAt);
+        element.writtenAt = element.writtenAt.slice(0, element.writtenAt.indexOf('.'));
+        element.writtenAt = element.writtenAt.replace('T', ' ');
+        p.push(element);
+      });
+      // console.log(p);
+      this.posts = p;
+
+    }).catch((err) => {
+      console.log('error: \n' + err);
+    });
+  }
+
+  sortData(type) {
+    this.crudData.getData(this.token, 'post/all/' + type)
     .then((data) => {
       // console.log(data.json().posts);
       var p = [];
@@ -241,5 +274,13 @@ export class HomeComponent implements OnInit {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  sortingHandler(sorttype) {
+    if (sorttype == 'day') {
+      this.updateData();
+    } else {
+      this.sortData(sorttype);
+    }
   }
 }
