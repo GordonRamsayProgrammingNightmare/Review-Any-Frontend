@@ -1,12 +1,12 @@
 <ng-container *ngIf="!rerender">
   <div class="tab_container">
-    <input id="tab1" type="radio" name="tabs" checked>
-    <label for="tab1"><i class="fa fa-tag"></i><span>My Review</span></label>
+    <input class="tab_content_view" id="tab1" type="radio" name="tabs" checked>
+    <label class = "tab_view" for="tab1"><i class="fa fa-tag"></i><span>My Review</span></label>
 
-    <input id="tab2" type="radio" name="tabs">
-    <label for="tab2"><i class="fa fa-heart"></i><span>Liked</span></label>
+    <input class="tab_content_view" id="tab2" type="radio" name="tabs">
+    <label class = "tab_view" for="tab2"><i class="fa fa-heart"></i><span>Liked</span></label>
 
-    <section id="content1" class="tab-content">
+    <section id="content1" class="tab-content tab_content_view">
       <div class="card-columns">
         <div class="rows">
           <div *ngFor="let post of posts" class="items well">
@@ -19,7 +19,7 @@
       </div>
     </section>
 
-    <section id="content2" class="tab-content">
+    <section id="content2" class="tab-content tab_content_view">
       <div *ngIf="!likedPostExists">
         <br>
         <h3>No image.</h3>

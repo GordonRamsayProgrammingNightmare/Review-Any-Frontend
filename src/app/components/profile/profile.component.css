@@ -6,16 +6,14 @@
 hr {
   width: 80%;
 } */
-
-#profileR1{
-  margin-top: 7em;
-}
 .profileImg{
-  /* margin-right:10em; */
-  width:300px;
-  height:300px;
-  border-radius:15%;
+  width: 60%;
 }
+#profileR1{
+  margin-top: 15%;
+}
+
+
 .p_img{
   width:17em;
   margin:0.5em;
@@ -44,33 +42,13 @@ hr {
   margin-top:1em;
 }
 
-body > app-root > app-profile > div > div.row.pro_row {
-  margin-top: 150px;
-}
-body > app-root > app-profile > div > div.row.pro_row > div.col-md-4 {
-  text-align: end;
-  padding-right: 5%;
-}
-body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(1) > i {
-  color: gray;
-}
-body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(2) > i {
-  color: gray;
-}
-body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(3) > i {
-  color: gray;
-}
-body > app-root > app-profile > div > div.row.pro_row > div.col-md-3 > div > ul > li:nth-child(4) > i {
-  color: gray;
-}
+
+
 
 /* h1 {
   font-family: 'Capriola', sans-serif;
 } */
 
-body > app-root > app-profile > div > div.pro > ul > li {
-  margin: 5pt;
-}
 
 
 .ed{
@@ -78,10 +56,7 @@ body > app-root > app-profile > div > div.pro > ul > li {
   margin-top: 30%;
 }
 
-body > app-root > app-profile > div > div > div.col-md-5 > div.ed > i:hover {
-  color: gray;
 
-}
 
 
 .pro-control{

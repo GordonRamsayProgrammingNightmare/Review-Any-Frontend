@@ -33,8 +33,8 @@ a {
 .tab_container {
     width: 90%;
     margin: 0 auto;
-    padding-top: 130px;
     position: relative;
+    margin-top: 15%;
 }
 
 /* input,
@@ -58,6 +58,26 @@ label {
 
 } */
 
+
+.tab_view {
+    font-weight: 700;
+    font-size: 15px;
+    display: block;
+    float: left;
+
+    color: #515151;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    margin: 1%;
+    padding: 2%;
+}
+
+.tab_content_view {
+    clear: both;
+    display: none;
+}
+
 #tab1:checked~#content1,
 #tab2:checked~#content2 {
     display: block;
@@ -68,7 +88,7 @@ label {
 }
 
 .tab_container .tab-content p,
-.tab_container .tab-content img {
+.tab_container .tab-content .card {
     -webkit-animation: fadeInScale 0.7s ease-in-out;
     -moz-animation: fadeInScale 0.7s ease-in-out;
     animation: fadeInScale 0.7s ease-in-out;
