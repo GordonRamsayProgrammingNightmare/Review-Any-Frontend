@@ -3,4 +3,5 @@ export class User {
   password?: string;
   profileImg?: string;
   saySomething?: string;
+  base64: any;
 }

@@ -12,7 +12,7 @@ import { Post2 } from 'app/models/post';
 })
 export class TabComponent implements OnInit {
   private token: any;
-  public posts: Array<any>;
+  public profileposts: Array<any>;
   public likedPosts: Array<any>;
   public postUserName: any;
   likedPostExists: boolean;
@@ -39,8 +39,8 @@ export class TabComponent implements OnInit {
 
   ngOnInit() {
     this.updateMyPosts();
-    console.log(this.posts);
     this.updateLikePosts();
+    console.log(this.profileposts);
   }
 
   updateMyPosts() {
@@ -52,7 +52,7 @@ export class TabComponent implements OnInit {
         element.writtenAt = element.writtenAt.replace('T', ' ');
         p.push(element);
       });
-      this.posts = p;
+      this.profileposts = p;
 
     }).catch((err) => {
       console.log('error: \n' + err);
@@ -100,7 +100,7 @@ export class TabComponent implements OnInit {
       .then(data => {
         // console.log(data.json().post);
         var singlePost = data.json().post;
-        this.posts.forEach(element => {
+        this.profileposts.forEach(element => {
           if(element._id == postId) {
             element.viewCnt = singlePost.viewCnt;
             element.likeCnt = singlePost.likeCnt;
