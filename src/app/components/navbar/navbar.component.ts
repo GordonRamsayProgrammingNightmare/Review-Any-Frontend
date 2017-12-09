@@ -40,11 +40,24 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.postservice.navreloadSubject.subscribe(() => {
+      this.getData();
+    });
   }
 
   ngOnChanges() {
 
+  }
+
+  getData() {
+    this.crud.getData(this.token, 'user')
+    .then(data => {
+      this.username = data.json().username;
+      this.profileImg = data.json().profileImg;
+    })
+    .catch(err => {
+      console.log('error: ', err);
+    });
   }
 
   selectList(data: string): void {
@@ -52,6 +65,7 @@ export class NavbarComponent implements OnInit {
   }
 
   gotoHome(): void {
+    this.searchTxt = '';
     this.router.navigate(['']);
     this.postservice.redirectHandler();
   }

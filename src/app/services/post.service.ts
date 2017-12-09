@@ -12,6 +12,7 @@ export class PostService {
   public newPostSubject = new Subject<any>();
   public titleClick = new Subject<any>();
   public sortingSubject = new Subject<any>();
+  public navreloadSubject = new Subject<any>();
 
   constructor(
     private http: Http
@@ -28,6 +29,10 @@ export class PostService {
 
   sortingHandler(sorttype) {
     this.sortingSubject.next(sorttype);
+  }
+
+  navReloadHandler() {
+    this.navreloadSubject.next();
   }
 
 }

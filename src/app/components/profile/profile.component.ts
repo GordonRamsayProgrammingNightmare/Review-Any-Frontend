@@ -7,6 +7,7 @@ import { UploadService } from "../../services/upload.service";
 import { CrudDataService } from "../../services/crud-data.service";
 import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
 import { Router } from '@angular/router';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: "app-profile",
@@ -30,7 +31,8 @@ export class ProfileComponent implements OnInit {
     private upload: UploadService,
     private spinnerService: Ng4LoadingSpinnerService,
     private cdr: ChangeDetectorRef,
-    private router: Router
+    private router: Router,
+    private postservice: PostService
 
 
   ) {
@@ -73,16 +75,18 @@ export class ProfileComponent implements OnInit {
   }
 
   submitChange() {
+    console.log('changing');
     this.spinnerService.show();
     this.crud
       .putData2(localStorage.getItem("token"), "user/update", this.user)
       .then(data => {
         this.spinnerService.hide();
-        $('#closebtn').click();
+        document.getElementById('closebtn').click();
 
         // location.reload();
         this.updateData();
-        console.log(data.json());
+        // console.log(data.json());
+        this.postservice.navReloadHandler();
       })
       .catch(err => {
         console.log(err);
