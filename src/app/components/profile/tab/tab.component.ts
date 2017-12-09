@@ -17,6 +17,7 @@ export class TabComponent implements OnInit {
   public postUserName: any;
   likedPostExists: boolean;
   likedPostNotExists: boolean;
+  myPostExists : boolean;
   rerender = false;
   edit = false;
 
@@ -27,6 +28,7 @@ export class TabComponent implements OnInit {
   ) {
     this.token = localStorage.getItem('token');
     this.likedPostExists = false;
+    this.myPostExists=false;
     this.updateMyPosts();
     this.updateLikePosts();
   }
@@ -53,6 +55,9 @@ export class TabComponent implements OnInit {
         p.push(element);
       });
       this.profileposts = p;
+      if(p){
+        this.myPostExists=true;
+      }
 
     }).catch((err) => {
       console.log('error: \n' + err);
