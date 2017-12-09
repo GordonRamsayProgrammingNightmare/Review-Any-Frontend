@@ -47,7 +47,6 @@ export class ProfileComponent implements OnInit {
   }
 
   submitChange() {
-    alert("save change clicked");
     this.crud
       .putData2(localStorage.getItem("token"), "user/update", this.user)
       .then(data => {
