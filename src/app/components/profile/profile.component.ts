@@ -49,7 +49,8 @@ export class ProfileComponent implements OnInit {
 
   updateData() {
     this.spinnerService.show();
-    this.crud.getData(localStorage.getItem("token"), "user").then(data => {
+    this.crud.getData(localStorage.getItem("token"), "user")
+    .then(data => {
       this.spinnerService.hide();
       console.log("user: ", data.json());
       this.user.username = data.json().username;
@@ -72,7 +73,6 @@ export class ProfileComponent implements OnInit {
   }
 
   submitChange() {
-    this.user.base64 = this.profileImg;
     this.spinnerService.show();
     this.crud
       .putData2(localStorage.getItem("token"), "user/update", this.user)
