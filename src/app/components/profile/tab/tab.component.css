@@ -16,6 +16,7 @@
     clear: both;
 }
 
+
 /* body {
     font-family: sans-serif;
     background: #f6f9fa;
@@ -36,6 +37,7 @@ a {
     position: relative;
     margin-top: 15%;
 }
+
 
 /* input,
 section {
@@ -58,13 +60,11 @@ label {
 
 } */
 
-
 .tab_view {
     font-weight: 700;
     font-size: 15px;
     display: block;
     float: left;
-
     color: #515151;
     cursor: pointer;
     text-decoration: none;
@@ -206,11 +206,20 @@ label {
     column-count: 3;
 }
 
-.card{
-    position:relative;
-    overflow:hidden;
-    padding-bottom:100%;
+.card {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100%;
 }
-.card img{
-    position:absolute;
+
+.card img {
+    position: absolute;
+    display: block;
+    /* Otherwise it keeps some space around baseline */
+    min-width: 100%;
+    /* Scale up to fill container width */
+    min-height: 100%;
+    /* Scale up to fill container height */
+    -ms-interpolation-mode: bicubic;
+    /* Scaled images look a bit better in IE now */
 }
