@@ -56,7 +56,7 @@ export class TabComponent implements OnInit {
       });
       this.profileposts = p;
       if(p){
-        this.myPostExists=true;
+        this.myPostExists = true;
       }
 
     }).catch((err) => {

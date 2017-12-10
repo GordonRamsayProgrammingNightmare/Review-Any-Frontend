@@ -119,9 +119,9 @@ export class HomeComponent implements OnInit {
           element.writtenAt = element.writtenAt.replace("T", " ");
           p.push(element);
         });
-        this.spinnerService.hide();
         // console.log(p);
         this.posts = p;
+        this.spinnerService.hide();
       })
       .catch(err => {
         console.log("error: \n" + err);
