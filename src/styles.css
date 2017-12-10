@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+.main-footer {
+  margin: 15px;
+  padding: 10px;
+  color: rgba(112, 112, 112, 0.727);
+  font-size: 9pt;
+}
+
+.smashcon a:visited {
+  color: black;
+}
+
+#team-g {
+  color: black;
+}
+
+/* mouse over link */
+.smashcon a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+.smashcon a:active {
+  color: black;
+}
