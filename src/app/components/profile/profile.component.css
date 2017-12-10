@@ -7,17 +7,41 @@ hr {
   width: 80%;
 } */
 .profileImg{
-  width: 60%;
+  position: absolute; 
+  top:0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 290px;
+  max-height: 290px;
 }
+
+.profile_img_container:after {
+  display: block;
+  padding-top: 100%;
+  content: ' ';
+}
+
 #profileR1{
   margin-top: 15%;
 }
 
 
 .p_img{
-  width:17em;
-  margin:0.5em;
-  border-radius:50%;
+  /* width:17em;
+  margin:0.5em; */
+  position: absolute; 
+  top:0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 280px;
+  max-height: 280px;
+  
+}
+
+.edit_layout {
+  margin-top: 5%;
 }
 
 .upload_count{
