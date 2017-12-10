@@ -1,18 +1,18 @@
-import { Component, OnInit, ViewEncapsulation, ChangeDetectorRef } from "@angular/core";
-import { list } from "./list";
-import { AuthidComponent } from "app/components/authid/authid.component";
-import { AuthService } from "app/services/auth.service";
-import { User } from "../../models/user";
-import { UploadService } from "../../services/upload.service";
-import { CrudDataService } from "../../services/crud-data.service";
-import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
+import { Component, OnInit, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import { list } from './list';
+import { AuthidComponent } from 'app/components/authid/authid.component';
+import { AuthService } from 'app/services/auth.service';
+import { User } from '../../models/user';
+import { UploadService } from '../../services/upload.service';
+import { CrudDataService } from '../../services/crud-data.service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 
 @Component({
-  selector: "app-profile",
-  templateUrl: "./profile.component.html",
-  styleUrls: ["./profile.component.css"],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
   providers: [User],
   encapsulation: ViewEncapsulation.None
 })
@@ -44,10 +44,10 @@ export class ProfileComponent implements OnInit {
 
   updateData() {
     this.spinnerService.show();
-    this.crud.getData(localStorage.getItem("token"), "user")
+    this.crud.getData(localStorage.getItem('token'), 'user')
     .then(data => {
       this.spinnerService.hide();
-      console.log("user: ", data.json());
+      console.log('user: ', data.json());
       this.user.username = data.json().username;
       this.user.saySomething = data.json().saySomething;
       this.profileImg = this.user.profileImg = data.json().profileImg;
@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit {
     console.log('changing');
     this.spinnerService.show();
     this.crud
-      .putData2(localStorage.getItem("token"), "user/update", this.user)
+      .putData2(localStorage.getItem('token'), 'user/update', this.user)
       .then(data => {
         this.spinnerService.hide();
         document.getElementById('closebtn').click();
