@@ -42,7 +42,7 @@ export class TabComponent implements OnInit {
   ngOnInit() {
     this.updateMyPosts();
     this.updateLikePosts();
-    console.log(this.profileposts);
+    // console.log(this.profileposts);
   }
 
   updateMyPosts() {
@@ -82,6 +82,7 @@ export class TabComponent implements OnInit {
   }
 
   viewHandler(postId, post): void {
+    // console.log(post);
     this.updateSinglePost(postId);
     this.crud.getData(this.token, `user/username/${post.writtenBy}`)
       .then(data => {

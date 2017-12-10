@@ -38,13 +38,6 @@ export class ProfileComponent implements OnInit {
   ) {
   }
 
-  doRerender() {
-    this.rerender = true;
-    this.cdr.detectChanges();
-
-    this.rerender = false;
-  }
-
   ngOnInit() {
     this.updateData();
   }
