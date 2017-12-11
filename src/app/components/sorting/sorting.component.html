@@ -2,8 +2,8 @@
 <nav aria-label="breadcrumb" role="navigation" class="mt-3 navbar navbar-expand-lg navbar-light bg-light justify-content-center">
   <!-- <p>Sort by</p> -->
   <ol class="breadcrumb">
-    <li class="breadcrumb-item active effect" style="cursor:pointer"><a (click)="sortBy('day')">Day</a></li>
-    <li class="breadcrumb-item effect" style="cursor:pointer"><a (click)="sortBy('view')">View</a></li>
-    <li class="breadcrumb-item effect" style="cursor:pointer"><a (click)="sortBy('like')">Like</a></li>
+    <li class="breadcrumb-item effect " [ngClass]="{'active': toggle1}" style="cursor:pointer"><a (click)="sortBy('day')">Day</a></li>
+    <li class="breadcrumb-item effect" [ngClass]="{'active': toggle2}" style="cursor:pointer"><a (click)="sortBy('view')" >View</a></li>
+    <li class="breadcrumb-item effect" [ngClass]="{'active': toggle3}" style="cursor:pointer"><a (click)="sortBy('like')">Like</a></li>
   </ol>
 </nav>

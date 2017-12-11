@@ -75,6 +75,7 @@ export class HomeComponent implements OnInit {
         'search/' + data[0].toLowerCase() + '/' + data[1].toLowerCase()
       )
       .then(data => {
+        console.log(data.json());
         data.json().post.forEach(element => {
           if (this.chkLiked(element._id)) {
             element.isLiked = true;
@@ -266,11 +267,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  tagClickHandler(tag, id) {
+  tagClickHandler(type, tag, id) {
     console.log(tag);
-    let input = ['tag', tag];
+    let input = [type, tag];
 
-    document.getElementById('postclose_' + id).click()
+    document.getElementById('postclose_' + id).click();
 
     this.searchRequest(input);
   }
