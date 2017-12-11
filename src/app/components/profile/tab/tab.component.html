@@ -16,7 +16,7 @@
             <div class="card-columns">
                 <div class="rows">
                     <div *ngFor="let post of profileposts" class="items well">
-                        <div class="card post mt-2 " data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(post.title)" (click)="viewHandler(post._id, post)">
+                        <div class="card post cursor-pointer mt-2 " data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(post.title)" (click)="viewHandler(post._id, post)">
                             <img class="tab-img ounded card-img-top img-responsive" [src]="post.picUrl" alt="image post">
                             <div class="carousel-caption">
                                 <p>
@@ -49,7 +49,7 @@
                 <div class="card-columns">
                     <div class="rows">
                         <div *ngFor="let lpost of likedPosts" class="items well">
-                            <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + lpost._id" ng-click="showModal(lpost.title)" (click)="viewHandler(lpost._id, lpost)">
+                            <div class="card post cursor-pointer mt-2" data-toggle="modal" [attr.data-target]="'#' + lpost._id" ng-click="showModal(lpost.title)" (click)="viewHandler(lpost._id, lpost)">
                                 <img class="tab-img img card-img-top img-responsive" [src]="lpost.picUrl" alt="image post">
                                 <h3 class="carousel-caption">{{lpost.title}}</h3>
                             </div>
@@ -134,11 +134,11 @@
                                     </p>
                                 </div>
                                 <div *ngIf="!edit" class="col-auto ml-auto">
-                                    <img class="editBtn mt-1" src="../../../../assets/imgs/edit_icon.png" width="40" height="40" alt="edit_icon" (click)="editBtnHandler(post._id)">
-                                    <img class="delBtn mt-1 ml-1" src="../../../../assets/imgs/del_icon.png" width="40" height="40" alt="del_icon" (click)="delBtnHandler(post._id)">
+                                    <img class="editBtn mt-1 cursor-pointer" src="../../../../assets/imgs/edit_icon.png" width="40" height="40" alt="edit_icon" (click)="editBtnHandler(post._id)">
+                                    <img class="delBtn mt-1 ml-1 cursor-pointer" src="../../../../assets/imgs/del_icon.png" width="40" height="40" alt="del_icon" (click)="delBtnHandler(post._id)">
                                 </div>
                                 <div *ngIf="edit" class="col-auto ml-auto">
-                                    <button type="submit" class="submitBtn"><img src="../../../../assets/imgs/saveicon.png" width="40" height="40" alt="sub_icon"></button>
+                                    <button type="submit" class="submitBtn cursor-pointer"><img src="../../../../assets/imgs/saveicon.png" width="40" height="40" alt="sub_icon"></button>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +202,7 @@
                                 </p>
                             </div>
                             <div class="col-auto ml-auto">
-                                <img class="likeBtn" src="../../../../assets/imgs/likebuttonClicked.png" alt="like_icon">
+                                <img class="likeBtn cursor-pointer" src="../../../../assets/imgs/likebuttonClicked.png" alt="like_icon">
                             </div>
                         </div>
                     </div>

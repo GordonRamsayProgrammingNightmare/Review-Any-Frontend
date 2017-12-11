@@ -31,7 +31,9 @@
 .tab-img {
   object-fit: cover;
 }
-
+.cursor-pointer{
+    cursor:pointer;
+}
 .likeBtn {
   height: 2.5em;
   width: 2.5em;
