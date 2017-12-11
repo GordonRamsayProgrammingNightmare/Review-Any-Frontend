@@ -39,10 +39,10 @@
             <div *ngIf="likedPostExists">
                 <div class="card-columns">
                     <div class="rows">
-                        <div *ngFor="let post of likedPosts" class="items well">
-                            <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(lp.title)" (click)="viewHandler(post._id)">
-                                <img class="tab-img img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
-                                <h3 class="carousel-caption">{{post.title}}</h3>
+                        <div *ngFor="let lpost of likedPosts" class="items well">
+                            <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + lpost._id" ng-click="showModal(lpost.title)" (click)="viewHandler(lpost._id, lpost)">
+                                <img class="tab-img img card-img-top img-responsive" [src]="lpost.picUrl" alt="image post">
+                                <h3 class="carousel-caption">{{lpost.title}}</h3>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
 
-                <form (ngSubmit)="onEdit()">
+                <form (ngSubmit)="onEdit(post)">
                     <div class="modal-header">
                         <div class="container">
                             <div class="row">
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="row">
                                         <p class="ml-3 mr-3">
-                                            by <span class="userId">{{post.writtenBy}}</span>
+                                            by <span class="userId">{{postUserName}}</span>
                                         </p>
                                         <p>
                                             <i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span>
@@ -122,7 +122,7 @@
     </div>
 
 
-    <div *ngFor="let post of likedPosts" class="modal postModal fade bd-example-modal-lg" [attr.id]="post._id" tabindex="-1" role="dialog" aria-hidden="true">
+    <div *ngFor="let lpost of likedPosts" class="modal postModal fade bd-example-modal-lg" [attr.id]="lpost._id" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
 
@@ -130,14 +130,14 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8">
-                                <h3 class="postTitle" id="exampleModalLabel">{{post.title}}</h3>
+                                <h3 class="postTitle" id="exampleModalLabel">{{lpost.title}}</h3>
                                 <div class="row">
                                     <p class="ml-3 mr-3">
-                                        by <span class="userId">{{post.writtenBy}}</span>
+                                        by <span class="userId">{{postUserName}}</span>
                                     </p>
                                     <p>
-                                        <i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span>
-                                        <i class="fa fa-eye ml-1"></i><span class="views">{{post.viewCnt}}</span>
+                                        <i class="fa fa-heart"></i><span class="likes">{{lpost.likeCnt}}</span>
+                                        <i class="fa fa-eye ml-1"></i><span class="views">{{lpost.viewCnt}}</span>
                                     </p>
                                 </div>
                             </div>
@@ -149,10 +149,10 @@
                 </div>
 
                 <div class="modal-body">
-                    <img class="card-img-top" [src]="post.picUrl" alt="post_image_modal">
+                    <img class="card-img-top" [src]="lpost.picUrl" alt="post_image_modal">
                     <div class="container">
                         <p class="card-text mt-3">
-                            {{post.content}}
+                            {{lpost.content}}
                         </p>
                     </div>
                 </div>
@@ -161,11 +161,11 @@
                     <div class="container">
                         <div class="row justify-content-between align-items-center">
                             <div class="col-lg-8">
-                                <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
-                                <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
+                                <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{lpost.writtenAt}}</span></p>
+                                <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of lpost.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
                             </div>
                             <div class="col-auto ml-auto">
-                                <img class="likeBtn" src="../../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id)" alt="like_icon">
+                                <img class="likeBtn" src="../../../../assets/imgs/likebuttonClicked.png" alt="like_icon">
                             </div>
                         </div>
                     </div>

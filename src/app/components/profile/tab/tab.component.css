@@ -167,7 +167,7 @@ label {
 
 .carousel-caption {
     opacity: 0;
-    transition: opacity 0.5s
+    transition: opacity 0.5s;
 }
 
 div.carousel-caption,

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'app/services/auth.service';
 import { CrudDataService } from 'app/services/crud-data.service';
 import { Post2 } from 'app/models/post';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-tab',
@@ -16,7 +17,6 @@ export class TabComponent implements OnInit {
   public likedPosts: Array<any>;
   public postUserName: any;
   likedPostExists: boolean;
-  likedPostNotExists: boolean;
   myPostExists : boolean;
   rerender = false;
   edit = false;
@@ -24,11 +24,12 @@ export class TabComponent implements OnInit {
   constructor(
     private router: Router,
     private crud: CrudDataService,
+    private spinnerService: Ng4LoadingSpinnerService,
     private cdr: ChangeDetectorRef
   ) {
     this.token = localStorage.getItem('token');
     this.likedPostExists = false;
-    this.myPostExists=false;
+    this.myPostExists = false;
     this.updateMyPosts();
     this.updateLikePosts();
   }
@@ -76,7 +77,6 @@ export class TabComponent implements OnInit {
       this.likedPosts = lp;
       if(lp) {
         this.likedPostExists = true;
-        this.likedPostNotExists = false;
       }
   });
   }
@@ -88,6 +88,7 @@ export class TabComponent implements OnInit {
       .then(data => {
         // console.log(data.json());
         this.postUserName = data.json().username;
+        console.log(this.postUserName);
       })
       .catch(err => {
         console.log(err);
@@ -131,7 +132,7 @@ export class TabComponent implements OnInit {
   delBtnHandler(postId): void {
     let isDel = confirm("Are you sure to Delete this post?");
     if (isDel == true) {
-      this.deletePost(postId);  
+      this.deletePost(postId);
     }
   }
 
@@ -147,11 +148,21 @@ export class TabComponent implements OnInit {
   }
 
   editBtnHandler(id): void {
-    console.log(id);
+    // console.log(id);
     this.edit = true;
   }
 
-  onEdit() {
+  onEdit(post) {
+    console.log(post);
     this.edit = false;
+    this.spinnerService.show();
+    this.crud.putData2(this.token, 'post/' + post._id, post)
+    .then(data => {
+      this.spinnerService.hide();
+      console.log(data);
+    })
+    .catch(err => {
+      console.log(err);
+    })
   }
 }
