@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="col-1.5">
-        <a class=" navbar-brand" style="cursor:pointer" (click)="gotoHome()">ReviewAny</a>
+        <a class=" navbar-brand cursor-pointer" (click)="gotoHome()">ReviewAny</a>
     </div>
 
     <div class="col-auto">
@@ -23,15 +23,15 @@
 
                         </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li data-value="1"><a class="dropdown-item" style="cursor:pointer" (click)="selectList('Title')">Title</a></li>
-                                <li data-value="2"><a class="dropdown-item" style="cursor:pointer" (click)="selectList('Tag')">Tag</a></li>
-                                <li data-value="3"><a class="dropdown-item" style="cursor:pointer" (click)="selectList('Content')">Content</a></li>
+                                <li data-value="1"><a class="dropdown-item cursor-pointer" (click)="selectList('Title')">Title</a></li>
+                                <li data-value="2"><a class="dropdown-item cursor-pointer" (click)="selectList('Tag')">Tag</a></li>
+                                <li data-value="3"><a class="dropdown-item cursor-pointer" (click)="selectList('Content')">Content</a></li>
                             </ul>
                         </div>
 
                         <input type="text" name="search" class="form-control" placeholder="Search" [(ngModel)]="searchTxt">
                         <span class="input-group-addon">
-                      <button type="submit"><img src="../../../assets/imgs/search.png" width="30" height="30" alt="search_icon"></button>
+                      <button class="cursor-pointer" type="submit"><img src="../../../assets/imgs/search.png" width="30" height="30" alt="search_icon"></button>
                   </span>
                     </div>
                 </div>
@@ -40,21 +40,21 @@
     </div>
 
     <div class="col-0.5">
-        <a class="username" style="cursor:default">{{username}}</a>
+        <a class="username cursor-default">{{username}}</a>
     </div>
 
     <div class="nav-item col-0.9">
         <a class="nav-link" (click)="gotoProfile()">
-            <img class="userPhoto" style="cursor:pointer" [src]="profileImg" width="30" height="30" alt="user_image">
+            <img class="userPhoto cursor-pointer" [src]="profileImg" width="30" height="30" alt="user_image">
         </a>
     </div>
 
     <div class="nav-item active col-0.5">
-        <button class="btn mainBtn btn-light" type="button" style="cursor:pointer" (click)="gotoUpload()"><img src="../../../assets/imgs/upload_icon.png" width="30" height="31" alt="write_icon"></button>
+        <button class="btn mainBtn btn-light cursor-pointer" type="button" (click)="gotoUpload()"><img src="../../../assets/imgs/upload_icon.png" width="30" height="31" alt="write_icon"></button>
     </div>
 
     <div class="nav-item col-0.5">
-        <button class="btn mainBtn btn-light" type="button" style="cursor:pointer" (click)="logout()"><img src="../../../assets/imgs/logout_icon.png" width="38" height="38.5" alt="logout_icon"></button>
+        <button class="btn mainBtn btn-light cursor-pointer" type="button" (click)="logout()"><img src="../../../assets/imgs/logout_icon.png" width="38" height="38.5" alt="logout_icon"></button>
     </div>
 
 </nav>

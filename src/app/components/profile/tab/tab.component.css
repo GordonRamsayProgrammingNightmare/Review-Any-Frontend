@@ -15,7 +15,19 @@
 .clearfix:after {
     clear: both;
 }
-
+.pt_edit{
+    width:100%;
+    font-weight: 700;
+    font-size:1.75rem;
+}
+.pc_edit{
+    margin-top:1em;
+    width:100%;
+}
+.submitBtn{
+    border: 0;
+    background: transparent;
+}
 .tab-img {
   object-fit: cover;
 }

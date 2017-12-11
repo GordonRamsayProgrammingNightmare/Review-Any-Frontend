@@ -20,7 +20,12 @@ a.username,
     border: 0;
     background: transparent;
 }
-
+.cursor-pointer {
+    cursor:pointer;
+}
+.cursor-default{
+    cursor:default
+}
 .mainBtn {
     background-color: rgba( 255, 255, 255, 0.0);
     border: 0;
