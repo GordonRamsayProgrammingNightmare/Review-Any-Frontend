@@ -81,6 +81,10 @@
   padding-left: 0px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 div.carousel-caption,
 h3.postTitle {
   font-family: "NanumSquare", sans-serif;

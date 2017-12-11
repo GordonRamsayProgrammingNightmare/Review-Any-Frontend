@@ -74,7 +74,7 @@
             </p>
             <p class="comments ml-2">
               {{ comment.comment }}
-              <i *ngIf="comment.username == userlogged" class="fa fa-trash-o mr-2" (click)="commentDel(post._id, comment._id, comment.username)"></i>
+              <i *ngIf="comment.username == userlogged" class="fa fa-trash-o mr-2 cursor-pointer" (click)="commentDel(post._id, comment._id, comment.username)"></i>
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@
               <div class="input-group stylish-input-group input-append">
                 <input class="form-control" type="text" id=commentIn name="commentIn" placeholder="Add comment..." [(ngModel)]="comment">
                 <span class="input-group-addon">
-                  <button type="submit">
+                  <button type="submit" class="cursor-pointer">
                     <img src="../../../assets/imgs/comment_icon.png" width="30" height="30" alt="comment_icon">
                   </button>
                 </span>
@@ -121,9 +121,9 @@
               </p>
             </div>
             <div class="col-auto">
-              <img *ngIf="post.isLiked" class="likeBtn" src="../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id, post)"
+              <img *ngIf="post.isLiked" class="likeBtn cursor-pointer" src="../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id, post)"
                 alt="like_icon">
-              <img *ngIf="!post.isLiked" class="likeBtn" src="../../../assets/imgs/likeButton.png" (click)="likeBtnHandler(post._id, post)"
+              <img *ngIf="!post.isLiked" class="likeBtn cursor-pointer" src="../../../assets/imgs/likeButton.png" (click)="likeBtnHandler(post._id, post)"
                 alt="like_icon">
             </div>
           </div>
