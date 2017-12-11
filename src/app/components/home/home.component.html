@@ -110,14 +110,14 @@
               </p>
               <p>
                 <i class="fa fa-tags"></i> Tags:
-                <span *ngFor="let tag of post.tags" class="badge badge-info mr-1" (click)="tagClickHandler(tag.tag, post._id)">{{tag.tag}}</span>
+                <span *ngFor="let tag of post.tags" class="badge badge-info mr-1" (click)="tagClickHandler('tag', tag.tag, post._id)">{{tag.tag}}</span>
               </p>
             </div>
             <div *ngIf="post.imageTags.length != 0" class="col-lg-8">
               <!-- <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p> -->
               <p>
                 <i class="fa fa-image"></i> Image Tags:
-                <span *ngFor="let tag of post.imageTags" class="badge badge-info mr-1">{{tag}}</span>
+                <span *ngFor="let tag of post.imageTags" class="badge badge-info mr-1" (click)="tagClickHandler('image', tag, post._id)">{{tag}}</span>
               </p>
             </div>
             <div class="col-auto">
