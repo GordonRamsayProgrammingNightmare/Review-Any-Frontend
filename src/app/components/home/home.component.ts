@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { AuthService } from "app/services/auth.service";
-import { CrudDataService } from "app/services/crud-data.service";
-import { Post2, Comment } from "app/models/post";
-import { forEach } from "@angular/router/src/utils/collection";
-import { setInterval } from "timers";
-import { SimpleChanges } from "@angular/core/src/metadata/lifecycle_hooks";
-import { SortingComponent } from "../sorting/sorting.component";
-import { PostService } from "app/services/post.service";
-import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
+import { AuthService } from 'app/services/auth.service';
+import { CrudDataService } from 'app/services/crud-data.service';
+import { Post2, Comment } from 'app/models/post';
+import { forEach } from '@angular/router/src/utils/collection';
+import { setInterval } from 'timers';
+import { SimpleChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { SortingComponent } from '../sorting/sorting.component';
+import { PostService } from 'app/services/post.service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html",
-  styleUrls: ["./home.component.css"]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
   private token: any;
@@ -30,12 +30,12 @@ export class HomeComponent implements OnInit {
     private postService: PostService,
     private spinnerService: Ng4LoadingSpinnerService
   ) {
-    this.token = localStorage.getItem("token");
+    this.token = localStorage.getItem('token');
     this.getUserLikePost();
   }
 
   ngOnChanges() {
-    console.log("changed");
+    console.log('changed');
     this.getUserLikePost();
     this.updateData();
   }
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   onRedirect() {
-    console.log("redirect");
+    console.log('redirect');
     this.updateData();
   }
 
@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
     this.crudData
       .getData(
         this.token,
-        "search/" + data[0].toLowerCase() + "/" + data[1].toLowerCase()
+        'search/' + data[0].toLowerCase() + '/' + data[1].toLowerCase()
       )
       .then(data => {
         data.json().post.forEach(element => {
@@ -83,55 +83,50 @@ export class HomeComponent implements OnInit {
           }
           element.writtenAt = element.writtenAt.slice(
             0,
-            element.writtenAt.indexOf(".")
+            element.writtenAt.indexOf('.')
           );
-          element.writtenAt = element.writtenAt.replace("T", " ");
+          element.writtenAt = element.writtenAt.replace('T', ' ');
           p.push(element);
           this.spinnerService.hide();
         });
         this.posts = p;
       })
       .catch(err => {
-        console.log("searchHandler error: \n" + err);
+        console.log('searchHandler error: \n' + err);
       });
   }
 
   updateData() {
     this.spinnerService.show();
     this.crudData
-      .getData(this.token, "post/all")
+      .getData(this.token, 'post/all')
       .then(data => {
-        // console.log(data.json().posts);
         var p = [];
         data.json().posts.forEach(element => {
           if (this.chkLiked(element._id)) {
             element.isLiked = true;
-            // console.log(element);
           } else {
             element.isLiked = false;
           }
-
-          // console.log(element.writtenAt);
           element.writtenAt = element.writtenAt.slice(
             0,
-            element.writtenAt.indexOf(".")
+            element.writtenAt.indexOf('.')
           );
-          element.writtenAt = element.writtenAt.replace("T", " ");
+          element.writtenAt = element.writtenAt.replace('T', ' ');
           p.push(element);
         });
-        // console.log(p);
         this.posts = p;
         this.spinnerService.hide();
       })
       .catch(err => {
-        console.log("error: \n" + err);
+        console.log('error: \n' + err);
       });
   }
 
   sortData(type) {
     this.spinnerService.show();
     this.crudData
-      .getData(this.token, "post/all/" + type)
+      .getData(this.token, 'post/all/' + type)
       .then(data => {
         // console.log(data.json().posts);
         this.spinnerService.hide();
@@ -147,16 +142,16 @@ export class HomeComponent implements OnInit {
           // console.log(element.writtenAt);
           element.writtenAt = element.writtenAt.slice(
             0,
-            element.writtenAt.indexOf(".")
+            element.writtenAt.indexOf('.')
           );
-          element.writtenAt = element.writtenAt.replace("T", " ");
+          element.writtenAt = element.writtenAt.replace('T', ' ');
           p.push(element);
         });
         // console.log(p);
         this.posts = p;
       })
       .catch(err => {
-        console.log("error: \n" + err);
+        console.log('error: \n' + err);
       });
   }
 
@@ -214,7 +209,7 @@ export class HomeComponent implements OnInit {
   // 좋아요 목록 refresh
   getUserLikePost(): any {
     this.crudData
-      .getData(this.token, "user")
+      .getData(this.token, 'user')
       .then(data => {
         var arr = data.json().likePost;
         this.likePosts = arr;
@@ -245,7 +240,7 @@ export class HomeComponent implements OnInit {
       // console.log(post.likeCnt);
       // 포스트 좋아요 db에 반영
       this.crudData
-        .sendData(this.token, "post/like", postId)
+        .sendData(this.token, 'post/like', postId)
         .then(msg => {
           this.getUserLikePost();
           console.log(msg.json());
@@ -260,7 +255,7 @@ export class HomeComponent implements OnInit {
       console.log(post.likeCnt);
       // 포스트 좋아요 취소 db에 반영
       this.crudData
-        .deleteData(this.token, "post/like", postId)
+        .deleteData(this.token, 'post/like', postId)
         .then(msg => {
           this.getUserLikePost();
           console.log(msg.json());
@@ -278,10 +273,10 @@ export class HomeComponent implements OnInit {
       comment: this.comment
     };
     this.crudData
-      .uploadData(this.token, "post/comment", data)
+      .uploadData(this.token, 'post/comment', data)
       .then(msg => {
         this.updateSinglePost(postId);
-        this.comment = "";
+        this.comment = '';
         console.log(msg.json());
       })
       .catch(err => {
@@ -291,7 +286,7 @@ export class HomeComponent implements OnInit {
 
   commentDel(post_id, comment_id, username): void {
     this.crudData
-      .deleteData2(this.token, "post/comment", post_id, comment_id, username)
+      .deleteData2(this.token, 'post/comment', post_id, comment_id, username)
       .then(msg => {
         this.updateSinglePost(post_id);
         console.log(msg.json());
@@ -302,7 +297,7 @@ export class HomeComponent implements OnInit {
   }
 
   sortingHandler(sorttype) {
-    if (sorttype == "day") {
+    if (sorttype == 'day') {
       this.updateData();
     } else {
       this.sortData(sorttype);

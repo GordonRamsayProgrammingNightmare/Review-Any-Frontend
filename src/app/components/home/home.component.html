@@ -2,114 +2,134 @@
 <app-sorting></app-sorting>
 <!-- Posts -->
 <div class="container mt-3">
-    <div class="card-columns">
-        <div class="rows">
-            <div *ngFor="let post of posts" class="items well">
-                <div class="card post mt-2" style="cursor:pointer" data-toggle="modal" [attr.data-target]="'#' + post._id" (click)="viewHandler(post._id, post)">
-                    <img class="card-img-top img-responsive" [src]="post.picUrl" alt="post_image">
-                    <div class="carousel-caption">
-                      <p>
-                        <i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span>
-                        <i class="fa fa-eye ml-1"></i><span class="views">{{post.viewCnt}}</span>
-                      </p>
-                      <h4>
-                        {{post.title}}
-                      </h4>
-                    </div>
-                </div>
-            </div>
+  <div class="card-columns">
+    <div class="rows">
+      <div *ngFor="let post of posts" class="items well">
+        <div class="card post mt-2" style="cursor:pointer" data-toggle="modal" [attr.data-target]="'#' + post._id" (click)="viewHandler(post._id, post)">
+          <img class="card-img-top img-responsive" [src]="post.picUrl" alt="post_image">
+          <div class="carousel-caption">
+            <p>
+              <i class="fa fa-heart"></i>
+              <span class="likes">{{post.likeCnt}}</span>
+              <i class="fa fa-eye ml-1"></i>
+              <span class="views">{{post.viewCnt}}</span>
+            </p>
+            <h4>
+              {{post.title}}
+            </h4>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 
 
 
 <!-- Modal -->
-<div *ngFor="let post of posts" class="modal postModal fade bd-example-modal-lg" [attr.id]="post._id" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <h3 class="postTitle" id="exampleModalLabel">{{post.title}}</h3>
-                            <div class="row">
-                                <p class="ml-3 mr-3">
-                                    by <span class="userId">{{postUsername}}</span>
-                                </p>
-                                <p>
-                                    <i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span>
-                                    <i class="fa fa-eye ml-1"></i><span class="views">{{post.viewCnt}}</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
+<div *ngFor="let post of posts" class="modal postModal fade bd-example-modal-lg" [attr.id]="post._id" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <h3 class="postTitle" id="exampleModalLabel">{{post.title}}</h3>
+              <div class="row">
+                <p class="ml-3 mr-3">
+                  by
+                  <span class="userId">{{postUsername}}</span>
+                </p>
+                <p>
+                  <i class="fa fa-heart"></i>
+                  <span class="likes">{{post.likeCnt}}</span>
+                  <i class="fa fa-eye ml-1"></i>
+                  <span class="views">{{post.viewCnt}}</span>
+                </p>
+              </div>
             </div>
+          </div>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
-            <div class="modal-body">
-                <img class="card-img-top" [src]="post.picUrl" alt="post_image_modal">
-                <div class="container">
-                    <p class="card-text mt-3">
-                        {{post.content}}
-                    </p>
-                </div>
-            </div>
+      <div class="modal-body">
+        <img class="card-img-top" [src]="post.picUrl" alt="post_image_modal">
+        <div class="container">
+          <p class="card-text mt-3">
+            {{post.content}}
+          </p>
+        </div>
+      </div>
 
-            <div class="modal-footer" *ngIf="post.comments.length != 0">
-                <div class="container">
-                    <div *ngFor="let comment of post.comments" class="row allcomment">
-                        <p class="commentid ml-3">
-                            {{ comment.username }} >
-                        </p>
-                        <p class="comments ml-2">
-                            {{ comment.comment }} <i *ngIf="comment.username == userlogged" class="fa fa-trash-o mr-2" (click)="commentDel(post._id, comment._id, comment.username)"></i>
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <div class="modal-footer" *ngIf="post.comments.length != 0">
+        <div class="container">
+          <div *ngFor="let comment of post.comments" class="row allcomment">
+            <p class="commentid ml-3">
+              {{ comment.username }} >
+            </p>
+            <p class="comments ml-2">
+              {{ comment.comment }}
+              <i *ngIf="comment.username == userlogged" class="fa fa-trash-o mr-2" (click)="commentDel(post._id, comment._id, comment.username)"></i>
+            </p>
+          </div>
+        </div>
+      </div>
 
-            <!--
+      <!--
             <form (ngSubmit)="onWrite(post._id)" novalidate>
               <input class="form-control" type="text" id=commentIn name="commentIn" placeholder="write a comment" [(ngModel)]="comment">
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             -->
 
-            <div class="modal-footer">
-                <div class="container">
-                    <div class="row justify-content-md-center mb-4">
-                        <form class="form col-12" (ngSubmit)="onWrite(post._id)" novalidate>
-                            <div class="input-group stylish-input-group input-append">
-                                <input class="form-control" type="text" id=commentIn name="commentIn" placeholder="Add comment..." [(ngModel)]="comment">
-                                <span class="input-group-addon">
-                                    <button type="submit"><img src="../../../assets/imgs/comment_icon.png" width="30" height="30" alt="comment_icon"></button>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
+      <div class="modal-footer">
+        <div class="container">
+          <div class="row justify-content-md-center mb-4">
+            <form class="form col-12" (ngSubmit)="onWrite(post._id)" novalidate>
+              <div class="input-group stylish-input-group input-append">
+                <input class="form-control" type="text" id=commentIn name="commentIn" placeholder="Add comment..." [(ngModel)]="comment">
+                <span class="input-group-addon">
+                  <button type="submit">
+                    <img src="../../../assets/imgs/comment_icon.png" width="30" height="30" alt="comment_icon">
+                  </button>
+                </span>
+              </div>
+            </form>
+          </div>
 
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-lg-8">
-                            <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
-                            <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
-                        </div>
-                        <div *ngIf="post.imageTags.length != 0" class="col-lg-8">
-                            <!-- <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p> -->
-                            <p><i class="fa fa-image"></i> Image Tags: <span *ngFor="let tag of post.imageTags" class="badge badge-info mr-1">{{tag}}</span></p>
-                        </div>
-                        <div class="col-auto">
-                            <img *ngIf="post.isLiked" class="likeBtn" src="../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id, post)" alt="like_icon">
-                            <img *ngIf="!post.isLiked" class="likeBtn" src="../../../assets/imgs/likeButton.png" (click)="likeBtnHandler(post._id, post)" alt="like_icon">
-                        </div>
-                    </div>
-                </div>
+          <div class="row justify-content-between align-items-center">
+            <div class="col-lg-8">
+              <p>
+                <i class="fa fa-calendar"></i> Posted on
+                <span class="writeDate">{{post.writtenAt}}</span>
+              </p>
+              <p>
+                <i class="fa fa-tags"></i> Tags:
+                <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span>
+              </p>
             </div>
-
+            <div *ngIf="post.imageTags.length != 0" class="col-lg-8">
+              <!-- <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p> -->
+              <p>
+                <i class="fa fa-image"></i> Image Tags:
+                <span *ngFor="let tag of post.imageTags" class="badge badge-info mr-1">{{tag}}</span>
+              </p>
+            </div>
+            <div class="col-auto">
+              <img *ngIf="post.isLiked" class="likeBtn" src="../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id, post)"
+                alt="like_icon">
+              <img *ngIf="!post.isLiked" class="likeBtn" src="../../../assets/imgs/likeButton.png" (click)="likeBtnHandler(post._id, post)"
+                alt="like_icon">
+            </div>
+          </div>
         </div>
+      </div>
+
     </div>
+  </div>
 </div>
