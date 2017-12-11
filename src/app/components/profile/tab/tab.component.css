@@ -170,6 +170,12 @@ label {
     transition: opacity 0.5s
 }
 
+div.carousel-caption,
+h3.postTitle {
+  font-family: "NanumSquare", sans-serif;
+  font-weight: 700;
+}
+
 .post:hover>.carousel-caption {
     opacity: 1;
 }

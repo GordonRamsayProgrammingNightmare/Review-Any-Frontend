@@ -12,7 +12,17 @@
                     <div *ngFor="let post of profileposts" class="items well">
                         <div class="card post mt-2 " data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(post.title)" (click)="viewHandler(post._id, post)">
                             <img class="tab-img ounded card-img-top img-responsive" [src]="post.picUrl" alt="image post">
-                            <h3 class="carousel-caption">{{post.title}}</h3>
+                            <div class="carousel-caption">
+                              <p>
+                                <i class="fa fa-heart"></i>
+                                <span class="likes">{{post.likeCnt}}</span>
+                                <i class="fa fa-eye ml-1"></i>
+                                <span class="views">{{post.viewCnt}}</span>
+                              </p>
+                              <h4>
+                                {{post.title}}
+                              </h4>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -69,7 +79,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" id="closebtn_{{post._id}}" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>

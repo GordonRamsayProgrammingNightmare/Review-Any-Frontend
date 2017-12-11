@@ -129,13 +129,21 @@ export class TabComponent implements OnInit {
   }
 
   delBtnHandler(postId): void {
+    let isDel = confirm("Are you sure to Delete this post?");
+    if (isDel == true) {
+      this.deletePost(postId);  
+    }
+  }
+
+  deletePost(postId) {
     this.crud.deleteData(this.token, 'post', postId)
-      .then(msg => {
-        alert(msg.json().message);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    .then(msg => {
+      document.getElementById('closebtn_' + postId).click();
+      this.updateMyPosts();
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
 
   editBtnHandler(id): void {
