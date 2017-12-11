@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
-import { list } from './list';
 import { AuthidComponent } from 'app/components/authid/authid.component';
 import { AuthService } from 'app/services/auth.service';
 import { User } from '../../models/user';
@@ -17,7 +16,6 @@ import { PostService } from '../../services/post.service';
   encapsulation: ViewEncapsulation.None
 })
 export class ProfileComponent implements OnInit {
-  LIST = list;
   user: User = new User();
   username: string;
   saySomething: string;

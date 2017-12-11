@@ -16,6 +16,14 @@
     clear: both;
 }
 
+.tab-img {
+  object-fit: cover;
+}
+
+.likeBtn {
+  height: 2.5em;
+  width: 2.5em;
+}
 
 /* body {
     font-family: sans-serif;

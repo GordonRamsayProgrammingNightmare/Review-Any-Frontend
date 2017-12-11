@@ -17,6 +17,10 @@ hr {
   max-height: 290px;
 }
 
+.profile_img_container {
+  max-height: 23em;
+}
+
 .profile_img_container:after {
   display: block;
   padding-top: 100%;
@@ -31,6 +35,7 @@ hr {
 .p_img{
   /* width:17em;
   margin:0.5em; */
+  object-fit: cover;
   position: absolute;
   top:0;
   left: 5%;

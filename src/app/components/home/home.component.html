@@ -5,7 +5,7 @@
   <div class="card-columns">
     <div class="rows">
       <div *ngFor="let post of posts" class="items well">
-        <div class="card post mt-2" style="cursor:pointer" data-toggle="modal" [attr.data-target]="'#' + post._id" (click)="viewHandler(post._id, post)">
+        <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post._id" (click)="viewHandler(post._id, post)">
           <img class="card-img-top img-responsive" [src]="post.picUrl" alt="post_image">
           <div class="carousel-caption">
             <p>
@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" id="postclose_{{post._id}}" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -110,7 +110,7 @@
               </p>
               <p>
                 <i class="fa fa-tags"></i> Tags:
-                <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span>
+                <span *ngFor="let tag of post.tags" class="badge badge-info mr-1" (click)="tagClickHandler(tag.tag, post._id)">{{tag.tag}}</span>
               </p>
             </div>
             <div *ngIf="post.imageTags.length != 0" class="col-lg-8">

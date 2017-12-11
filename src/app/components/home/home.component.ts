@@ -266,6 +266,15 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  tagClickHandler(tag, id) {
+    console.log(tag);
+    let input = ['tag', tag];
+
+    document.getElementById('postclose_' + id).click()
+
+    this.searchRequest(input);
+  }
+
   onWrite(postId): void {
     // this.comment.username = this.getUsername();
     let data = {

@@ -11,7 +11,7 @@
                 <div class="rows">
                     <div *ngFor="let post of profileposts" class="items well">
                         <div class="card post mt-2 " data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(post.title)" (click)="viewHandler(post._id, post)">
-                            <img class="rounded card-img-top img-responsive" [src]="post.picUrl" alt="image post">
+                            <img class="tab-img ounded card-img-top img-responsive" [src]="post.picUrl" alt="image post">
                             <h3 class="carousel-caption">{{post.title}}</h3>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                     <div class="rows">
                         <div *ngFor="let post of likedPosts" class="items well">
                             <div class="card post mt-2" data-toggle="modal" [attr.data-target]="'#' + post._id" ng-click="showModal(lp.title)" (click)="viewHandler(post._id)">
-                                <img class="img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
+                                <img class="tab-img img card-img-top img-responsive" [src]="post.picUrl" alt="image post">
                                 <h3 class="carousel-caption">{{post.title}}</h3>
                             </div>
                         </div>
@@ -149,13 +149,13 @@
 
                 <div class="modal-footer">
                     <div class="container">
-                        <div class="row">
+                        <div class="row justify-content-between align-items-center">
                             <div class="col-lg-8">
                                 <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
                                 <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
                             </div>
                             <div class="col-auto ml-auto">
-                                <img class="likeBtn" src="../../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id)" width="70" height="70" alt="like_icon">
+                                <img class="likeBtn" src="../../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id)" alt="like_icon">
                             </div>
                         </div>
                     </div>
