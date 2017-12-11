@@ -87,8 +87,8 @@ export class HomeComponent implements OnInit {
           );
           element.writtenAt = element.writtenAt.replace("T", " ");
           p.push(element);
+          this.spinnerService.hide();
         });
-        this.spinnerService.hide();
         this.posts = p;
       })
       .catch(err => {
@@ -162,7 +162,7 @@ export class HomeComponent implements OnInit {
 
   getUsername(): void {
     this.crudData
-      .getData(this.token, "user")
+      .getData(this.token, 'user')
       .then(data => {
         this.userlogged = data.json().username;
       })
@@ -183,7 +183,7 @@ export class HomeComponent implements OnInit {
         console.log(err);
       });
     this.crudData
-      .sendData(this.token, "post/view", postId)
+      .sendData(this.token, 'post/view', postId)
       .then(msg => {
         // console.log(msg.json());
       })

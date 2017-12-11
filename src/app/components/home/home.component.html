@@ -7,7 +7,15 @@
             <div *ngFor="let post of posts" class="items well">
                 <div class="card post mt-2" style="cursor:pointer" data-toggle="modal" [attr.data-target]="'#' + post._id" (click)="viewHandler(post._id, post)">
                     <img class="card-img-top img-responsive" [src]="post.picUrl" alt="post_image">
-                    <h3 class="carousel-caption">{{post.title}}</h3>
+                    <div class="carousel-caption">
+                      <p>
+                        <i class="fa fa-heart"></i><span class="likes">{{post.likeCnt}}</span>
+                        <i class="fa fa-eye ml-1"></i><span class="views">{{post.viewCnt}}</span>
+                      </p>
+                      <h4>
+                        {{post.title}}
+                      </h4>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,7 +93,7 @@
                         </form>
                     </div>
 
-                    <div class="row">
+                    <div class="row justify-content-between align-items-center">
                         <div class="col-lg-8">
                             <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p>
                             <p><i class="fa fa-tags"></i> Tags: <span *ngFor="let tag of post.tags" class="badge badge-info mr-1">{{tag.tag}}</span></p>
@@ -94,9 +102,9 @@
                             <!-- <p><i class="fa fa-calendar"></i> Posted on <span class="writeDate">{{post.writtenAt}}</span></p> -->
                             <p><i class="fa fa-image"></i> Image Tags: <span *ngFor="let tag of post.imageTags" class="badge badge-info mr-1">{{tag}}</span></p>
                         </div>
-                        <div class="col-auto ml-auto">
-                            <img *ngIf="post.isLiked" class="likeBtn" src="../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id, post)" width="70" height="70" alt="like_icon">
-                            <img *ngIf="!post.isLiked" class="likeBtn" src="../../../assets/imgs/likeButton.png" (click)="likeBtnHandler(post._id, post)" width="70" height="70" alt="like_icon">
+                        <div class="col-auto">
+                            <img *ngIf="post.isLiked" class="likeBtn" src="../../../assets/imgs/likebuttonClicked.png" (click)="likeBtnHandler(post._id, post)" alt="like_icon">
+                            <img *ngIf="!post.isLiked" class="likeBtn" src="../../../assets/imgs/likeButton.png" (click)="likeBtnHandler(post._id, post)" alt="like_icon">
                         </div>
                     </div>
                 </div>

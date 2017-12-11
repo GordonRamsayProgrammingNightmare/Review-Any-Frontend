@@ -7,8 +7,9 @@ hr {
   width: 80%;
 } */
 .profileImg{
-  position: absolute; 
-  top:0; 
+  object-fit: cover;
+  position: absolute;
+  top:0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -30,14 +31,14 @@ hr {
 .p_img{
   /* width:17em;
   margin:0.5em; */
-  position: absolute; 
-  top:0; 
+  position: absolute;
+  top:0;
   left: 5%;
   width: 100%;
   height: 100%;
   max-width: 280px;
   max-height: 280px;
-  
+
 }
 
 .edit_layout {

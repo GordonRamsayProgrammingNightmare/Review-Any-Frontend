@@ -79,7 +79,7 @@
     padding-left: 0px;
 }
 
-h3.carousel-caption,
+div.carousel-caption,
 h3.postTitle {
     font-family: 'NanumSquare', sans-serif;
     font-weight: 700;
@@ -101,4 +101,9 @@ p {
 .commentid {
     font-weight: bold;
     color: #000000;
+}
+
+.likeBtn {
+  height: 2.5em;
+  width: 2.5em;
 }
