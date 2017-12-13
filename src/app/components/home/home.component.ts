@@ -62,7 +62,6 @@ export class HomeComponent implements OnInit {
   }
 
   onRedirect() {
-    console.log('redirect');
     this.updateData();
   }
 
@@ -75,7 +74,7 @@ export class HomeComponent implements OnInit {
         'search/' + data[0].toLowerCase() + '/' + data[1].toLowerCase()
       )
       .then(data => {
-        console.log(data.json());
+        this.spinnerService.hide();
         data.json().post.forEach(element => {
           if (this.chkLiked(element._id)) {
             element.isLiked = true;
@@ -88,7 +87,7 @@ export class HomeComponent implements OnInit {
           );
           element.writtenAt = element.writtenAt.replace('T', ' ');
           p.push(element);
-          this.spinnerService.hide();
+
         });
         this.posts = p;
       })
@@ -102,6 +101,7 @@ export class HomeComponent implements OnInit {
     this.crudData
       .getData(this.token, 'post/all')
       .then(data => {
+        this.spinnerService.hide();
         var p = [];
         data.json().posts.forEach(element => {
           if (this.chkLiked(element._id)) {
@@ -117,7 +117,7 @@ export class HomeComponent implements OnInit {
           p.push(element);
         });
         this.posts = p;
-        this.spinnerService.hide();
+
       })
       .catch(err => {
         console.log('error: \n' + err);
