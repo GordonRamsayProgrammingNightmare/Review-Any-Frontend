@@ -22,8 +22,6 @@ import { CrudDataService } from './services/crud-data.service';
 import { PostService } from 'app/services/post.service';
 
 import { TabComponent } from './components/profile/tab/tab.component';
-import { MaterialModule } from 'app/material/material.module';
-
 
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { SortingComponent } from './components/sorting/sorting.component';
@@ -45,7 +43,6 @@ import { SortingComponent } from './components/sorting/sorting.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterialModule,
     Ng4LoadingSpinnerModule
   ],
   providers: [
