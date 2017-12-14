@@ -71,3 +71,15 @@ src/
 &nbsp;&nbsp;&nbsp;&nbsp;environments/  
 &nbsp;&nbsp;&nbsp;&nbsp;index.html  
 &nbsp;&nbsp;&nbsp;&nbsp;styles.css  
+
+## Open source included in this project
+
+- rxjs : used in promise method
+- ng4-loading-spinner : spinner for loading sections
+- ts-helpers : typescript error checking tool
+- codelyzer
+- karma
+- protractor
+- tslint
+- typescript
+- webpack
